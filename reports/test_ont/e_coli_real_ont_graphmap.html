@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Real ONT<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_real_ont.html">Real ONT</a></li><li><a href="e_coli_sim_ont.html">Sim ONT</a></li></ul></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">GraphMap2<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_real_ont_lra.html">LRA (def)</a></li><li><a href="e_coli_real_ont_ngmlr.html">NGMLR (def)</a></li><li><a href="e_coli_real_ont_minimap2_01.html">Minimap2 (p1)</a></li><li><a href="e_coli_real_ont_lra_01.html">LRA (p1)</a></li><li><a href="e_coli_real_ont_winnowmap_01.html">Winnowmap2 (p1)</a></li><li><a href="e_coli_real_ont_winnowmap.html">Winnowmap2 (def)</a></li><li><a href="e_coli_real_ont_lordfast.html">lordFAST</a></li><li><a href="e_coli_real_ont_minimap2.html">Minimap2 (def)</a></li><li><a href="e_coli_real_ont_graphmap.html">GraphMap2</a></li><li><a href="e_coli_real_ont_ngmlr_01.html">NGMLR (p1)</a></li></ul></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Mapping Quality Thresholds</a></li><li><a href="#section2">Basic Statistics</a></li><li><a href="#section3">Read Failure Statistics</a></li><li><a href="#section4">Advanced Statistics</a></li><li><a href="#section5">Timing</a></li><li><a href="#section6">Additional Information</a></li><li><a href="#section7">Errors and Warnings</a></li><li><a href="#section8">Subprocess Log</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Mapping Quality Thresholds</div><div class="panel-body"><p>The plot below shows the percentages of mapped reads for all mapping quality thresholds for this mapper. The values at threshold 0 therefore correspond to the unfiltered results.</p><div id="plot_mapq_tresh"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_thresh');">Plot (.svg)</a></li>
+    <li><a href="e_coli_real_ont_graphmap_mapqs.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Basic Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapped</th><td class="col-md-2">3091</td><td class="col-md-2">93.159%</td></tr><tr><th>Not Mapped</th><td>227</td><td>6.841%</td></tr><tr><th>Total</th><td>3318</td><td>100.0%</td></tbody></table></div></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Read Failure Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Not mapped</th><td class="col-md-2">227</td><td class="col-md-2">6.841%</td></tr><tr><th>Missing in mapper output</th><td>0</td><td>0.0%</td></tr></tbody></table></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Advanced Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Secondary Alignments</th><td class="col-md-4">0</td></tr></tbody></table></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Timing</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Raw Mapping Time</th><td class="col-md-4">19.163s</td></tr><tr><th>Effective Mapping Time</th><td>18.760s</td></tr><tr><th>Effective Init Time</th><td>0.403s</td></tr><tr><th>Effective Time Measure</th><td>Wall clock</td></tr><tr><th>Mapping Time (Wall)</th><td>19.163s</td></tr><tr><th>Mapping Time (CPU)</th><td>146.382s</td></tr><tr><th>Mapping Time (CPU User)</th><td>124.120s</td></tr><tr><th>Mapping Time (CPU System)</th><td>22.262s</td></tr><tr><th>Init Time (Wall)</th><td>0.403s</td></tr><tr><th>Init Time (CPU)</th><td>0.419s</td></tr><tr><th>Init Time (CPU User)</th><td>0.222s</td></tr><tr><th>Init Time (CPU System)</th><td>0.197s</td></tr></tbody></table></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">Additional Information</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapper Memory Usage</th><td class="col-md-4">442 MB</td></tr><tr><th>Total Test Runtime (Wall)</th><td>22.679s</td></tr><tr><th>Mapper Command Line:</th><td>&nbsp;</td></tr><tr><td colspan=2>/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads.fastq -o out_graphmap.sam</td></tr></tbody></table></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Errors and Warnings</div><div class="panel-body"><i>No problems were encountered.</i></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Subprocess Log</div><div class="panel-body"><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -I /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -I /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse49" class="collapsed">stderr</a></h4></div><div id="collapse49" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse50" class="collapsed">stdout</a></h4></div><div id="collapse50" class="panel-collapse collapse"><div class="panel-body"><pre>ERROR: Unknown parameter value: '/home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta'. Exiting.<br>
+<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.0046021938324</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>379180000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse51" class="collapsed">stderr</a></h4></div><div id="collapse51" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse52" class="collapsed">stdout</a></h4></div><div id="collapse52" class="panel-collapse collapse"><div class="panel-body"><pre>[13:08:58 BuildIndexes] Loading reference sequences.<br>
+[13:08:58 SetupIndex_] Loading index from file: '/home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx'.<br>
+[13:08:59 Index] Memory consumption: [currentRSS = 269 MB, peakRSS = 370 MB]<br>
+[13:08:59 Run] Hits will be thresholded at the percentil value (percentil: 99.000000%, frequency: 6).<br>
+[13:08:59 Run] Minimizers will be used. Minimizer window length: 5<br>
+[13:08:59 Run] Automatically setting the maximum allowed number of regions: max. 500, attempt to reduce after 0<br>
+[13:08:59 Run] Reference genome is assumed to be linear.<br>
+[13:08:59 Run] Only one alignment will be reported per mapped read.<br>
+[13:08:59 ProcessReads] Reads will be loaded in batches of up to 1024 MB in size.<br>
+[13:08:59 ProcessReads] Batch of 1 reads (0 MiB) loaded in 0.00 sec. (94608002751680 bases)<br>
+[13:08:59 ProcessReads] Memory consumption: [currentRSS = 269 MB, peakRSS = 370 MB]<br>
+[13:08:59 ProcessReads] Using 8 threads.[13:08:59 ProcessReads] [CPU time: 0.00 sec, RSS: 269 MB] Read: 0/1 (0.00%) [m: 0, u: 0], length = 60, qname: read1                                                [13:08:59 ProcessReads] [CPU time: 0.00 sec, RSS: 270 MB] Read: 1/1 (100.00%) [m: 0, u: 1]                                                                         <br>
+<br>
+[13:08:59 ProcessReads] Memory consumption: [currentRSS = 270 MB, peakRSS = 370 MB]<br>
+<br>
+[13:08:59 ProcessReads] All reads processed in 0.00 sec (or 0.00 CPU min).<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.203233</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.405275821686</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.205754</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>378844000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse53" class="collapsed">stderr</a></h4></div><div id="collapse53" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse54" class="collapsed">stdout</a></h4></div><div id="collapse54" class="panel-collapse collapse"><div class="panel-body"><pre>[13:08:59 BuildIndexes] Loading reference sequences.<br>
+[13:08:59 SetupIndex_] Loading index from file: '/home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx'.<br>
+[13:09:00 Index] Memory consumption: [currentRSS = 269 MB, peakRSS = 369 MB]<br>
+[13:09:00 Run] Hits will be thresholded at the percentil value (percentil: 99.000000%, frequency: 6).<br>
+[13:09:00 Run] Minimizers will be used. Minimizer window length: 5<br>
+[13:09:00 Run] Automatically setting the maximum allowed number of regions: max. 500, attempt to reduce after 0<br>
+[13:09:00 Run] Reference genome is assumed to be linear.<br>
+[13:09:00 Run] Only one alignment will be reported per mapped read.<br>
+[13:09:00 ProcessReads] Reads will be loaded in batches of up to 1024 MB in size.<br>
+[13:09:00 ProcessReads] Batch of 1 reads (0 MiB) loaded in 0.00 sec. (94131817344192 bases)<br>
+[13:09:00 ProcessReads] Memory consumption: [currentRSS = 269 MB, peakRSS = 369 MB]<br>
+[13:09:00 ProcessReads] Using 8 threads.[13:09:00 ProcessReads] [CPU time: 0.00 sec, RSS: 269 MB] Read: 0/1 (0.00%) [m: 0, u: 0], length = 60, qname: read1                                                [13:09:00 ProcessReads] [CPU time: 0.00 sec, RSS: 269 MB] Read: 1/1 (100.00%) [m: 0, u: 1]                                                                         <br>
+<br>
+[13:09:00 ProcessReads] Memory consumption: [currentRSS = 269 MB, peakRSS = 369 MB]<br>
+<br>
+[13:09:00 ProcessReads] All reads processed in 0.00 sec (or 0.00 CPU min).<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.196945</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.40319609642</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.221823</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads.fastq -o out_graphmap.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads.fastq -o out_graphmap.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>442580000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse55" class="collapsed">stderr</a></h4></div><div id="collapse55" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse56" class="collapsed">stdout</a></h4></div><div id="collapse56" class="panel-collapse collapse"><div class="panel-body"><pre>[13:09:00 BuildIndexes] Loading reference sequences.<br>
+[13:09:00 SetupIndex_] Loading index from file: '/home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx'.<br>
+[13:09:01 Index] Memory consumption: [currentRSS = 269 MB, peakRSS = 370 MB]<br>
+[13:09:01 Run] Hits will be thresholded at the percentil value (percentil: 99.000000%, frequency: 6).<br>
+[13:09:01 Run] Minimizers will be used. Minimizer window length: 5<br>
+[13:09:01 Run] Automatically setting the maximum allowed number of regions: max. 500, attempt to reduce after 0<br>
+[13:09:01 Run] Reference genome is assumed to be linear.<br>
+[13:09:01 Run] Only one alignment will be reported per mapped read.<br>
+[13:09:01 ProcessReads] Reads will be loaded in batches of up to 1024 MB in size.<br>
+[13:09:01 ProcessReads] Batch of 3318 reads (39 MiB) loaded in 0.15 sec. (140727415804848 bases)<br>
+[13:09:01 ProcessReads] Memory consumption: [currentRSS = 298 MB, peakRSS = 370 MB]<br>
+[13:09:01 ProcessReads] Using 8 threads.[13:09:01 ProcessReads] [CPU time: 0.15 sec, RSS: 298 MB] Read: 0/3318 (0.00%) [m: 0, u: 0], length = 1105, qname: U1JSMTAzMzIzNDkuMS4xIDEgbGVuZ3RoPTExMDU=        [13:09:01 ProcessReads] [CPU time: 0.19 sec, RSS: 300 MB] Read: 9/3318 (0.27%) [m: 2, u: 0], length = 3401, qname: U1JSMTAzMzIzNDkuMTAuMSAxMCBsZW5ndGg9MzQwMQ==    [13:09:01 ProcessReads] [CPU time: 0.28 sec, RSS: 305 MB] Read: 16/3318 (0.48%) [m: 8, u: 1], length = 2136, qname: U1JSMTAzMzIzNDkuMTcuMSAxNyBsZW5ndGg9MjEzNg==   [13:09:01 ProcessReads] [CPU time: 0.44 sec, RSS: 306 MB] Read: 29/3318 (0.87%) [m: 19, u: 3], length = 3009, qname: U1JSMTAzMzIzNDkuMzAuMSAzMCBsZW5ndGg9MzAwOQ==  [13:09:01 ProcessReads] [CPU time: 0.54 sec, RSS: 309 MB] Read: 32/3318 (0.96%) [m: 22, u: 3], length = 3739, qname: U1JSMTAzMzIzNDkuMzMuMSAzMyBsZW5ndGg9MzczOQ==  [13:09:01 ProcessReads] [CPU time: 0.66 sec, RSS: 310 MB] Read: 43/3318 (1.30%) [m: 33, u: 3], length = 4828, qname: U1JSMTAzMzIzNDkuNDQuMSA0NCBsZW5ndGg9NDgyOA==  [13:09:01 ProcessReads] [CPU time: 0.81 sec, RSS: 312 MB] Read: 45/3318 (1.36%) [m: 35, u: 3], length = 15783, qname: U1JSMTAzMzIzNDkuNDYuMSA0NiBsZW5ndGg9MTU3ODM= [13:09:01 ProcessReads] [CPU time: 1.57 sec, RSS: 329 MB] Read: 62/3318 (1.87%) [m: 52, u: 3], length = 1553, qname: U1JSMTAzMzIzNDkuNjMuMSA2MyBsZW5ndGg9MTU1Mw==  [13:09:01 ProcessReads] [CPU time: 1.62 sec, RSS: 329 MB] Read: 65/3318 (1.96%) [m: 54, u: 4], length = 2524, qname: U1JSMTAzMzIzNDkuNjYuMSA2NiBsZW5ndGg9MjUyNA==  [13:09:01 ProcessReads] [CPU time: 1.70 sec, RSS: 329 MB] Read: 74/3318 (2.23%) [m: 63, u: 4], length = 1278, qname: U1JSMTAzMzIzNDkuNzUuMSA3NSBsZW5ndGg9MTI3OA==  [13:09:01 ProcessReads] [CPU time: 1.74 sec, RSS: 330 MB] Read: 75/3318 (2.26%) [m: 64, u: 4], length = 2612, qname: U1JSMTAzMzIzNDkuNzYuMSA3NiBsZW5ndGg9MjYxMg==  [13:09:01 ProcessReads] [CPU time: 1.82 sec, RSS: 330 MB] Read: 76/3318 (2.29%) [m: 65, u: 4], length = 7402, qname: U1JSMTAzMzIzNDkuNzcuMSA3NyBsZW5ndGg9NzQwMg==  [13:09:01 ProcessReads] [CPU time: 2.30 sec, RSS: 333 MB] Read: 90/3318 (2.71%) [m: 79, u: 4], length = 9699, qname: U1JSMTAzMzIzNDkuOTEuMSA5MSBsZW5ndGg9OTY5OQ==  [13:09:01 ProcessReads] [CPU time: 2.77 sec, RSS: 336 MB] Read: 104/3318 (3.13%) [m: 91, u: 6], length = 1587, qname: U1JSMTAzMzIzNDkuMTA1LjEgMTA1IGxlbmd0aD0xNTg3 [13:09:01 ProcessReads] [CPU time: 2.81 sec, RSS: 336 MB] Read: 106/3318 (3.19%) [m: 93, u: 6], length = 2205, qname: U1JSMTAzMzIzNDkuMTA3LjEgMTA3IGxlbmd0aD0yMjA1 [13:09:01 ProcessReads] [CPU time: 2.87 sec, RSS: 337 MB] Read: 110/3318 (3.32%) [m: 97, u: 6], length = 923, qname: U1JSMTAzMzIzNDkuMTExLjEgMTExIGxlbmd0aD05MjM=  [13:09:01 ProcessReads] [CPU time: 2.90 sec, RSS: 337 MB] Read: 111/3318 (3.35%) [m: 98, u: 6], length = 4017, qname: U1JSMTAzMzIzNDkuMTEyLjEgMTEyIGxlbmd0aD00MDE3 [13:09:01 ProcessReads] [CPU time: 3.02 sec, RSS: 337 MB] Read: 116/3318 (3.50%) [m: 102, u: 7], length = 8731, qname: U1JSMTAzMzIzNDkuMTE3LjEgMTE3IGxlbmd0aD04NzMx[13:09:01 ProcessReads] [CPU time: 3.31 sec, RSS: 339 MB] Read: 123/3318 (3.71%) [m: 108, u: 8], length = 1624, qname: U1JSMTAzMzIzNDkuMTI0LjEgMTI0IGxlbmd0aD0xNjI0[13:09:01 ProcessReads] [CPU time: 3.35 sec, RSS: 339 MB] Read: 124/3318 (3.74%) [m: 109, u: 8], length = 1286, qname: U1JSMTAzMzIzNDkuMTI1LjEgMTI1IGxlbmd0aD0xMjg2[13:09:01 ProcessReads] [CPU time: 3.38 sec, RSS: 344 MB] Read: 125/3318 (3.77%) [m: 110, u: 8], length = 3155, qname: U1JSMTAzMzIzNDkuMTI2LjEgMTI2IGxlbmd0aD0zMTU1[13:09:01 ProcessReads] [CPU time: 3.51 sec, RSS: 344 MB] Read: 129/3318 (3.89%) [m: 114, u: 8], length = 4128, qname: U1JSMTAzMzIzNDkuMTMwLjEgMTMwIGxlbmd0aD00MTI4[13:09:01 ProcessReads] [CPU time: 3.63 sec, RSS: 344 MB] Read: 133/3318 (4.01%) [m: 118, u: 8], length = 3945, qname: U1JSMTAzMzIzNDkuMTM0LjEgMTM0IGxlbmd0aD0zOTQ1[13:09:01 ProcessReads] [CPU time: 3.79 sec, RSS: 344 MB] Read: 137/3318 (4.13%) [m: 122, u: 8], length = 7116, qname: U1JSMTAzMzIzNDkuMTM4LjEgMTM4IGxlbmd0aD03MTE2[13:09:01 ProcessReads] [CPU time: 4.01 sec, RSS: 344 MB] Read: 141/3318 (4.25%) [m: 126, u: 8], length = 4382, qname: U1JSMTAzMzIzNDkuMTQyLjEgMTQyIGxlbmd0aD00Mzgy[13:09:01 ProcessReads] [CPU time: 4.14 sec, RSS: 344 MB] Read: 148/3318 (4.46%) [m: 133, u: 8], length = 2442, qname: U1JSMTAzMzIzNDkuMTQ5LjEgMTQ5IGxlbmd0aD0yNDQy[13:09:01 ProcessReads] [CPU time: 4.21 sec, RSS: 344 MB] Read: 151/3318 (4.55%) [m: 136, u: 8], length = 18397, qname: U1JSMTAzMzIzNDkuMTUyLjEgMTUyIGxlbmd0aD0x...[13:09:02 ProcessReads] [CPU time: 5.28 sec, RSS: 353 MB] Read: 173/3318 (5.21%) [m: 158, u: 8], length = 18136, qname: U1JSMTAzMzIzNDkuMTc0LjEgMTc0IGxlbmd0aD0x...[13:09:02 ProcessReads] [CPU time: 6.30 sec, RSS: 360 MB] Read: 194/3318 (5.85%) [m: 174, u: 13], length = 1288, qname: U1JSMTAzMzIzNDkuMTk1LjEgMTk1IGxlbmd0aD0x...[13:09:02 ProcessReads] [CPU time: 6.34 sec, RSS: 360 MB] Read: 196/3318 (5.91%) [m: 176, u: 13], length = 2998, qname: U1JSMTAzMzIzNDkuMTk3LjEgMTk3IGxlbmd0aD0y...[13:09:02 ProcessReads] [CPU time: 6.43 sec, RSS: 360 MB] Read: 200/3318 (6.03%) [m: 180, u: 13], length = 18159, qname: U1JSMTAzMzIzNDkuMjAxLjEgMjAxIGxlbmd0aD0...[13:09:02 ProcessReads] [CPU time: 7.54 sec, RSS: 363 MB] Read: 227/3318 (6.84%) [m: 204, u: 16], length = 27973, qname: U1JSMTAzMzIzNDkuMjI4LjEgMjI4IGxlbmd0aD0...[13:09:03 ProcessReads] [CPU time: 15.76 sec, RSS: 377 MB] Read: 424/3318 (12.78%) [m: 386, u: 31], length = 1496, qname: U1JSMTAzMzIzNDkuNDI1LjEgNDI1IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 15.80 sec, RSS: 377 MB] Read: 425/3318 (12.81%) [m: 387, u: 31], length = 3032, qname: U1JSMTAzMzIzNDkuNDI2LjEgNDI2IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 15.89 sec, RSS: 377 MB] Read: 426/3318 (12.84%) [m: 388, u: 31], length = 10411, qname: U1JSMTAzMzIzNDkuNDI3LjEgNDI3IGxlbmd0a...[13:09:03 ProcessReads] [CPU time: 16.37 sec, RSS: 377 MB] Read: 434/3318 (13.08%) [m: 396, u: 31], length = 3037, qname: U1JSMTAzMzIzNDkuNDM1LjEgNDM1IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 16.47 sec, RSS: 377 MB] Read: 438/3318 (13.20%) [m: 400, u: 31], length = 3377, qname: U1JSMTAzMzIzNDkuNDM5LjEgNDM5IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 16.57 sec, RSS: 377 MB] Read: 443/3318 (13.35%) [m: 405, u: 31], length = 24062, qname: U1JSMTAzMzIzNDkuNDQ0LjEgNDQ0IGxlbmd0a...[13:09:03 ProcessReads] [CPU time: 18.19 sec, RSS: 379 MB] Read: 495/3318 (14.92%) [m: 448, u: 40], length = 15583, qname: U1JSMTAzMzIzNDkuNDk2LjEgNDk2IGxlbmd0a...[13:09:03 ProcessReads] [CPU time: 18.93 sec, RSS: 381 MB] Read: 513/3318 (15.46%) [m: 463, u: 43], length = 10687, qname: U1JSMTAzMzIzNDkuNTE0LjEgNTE0IGxlbmd0a...[13:09:03 ProcessReads] [CPU time: 19.37 sec, RSS: 382 MB] Read: 522/3318 (15.73%) [m: 472, u: 43], length = 994, qname: U1JSMTAzMzIzNDkuNTIzLjEgNTIzIGxlbmd0aD0...[13:09:03 ProcessReads] [CPU time: 19.40 sec, RSS: 382 MB] Read: 524/3318 (15.79%) [m: 474, u: 43], length = 1313, qname: U1JSMTAzMzIzNDkuNTI1LjEgNTI1IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 19.44 sec, RSS: 382 MB] Read: 528/3318 (15.91%) [m: 478, u: 43], length = 1475, qname: U1JSMTAzMzIzNDkuNTI5LjEgNTI5IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 19.49 sec, RSS: 382 MB] Read: 531/3318 (16.00%) [m: 481, u: 43], length = 4624, qname: U1JSMTAzMzIzNDkuNTMyLjEgNTMyIGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 19.65 sec, RSS: 382 MB] Read: 537/3318 (16.18%) [m: 487, u: 43], length = 2037, qname: U1JSMTAzMzIzNDkuNTM4LjEgNTM4IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 19.72 sec, RSS: 382 MB] Read: 540/3318 (16.27%) [m: 490, u: 43], length = 2218, qname: U1JSMTAzMzIzNDkuNTQxLjEgNTQxIGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 19.80 sec, RSS: 382 MB] Read: 546/3318 (16.46%) [m: 496, u: 43], length = 10886, qname: U1JSMTAzMzIzNDkuNTQ3LjEgNTQ3IGxlbmd0a...[13:09:03 ProcessReads] [CPU time: 20.57 sec, RSS: 382 MB] Read: 560/3318 (16.88%) [m: 509, u: 44], length = 4093, qname: U1JSMTAzMzIzNDkuNTYxLjEgNTYxIGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 20.80 sec, RSS: 382 MB] Read: 567/3318 (17.09%) [m: 516, u: 44], length = 2452, qname: U1JSMTAzMzIzNDkuNTY4LjEgNTY4IGxlbmd0aD...[13:09:03 ProcessReads] [CPU time: 20.87 sec, RSS: 382 MB] Read: 570/3318 (17.18%) [m: 519, u: 44], length = 14098, qname: U1JSMTAzMzIzNDkuNTcxLjEgNTcxIGxlbmd0a...[13:09:04 ProcessReads] [CPU time: 21.47 sec, RSS: 382 MB] Read: 579/3318 (17.45%) [m: 528, u: 44], length = 11242, qname: U1JSMTAzMzIzNDkuNTgwLjEgNTgwIGxlbmd0a...[13:09:04 ProcessReads] [CPU time: 21.97 sec, RSS: 382 MB] Read: 596/3318 (17.96%) [m: 544, u: 45], length = 9993, qname: U1JSMTAzMzIzNDkuNTk3LjEgNTk3IGxlbmd0aD...[13:09:04 ProcessReads] [CPU time: 22.44 sec, RSS: 382 MB] Read: 614/3318 (18.51%) [m: 561, u: 46], length = 21364, qname: U1JSMTAzMzIzNDkuNjE1LjEgNjE1IGxlbmd0a...[13:09:04 ProcessReads] [CPU time: 24.81 sec, RSS: 384 MB] Read: 662/3318 (19.95%) [m: 602, u: 53], length = 1862, qname: U1JSMTAzMzIzNDkuNjYzLjEgNjYzIGxlbmd0aD...[13:09:04 ProcessReads] [CPU time: 24.87 sec, RSS: 384 MB] Read: 664/3318 (20.01%) [m: 604, u: 53], length = 1615, qname: U1JSMTAzMzIzNDkuNjY1LjEgNjY1IGxlbmd0aD...[13:09:04 ProcessReads] </pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>22.262436</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>19.1627268791</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>124.119837</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+
+var cols=[["Mapped", 0.931585292344786, 0.931585292344786, 0.931585292344786, 0.9312839059674503, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]];
+var a=0;
+var b=0;
+var last_a=0;
+var last_b=0;
+
+function updateRange()
+{
+	if(last_a==a && last_b==b)
+	{
+		setTimeout(updateRange,500);
+		return;
+	}
+ 
+        an=Math.floor(parseInt(a));
+        bn=Math.floor(parseInt(b));
+	var mn = 0;
+	var mx = 0;
+	for(i=an;i<bn;i++)
+	{
+		mx=Math.max(mx,cols[0][i+1]);
+		mn=Math.min(mn,cols[1][i+1]);
+	}
+	r={}
+	r.max=mx;
+	r.min=mn;
+	chart.axis.range(r);
+	last_a=a;
+	last_b=b;
+	setTimeout(updateRange,500);
+}
+setTimeout(updateRange,500);
+
+var chart = c3.generate({
+bindto: '#plot_mapq_tresh',
+data: {
+  columns: [["Mapped", 0.931585292344786, 0.931585292344786, 0.931585292344786, 0.9312839059674503, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.9276672694394213, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]],
+  type: "area"
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: "Mapping Quality Threshold"
+  },
+
+  y: {
+    label: { text: "Read Count", position: "outer-middle" },
+    tick: {
+       format: function(v) { if(v>=0){return Math.min(100,(Math.round(100000*v)/1000))+"%";}else{ return Math.min(100,(Math.round(100000*(-v/3091.000000))/1000))+"%";} }
+    }
+  }
+},
+legend: {
+	position: "right"
+},
+subchart: {
+	show: true,
+	onbrush: function (d) {
+		a = d[0];
+		b = d[1];
+	}
+}
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>

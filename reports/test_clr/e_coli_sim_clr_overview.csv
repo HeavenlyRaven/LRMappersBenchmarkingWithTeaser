@@ -1,0 +1,11 @@
+mapper,additional_parameters,correctly_mapped_percent,wrongly_mapped_percent,not_mapped_percent,throughput_reads_per_sec
+LRA (def),,81.2992,17.1665,1.5343,269
+NGMLR (def),,96.7321,2.5506,0.7173,63
+Minimap2 (p1), -x map-pb,97.4494,0.8668,1.6838,798
+LRA (p1), -CLR,85.1250,12.4838,2.3912,165
+Winnowmap2 (p1), -x map-pb-clr,89.4191,0.9963,9.5845,579
+Winnowmap2 (def),,89.4191,0.9963,9.5845,618
+lordFAST,,95.5963,0.9365,3.4672,1246
+Minimap2 (def),,97.4494,0.8668,1.6838,817
+GraphMap2,,99.9004,0.0498,0.0498,100
+NGMLR (p1), -x pacbio,96.7321,2.5506,0.7173,74

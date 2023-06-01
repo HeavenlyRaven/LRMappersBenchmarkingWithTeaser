@@ -1,0 +1,386 @@
+[13:08:14] [Main        ] framework cmd:  ./teaser.py test_ont.yaml
+[13:08:14] [Main        ] framework hash: vevev
+[13:08:14] [Main        ] deployment mode: production (False)
+[13:08:14] [Main        ] Test Runner Setup - ""
+
+[13:08:14] [Main        ] Using Teaser for data set creation
+[13:08:14] [Teaser      ] Init. Creating 2 test datasets.
+[13:08:14] [Teaser      ] 
+[13:08:14] [Teaser      ] Creating test e_coli_real_ont
+[13:08:14] [Teaser      ] change directory /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont
+[13:08:14] [Teaser      ] Subsampling disabled; Importing all reads
+[13:08:14] [Teaser      ] copy import/realont/reads.fastq -> /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:08:14] [Teaser      ] Data set import successful
+[13:08:14] [Teaser      ] change directory /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont
+[13:08:14] [Teaser      ] Generate dummy alignments
+[13:08:15] [Teaser      ] move enc_reads.fastq -> reads.fastq
+[13:08:15] [Teaser      ] move enc_mapping_comparison.sam -> mapping_comparison.sam
+[13:08:15] [Teaser      ] change directory /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont
+[13:08:15] [Teaser      ] Took 0 seconds for generating e_coli_real_ont
+[13:08:15] [Teaser      ] 
+[13:08:15] [Teaser      ] Creating test e_coli_sim_ont
+[13:08:15] [Teaser      ] change directory /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont
+[13:08:15] [Teaser      ] copy import/simont/gs.sam -> /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/mapping_comparison.sam
+[13:08:15] [Teaser      ] copy import/simont/reads.fastq -> /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:08:15] [Teaser      ] Data set import successful
+[13:08:15] [Teaser      ] change directory /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont
+[13:08:15] [Teaser      ] Took 0 seconds for generating e_coli_sim_ont
+[13:08:15] [Main        ] Data set creation completed
+[13:08:15] [Main        ] 
+[13:08:15] [minimap2    ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:08:15] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:15] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:08:15] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_minimap2.sam
+[13:08:15] [map         ] Command(pre): 
+[13:08:15] [map         ] Base run time file not existing, performing base run
+[13:08:15] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2.sam
+[13:08:17] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2.sam
+[13:08:17] [map         ]    Mapping 41.00MB to 4.00MB with minimap2...
+[13:08:20] [map         ]    Took 2.574 (wall), 15.682 (CPU) seconds, initialization time: 0.106 (wall), 0.110 (CPU) seconds.
+[13:08:20] [map         ] Command(post): 
+[13:08:20] [sort_prepare] Sorting...
+[13:08:21] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:08:21] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+3018,0,300,0,0,3318,0,271,1.0,0.909584086799,0.952651515152
+
+[13:08:21] [minimap2    ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:08:21] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:21] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:08:21] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_minimap2.sam
+[13:08:21] [map         ] Command(pre): 
+[13:08:21] [map         ] Base run time file not existing, performing base run
+[13:08:21] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2.sam
+[13:08:23] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2.sam
+[13:08:23] [map         ]    Mapping 185.00MB to 4.00MB with minimap2...
+[13:08:32] [map         ]    Took 8.947 (wall), 62.521 (CPU) seconds, initialization time: 0.105 (wall), 0.109 (CPU) seconds.
+[13:08:32] [map         ] Command(post): 
+[13:08:32] [sort_prepare] Sorting...
+[13:08:33] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:08:35] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10390,88,97,7,7,10582,0,90,0.991601450659,0.990750452942,0.991175769139
+
+[13:08:35] [winnowmap   ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:08:35] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:35] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:08:35] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_winnowmap.sam
+[13:08:35] [map         ] Command(pre): 
+[13:08:35] [map         ] Base run time file not existing, performing base run
+[13:08:35] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq > out_winnowmap.sam
+[13:08:37] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq > out_winnowmap.sam
+[13:08:37] [map         ]    Mapping 41.00MB to 4.00MB with winnowmap...
+[13:08:40] [map         ]    Took 1.996 (wall), 13.086 (CPU) seconds, initialization time: 0.228 (wall), 0.287 (CPU) seconds.
+[13:08:40] [map         ] Command(post): 
+[13:08:40] [sort_prepare] Sorting...
+[13:08:40] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:08:41] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+2927,0,391,0,0,3318,0,260,1.0,0.882157926462,0.93738991193
+
+[13:08:41] [winnowmap   ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:08:41] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:41] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:08:41] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_winnowmap.sam
+[13:08:41] [map         ] Command(pre): 
+[13:08:41] [map         ] Base run time file not existing, performing base run
+[13:08:41] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq > out_winnowmap.sam
+[13:08:43] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq > out_winnowmap.sam
+[13:08:43] [map         ]    Mapping 185.00MB to 4.00MB with winnowmap...
+[13:08:56] [map         ]    Took 12.528 (wall), 88.219 (CPU) seconds, initialization time: 0.236 (wall), 0.291 (CPU) seconds.
+[13:08:56] [map         ] Command(post): 
+[13:08:56] [sort_prepare] Sorting...
+[13:08:57] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:08:58] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+9955,60,500,67,67,10582,0,106,0.99400898652,0.952175992348,0.972642892037
+
+[13:08:58] [graphmap    ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:08:58] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:58] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:08:58] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_graphmap.sam
+[13:08:58] [map         ] Command(pre): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -I /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:08:58] [map         ] Base run time file not existing, performing base run
+[13:08:58] [map         ] Command(pre-b): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam
+[13:09:00] [map         ] Command(main): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads.fastq -o out_graphmap.sam
+[13:09:00] [map         ]    Mapping 41.00MB to 4.00MB with graphmap...
+[13:09:20] [map         ]    Took 19.163 (wall), 146.382 (CPU) seconds, initialization time: 0.403 (wall), 0.419 (CPU) seconds.
+[13:09:20] [map         ] Command(post): 
+[13:09:20] [sort_prepare] Sorting...
+[13:09:21] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:09:21] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+3091,0,227,0,0,3318,0,0,1.0,0.931585292345,0.964581057887
+
+[13:09:21] [graphmap    ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:09:21] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:09:21] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:09:21] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_graphmap.sam
+[13:09:21] [map         ] Command(pre): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -I /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:09:21] [map         ] Base run time file not existing, performing base run
+[13:09:21] [map         ] Command(pre-b): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads_base.fastq -o out_graphmap.sam
+[13:09:23] [map         ] Command(main): /home/raven/Desktop/Diploma/Teaser/software/graphmap2/bin/Linux-x64/graphmap2 align -a sg -t 8 -i /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.gmidx -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -d reads.fastq -o out_graphmap.sam
+[13:09:23] [map         ]    Mapping 185.00MB to 4.00MB with graphmap...
+[13:10:53] [map         ]    Took 89.509 (wall), 693.667 (CPU) seconds, initialization time: 0.337 (wall), 0.355 (CPU) seconds.
+[13:10:53] [map         ] Command(post): 
+[13:10:53] [sort_prepare] Sorting...
+[13:10:54] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:10:56] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10567,5,10,0,0,10582,0,0,0.999527052592,0.999054552331,0.999290746607
+
+[13:10:56] [ngmlr       ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:10:56] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:10:56] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:10:56] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_ngmlr.sam
+[13:10:56] [map         ] Command(pre): 
+[13:10:56] [map         ] Base run time file not existing, performing base run
+[13:10:56] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam
+[13:11:02] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr.sam
+[13:11:02] [map         ]    Mapping 41.00MB to 4.00MB with ngmlr...
+[13:11:31] [map         ]    Took 28.354 (wall), 214.360 (CPU) seconds, initialization time: 2.270 (wall), 3.508 (CPU) seconds.
+[13:11:31] [map         ] Command(post): 
+[13:11:31] [sort_prepare] Sorting...
+[13:11:31] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:11:31] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+2878,0,436,4,1,3318,0,150,1.0,0.868436934218,0.929586563307
+
+[13:11:31] [ngmlr       ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:11:31] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:11:31] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:11:31] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_ngmlr.sam
+[13:11:31] [map         ] Command(pre): 
+[13:11:31] [map         ] Base run time file not existing, performing base run
+[13:11:31] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam
+[13:11:37] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr.sam
+[13:11:37] [map         ]    Mapping 185.00MB to 4.00MB with ngmlr...
+[13:13:29] [map         ]    Took 110.317 (wall), 859.294 (CPU) seconds, initialization time: 2.260 (wall), 2.881 (CPU) seconds.
+[13:13:29] [map         ] Command(post): 
+[13:13:29] [sort_prepare] Sorting...
+[13:13:29] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:13:31] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10180,351,47,4,4,10582,0,82,0.966669831925,0.995404321893,0.980826669236
+
+[13:13:31] [lra         ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:13:31] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:13:31] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:13:31] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_lra.sam
+[13:13:31] [map         ] Command(pre): 
+[13:13:31] [map         ] Base run time file not existing, performing base run
+[13:13:31] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam
+[13:13:33] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra.sam
+[13:13:33] [map         ]    Mapping 41.00MB to 4.00MB with lra...
+[13:13:38] [map         ]    Took 4.601 (wall), 31.702 (CPU) seconds, initialization time: 0.041 (wall), 0.043 (CPU) seconds.
+[13:13:38] [map         ] Command(post): 
+[13:13:38] [sort_prepare] Sorting...
+[13:13:38] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:13:39] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+3018,0,300,0,0,3318,0,173,1.0,0.909584086799,0.952651515152
+
+[13:13:39] [lra         ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:13:39] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:13:39] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:13:39] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_lra.sam
+[13:13:39] [map         ] Command(pre): 
+[13:13:39] [map         ] Base run time file not existing, performing base run
+[13:13:39] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam
+[13:13:41] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra.sam
+[13:13:41] [map         ]    Mapping 185.00MB to 4.00MB with lra...
+[13:14:12] [map         ]    Took 30.268 (wall), 233.520 (CPU) seconds, initialization time: 0.061 (wall), 0.065 (CPU) seconds.
+[13:14:12] [map         ] Command(post): 
+[13:14:12] [sort_prepare] Sorting...
+[13:14:13] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:14:14] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+8962,1503,97,20,20,10582,0,423,0.856378404204,0.989292416381,0.918049580004
+
+[13:14:14] [lordfast    ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:14:14] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:14:14] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:14:14] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_lordfast.sam
+[13:14:14] [map         ] Command(pre): 
+[13:14:14] [map         ] Base run time file not existing, performing base run
+[13:14:14] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lordfast -t 8 -S /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -s reads_base.fastq -o out_lordfast.sam
+[13:14:16] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lordfast -t 8 -S /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -s reads.fastq -o out_lordfast.sam
+[13:14:16] [map         ]    Mapping 41.00MB to 4.00MB with lordfast...
+[13:14:27] [map         ]    Took 9.468 (wall), 74.061 (CPU) seconds, initialization time: 0.130 (wall), 0.134 (CPU) seconds.
+[13:14:27] [map         ] Command(post): 
+[13:14:27] [sort_prepare] Sorting...
+[13:14:27] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:14:27] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+2930,0,388,0,0,3318,0,819,1.0,0.883062085594,0.937900128041
+
+[13:14:27] [lordfast    ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:14:27] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:14:27] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:14:27] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_lordfast.sam
+[13:14:27] [map         ] Command(pre): 
+[13:14:27] [map         ] Base run time file not existing, performing base run
+[13:14:27] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lordfast -t 8 -S /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -s reads_base.fastq -o out_lordfast.sam
+[13:14:29] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lordfast -t 8 -S /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -s reads.fastq -o out_lordfast.sam
+[13:14:29] [map         ]    Mapping 185.00MB to 4.00MB with lordfast...
+[13:14:38] [map         ]    Took 8.480 (wall), 64.602 (CPU) seconds, initialization time: 0.145 (wall), 0.148 (CPU) seconds.
+[13:14:38] [map         ] Command(post): 
+[13:14:38] [sort_prepare] Sorting...
+[13:14:39] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:14:41] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10105,51,388,38,38,10582,0,1073,0.994978337928,0.963022967693,0.978739890552
+
+[13:14:41] [minimap2_01 ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:14:41] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:14:41] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:14:41] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_minimap2_01.sam
+[13:14:41] [map         ] Command(pre): 
+[13:14:41] [map         ] Base run time file not existing, performing base run
+[13:14:41] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-ont -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam
+[13:14:43] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-ont -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2_01.sam
+[13:14:43] [map         ]    Mapping 41.00MB to 4.00MB with minimap2_01...
+[13:14:46] [map         ]    Took 2.248 (wall), 15.648 (CPU) seconds, initialization time: 0.075 (wall), 0.078 (CPU) seconds.
+[13:14:46] [map         ] Command(post): 
+[13:14:46] [sort_prepare] Sorting...
+[13:14:46] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:14:47] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+3018,0,300,0,0,3318,0,271,1.0,0.909584086799,0.952651515152
+
+[13:14:47] [minimap2_01 ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:14:47] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:14:47] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:14:47] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_minimap2_01.sam
+[13:14:47] [map         ] Command(pre): 
+[13:14:47] [map         ] Base run time file not existing, performing base run
+[13:14:47] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-ont -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam
+[13:14:49] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-ont -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2_01.sam
+[13:14:49] [map         ]    Mapping 185.00MB to 4.00MB with minimap2_01...
+[13:14:58] [map         ]    Took 8.676 (wall), 62.518 (CPU) seconds, initialization time: 0.076 (wall), 0.080 (CPU) seconds.
+[13:14:58] [map         ] Command(post): 
+[13:14:58] [sort_prepare] Sorting...
+[13:14:59] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:15:00] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10390,88,97,7,7,10582,0,90,0.991601450659,0.990750452942,0.991175769139
+
+[13:15:00] [winnowmap_01] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:15:00] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:15:00] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:15:00] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_winnowmap_01.sam
+[13:15:00] [map         ] Command(pre): 
+[13:15:00] [map         ] Base run time file not existing, performing base run
+[13:15:00] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -x map-ont -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq > out_winnowmap_01.sam
+[13:15:02] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -x map-ont -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq > out_winnowmap_01.sam
+[13:15:02] [map         ]    Mapping 41.00MB to 4.00MB with winnowmap_01...
+[13:15:05] [map         ]    Took 2.024 (wall), 13.295 (CPU) seconds, initialization time: 0.236 (wall), 0.293 (CPU) seconds.
+[13:15:05] [map         ] Command(post): 
+[13:15:05] [sort_prepare] Sorting...
+[13:15:05] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:15:06] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+2927,0,391,0,0,3318,0,260,1.0,0.882157926462,0.93738991193
+
+[13:15:06] [winnowmap_01] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:15:06] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:15:06] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:15:06] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_winnowmap_01.sam
+[13:15:06] [map         ] Command(pre): 
+[13:15:06] [map         ] Base run time file not existing, performing base run
+[13:15:06] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -x map-ont -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq > out_winnowmap_01.sam
+[13:15:08] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/winnowmap  -x map-ont -t 8 -W /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta_k15.txt -ax map-pb-clr /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq > out_winnowmap_01.sam
+[13:15:08] [map         ]    Mapping 185.00MB to 4.00MB with winnowmap_01...
+[13:15:20] [map         ]    Took 11.903 (wall), 87.367 (CPU) seconds, initialization time: 0.230 (wall), 0.294 (CPU) seconds.
+[13:15:20] [map         ] Command(post): 
+[13:15:20] [sort_prepare] Sorting...
+[13:15:21] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:15:22] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+9955,60,500,67,67,10582,0,106,0.99400898652,0.952175992348,0.972642892037
+
+[13:15:22] [ngmlr_01    ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:15:22] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:15:22] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:15:22] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_ngmlr_01.sam
+[13:15:22] [map         ] Command(pre): 
+[13:15:22] [map         ] Base run time file not existing, performing base run
+[13:15:22] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -x ont -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr_01.sam
+[13:15:28] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -x ont -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr_01.sam
+[13:15:28] [map         ]    Mapping 41.00MB to 4.00MB with ngmlr_01...
+[13:15:57] [map         ]    Took 28.285 (wall), 213.834 (CPU) seconds, initialization time: 2.267 (wall), 2.629 (CPU) seconds.
+[13:15:57] [map         ] Command(post): 
+[13:15:57] [sort_prepare] Sorting...
+[13:15:58] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:15:58] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+2878,0,436,4,1,3318,0,150,1.0,0.868436934218,0.929586563307
+
+[13:15:58] [ngmlr_01    ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:15:58] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:15:58] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:15:58] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_ngmlr_01.sam
+[13:15:58] [map         ] Command(pre): 
+[13:15:58] [map         ] Base run time file not existing, performing base run
+[13:15:58] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -x ont -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr_01.sam
+[13:16:04] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/ngmlr  -x ont -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr_01.sam
+[13:16:04] [map         ]    Mapping 185.00MB to 4.00MB with ngmlr_01...
+[13:17:55] [map         ]    Took 110.290 (wall), 860.235 (CPU) seconds, initialization time: 2.269 (wall), 2.830 (CPU) seconds.
+[13:17:55] [map         ] Command(post): 
+[13:17:55] [sort_prepare] Sorting...
+[13:17:56] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:17:58] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+10180,351,47,4,4,10582,0,82,0.966669831925,0.995404321893,0.980826669236
+
+[13:17:58] [lra_01      ] e_coli_real_ont (base: tests_base/base_mapping_real)
+[13:17:58] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:17:58] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/reads.fastq
+[13:17:58] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont/out_lra_01.sam
+[13:17:58] [map         ] Command(pre): 
+[13:17:58] [map         ] Base run time file not existing, performing base run
+[13:17:58] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lra align  -ONT -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra_01.sam
+[13:18:00] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lra align  -ONT -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra_01.sam
+[13:18:00] [map         ]    Mapping 41.00MB to 4.00MB with lra_01...
+[13:18:06] [map         ]    Took 5.693 (wall), 39.215 (CPU) seconds, initialization time: 0.038 (wall), 0.042 (CPU) seconds.
+[13:18:06] [map         ] Command(post): 
+[13:18:06] [sort_prepare] Sorting...
+[13:18:06] [calc_stats  ] Compute mapping statistics (lib.evaluator.BasicEvaluatorSAM, threshold 50)... 
+[13:18:07] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+3003,0,315,0,0,3318,0,225,1.0,0.905063291139,0.950166112957
+
+[13:18:07] [lra_01      ] e_coli_sim_ont (base: tests_base/base_mapping)
+[13:18:07] [init        ] Ref:   /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta
+[13:18:07] [init        ] Reads: /home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/reads.fastq
+[13:18:07] [init        ] Output:/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_ont/out_lra_01.sam
+[13:18:07] [map         ] Command(pre): 
+[13:18:07] [map         ] Base run time file not existing, performing base run
+[13:18:07] [map         ] Command(pre-b): /home/raven/mambaforge/envs/dipenv/bin/lra align  -ONT -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra_01.sam
+[13:18:09] [map         ] Command(main): /home/raven/mambaforge/envs/dipenv/bin/lra align  -ONT -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra_01.sam
+[13:18:09] [map         ]    Mapping 185.00MB to 4.00MB with lra_01...
+[13:18:43] [map         ]    Took 33.703 (wall), 259.293 (CPU) seconds, initialization time: 0.043 (wall), 0.048 (CPU) seconds.
+[13:18:43] [map         ] Command(post): 
+[13:18:43] [sort_prepare] Sorting...
+[13:18:43] [calc_stats  ] Compute mapping statistics (lib.evaluator.ThresholdBasedEvaluator, threshold 50)... 
+[13:18:45] [calc_stats  ] correct,wrong,not_mapped,not_found,not_found_comparison,total,reverse,secondary,precision,recall,fmeasure
+9336,1062,170,14,14,10582,0,273,0.897864974033,0.982116557963,0.938102893891
+
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_overview_scatter.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_overview.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_mapping_statistics.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_mapq_distribution.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_runtime.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_memory.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_lra_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_ngmlr_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_minimap2_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_lra_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_winnowmap_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_winnowmap_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_lordfast_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_minimap2_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_graphmap_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_real_ont_ngmlr_01_mapqs.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_overview_scatter.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_overview.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_mapping_statistics.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_mapq_rating.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_mapq_distribution.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_precision_recall.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_corrects.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_runtime.csv
+[13:18:45] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_memory.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_lra_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_ngmlr_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_minimap2_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_lra_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_winnowmap_01_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_winnowmap_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_lordfast_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_minimap2_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_graphmap_mapqs.csv
+[13:18:45] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_ont/e_coli_sim_ont_ngmlr_01_mapqs.csv
+[13:18:45] [Main        ] Benchmark completed. Results were placed in: /home/raven/Desktop/Diploma/Teaser/reports/test_ont
+

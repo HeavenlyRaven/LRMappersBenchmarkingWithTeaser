@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li><a href="e_coli_sim_clr.html">Sim CLR</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Mapper<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_sim_clr_lra.html">LRA (def)</a></li><li><a href="e_coli_sim_clr_ngmlr.html">NGMLR (def)</a></li><li><a href="e_coli_sim_clr_minimap2_01.html">Minimap2 (p1)</a></li><li><a href="e_coli_sim_clr_lra_01.html">LRA (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap_01.html">Winnowmap2 (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap.html">Winnowmap2 (def)</a></li><li><a href="e_coli_sim_clr_lordfast.html">lordFAST</a></li><li><a href="e_coli_sim_clr_minimap2.html">Minimap2 (def)</a></li><li><a href="e_coli_sim_clr_graphmap.html">GraphMap2</a></li><li><a href="e_coli_sim_clr_ngmlr_01.html">NGMLR (p1)</a></li></ul></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Results Overview</a></li><li><a href="#section2">Data Set</a></li><li><a href="#section3">Mapping Statistics</a></li><li><a href="#section4">Edit Distance</a></li><li><a href="#section5">Mapping Quality</a></li><li><a href="#section6">MAPQ ROC</a></li><li><a href="#section7">Precision and Recall</a></li><li><a href="#section8">Correctly Mapped/s</a></li><li><a href="#section9">Runtime</a></li><li><a href="#section10">Memory Usage</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Results Overview</div><div class="panel-body"><p>Mappers were evaluated for the given test <a href="#section2">data set</a>. The table below shows the used parameters, mapping statistics and throughput for each mapper. Detailed results for a mapper can be displayed by clicking on its name in the table or the navigation on top.</p><table id="test_list" class="table table-striped"><thead><tr><th>State</th><th>Mapper</th><th>Parameters</th><th>Correctly Mapped</th><th>Wrongly Mapped</th><th>Not Mapped</th><th>Throughput (reads/s)</th></tr></thead><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_lra.html">LRA (def)</a></td><td></td><td>81.299%</td><td>17.166%</td><td>1.534%</td><td>269</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_ngmlr.html">NGMLR (def)</a></td><td></td><td>96.732%</td><td>2.551%</td><td>0.717%</td><td>63</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_minimap2_01.html">Minimap2 (p1)</a></td><td> -x map-pb</td><td>97.449%</td><td>0.867%</td><td>1.684%</td><td>798</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_lra_01.html">LRA (p1)</a></td><td> -CLR</td><td>85.125%</td><td>12.484%</td><td>2.391%</td><td>165</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_winnowmap_01.html">Winnowmap2 (p1)</a></td><td> -x map-pb-clr</td><td>89.419%</td><td>0.996%</td><td>9.585%</td><td>579</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_winnowmap.html">Winnowmap2 (def)</a></td><td></td><td>89.419%</td><td>0.996%</td><td>9.585%</td><td>618</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_lordfast.html">lordFAST</a></td><td></td><td>95.596%</td><td>0.937%</td><td>3.467%</td><td>1246</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_minimap2.html">Minimap2 (def)</a></td><td></td><td>97.449%</td><td>0.867%</td><td>1.684%</td><td>817</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_graphmap.html">GraphMap2</a></td><td></td><td>99.900%</td><td>0.050%</td><td>0.050%</td><td>100</td></tr><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr_ngmlr_01.html">NGMLR (p1)</a></td><td> -x pacbio</td><td>96.732%</td><td>2.551%</td><td>0.717%</td><td>74</td></tr></table><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    
+    <li><a href="e_coli_sim_clr_overview.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div><p style="margin-top:15px;">The figure below visualizes above results by directly comparing accuracy and throughput. The optimal mapper showing both highest accuracy and throughput, if any, will be located in the top right corner. <div id="plot_os"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_os');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_overview_scatter.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Data Set</div><div class="panel-body"><p></p>This section contains information on the benchmark data set. <center><h4>Simulation Overview</h4></center><div class="table-responsive"><table class="table table-striped"><tbody><tr><th width="25%">Input Data Source</th><td>Simulated data set (imported)</td></tr><tr><th>Reference Genome File</th><td>/home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta</td></tr><tr><th>Read File(s)</th><td>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr/reads.fastq</td></tr><tr><th>Gold Standard Alignment File</th><td>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr/mapping_comparison.sam</td></tr></tbody></table></div></small></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Mapping Statistics</div><div class="panel-body"><p>This plot shows the fractions of correctly, wrongly and not mapped reads for each mapper and the selected mapping quality cutoff. Reads that have been filtered using the mapping quality cutoff are shown as unmapped. The interactive legend can be used to, for example, display only the number of wrongly and not mapped reads.</p>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-6">
+									<label for="mapqSelect">MAPQ cutoff (<span id="cutoffText">0</span>):</label>
+									<div class="input-group">
+										<input id="mapqSelect" type="range" oninput="javascript:$('#cutoffText').html(this.value);" onchange="javascript:updateMapstatsChart(this.value);" value="0" min="0" max="255">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="plot_mapstats"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapstats');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_mapping_statistics.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Edit Distance</div><div class="panel-body"><p></p>This plot shows the effect of the number of mismatches introduced in reads on mapping rates.<br><br><div id="plot_edit_dist"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_edit_dist');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Mapping Quality</div><div class="panel-body"><p>This section represents an overview of the distribution of mapping quality values for all mappers. A detailed evaluation of mapping qualities for specific mappers can be found on the respective mapper results page (accessible using the navigation on top). The first plot rates each mapping quality threshold (0-255) by comparing the numbers of wrongly and correctly mapped reads that would be removed due to falling under the threshold. The second plot shows the total number of mapped reads for each mapping quality threshold (all reads with a mapping quality value smaller or equal to the threshold).</p><div id="plot_mapq_rating"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_rating');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_mapq_rating.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div><p>&nbsp;</p><div id="plot_mapq_dist"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_dist');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_mapq_distribution.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">MAPQ ROC</div><div class="panel-body"><p></p>
+                    <div id="mapq_roc"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('mapq_roc');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Precision and Recall</div><div class="panel-body"><div id="plot_pr"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_pr');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_precision_recall.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Correctly Mapped/s</div><div class="panel-body"><div id="plot_resource_corrects"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_resource_corrects');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_corrects.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section9"><div class="panel panel-default"><div class="panel-heading">Runtime</div><div class="panel-body"><div id="plot_resource_runtime"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_resource_runtime');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_runtime.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section10"><div class="panel panel-default"><div class="panel-heading">Memory Usage</div><div class="panel-body"><div id="plot_resource_memory"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_resource_memory');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_memory.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+$(document).ready(function() {
+    $('#test_list').dataTable({
+    "bPaginate": false,
+    "bFilter": false,
+    "bInfo": false,
+    "order": [[ 3, "desc" ]]
+  });
+} );
+
+window.onload = function () {$('.selectpicker').selectpicker();}
+
+var params={"579": "Winnowmap2 (p1)  -x map-pb-clr", "100": "GraphMap2 ", "165": "LRA (p1)  -CLR", "74": "NGMLR (p1)  -x pacbio", "269": "LRA (def) ", "817": "Minimap2 (def) ", "1246": "lordFAST ", "618": "Winnowmap2 (def) ", "798": "Minimap2 (p1)  -x map-pb", "63": "NGMLR (def) "};
+
+var chart = c3.generate({
+bindto: '#plot_os',
+size: {
+  height: 500
+},
+data: {
+  xs: {"LRA (def) ": "LRA (def) _x", "Minimap2 (def) ": "Minimap2 (def) _x", "Winnowmap2 (p1)  -x map-pb-clr": "Winnowmap2 (p1)  -x map-pb-clr_x", "NGMLR (p1)  -x pacbio": "NGMLR (p1)  -x pacbio_x", "Minimap2 (p1)  -x map-pb": "Minimap2 (p1)  -x map-pb_x", "GraphMap2 ": "GraphMap2 _x", "LRA (p1)  -CLR": "LRA (p1)  -CLR_x", "lordFAST ": "lordFAST _x", "NGMLR (def) ": "NGMLR (def) _x", "Winnowmap2 (def) ": "Winnowmap2 (def) _x"},
+  columns: [["GraphMap2 _x", 101.0, 0], ["GraphMap2 ", 0.9990036863604663], ["LRA (def) _x", 270.0, 0], ["LRA (def) ", 0.8129919298595197], ["LRA (p1)  -CLR_x", 166.0, 0], ["LRA (p1)  -CLR", 0.8512503736176148], ["Minimap2 (def) _x", 818.0, 0], ["Minimap2 (def) ", 0.9744943708279367], ["Minimap2 (p1)  -x map-pb_x", 798.0, 0], ["Minimap2 (p1)  -x map-pb", 0.9744943708279367], ["NGMLR (def) _x", 64.0, 0], ["NGMLR (def) ", 0.9673209126232938], ["NGMLR (p1)  -x pacbio_x", 75.0, 0], ["NGMLR (p1)  -x pacbio", 0.9673209126232938], ["Winnowmap2 (def) _x", 619.0, 0], ["Winnowmap2 (def) ", 0.8941914914815183], ["Winnowmap2 (p1)  -x map-pb-clr_x", 579.0, 0], ["Winnowmap2 (p1)  -x map-pb-clr", 0.8941914914815183], ["lordFAST _x", 1247.0, 0], ["lordFAST ", 0.9559629371326094]],
+  type: 'scatter'
+},
+grid: {
+  y: {
+    show: true
+  },
+  x: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Throughput [Reads/s]", position: "outer-middle"},
+    tick: {fit: false, format: d3.format("d")},
+    padding: {
+    left: 500
+    }
+  },
+
+  y: {
+    label: { text: "Correctly Mapped [%]", position: "outer-middle"},
+    tick: {
+      format: d3.format(".3%")
+    }
+  }
+},
+point: {
+  r: 5
+},
+legend: {
+	position: "bottom",
+	show:true,
+	inset: {
+		anchor: 'top-left',
+		x: 20,
+		y: 10,
+		step: 2
+	}
+},
+tooltip: {
+	format: {
+		//title: function (d) { return ""; }
+	},
+	grouped: false
+}
+});
+
+var column_mapqs=[[["Correct", 0.9990036863604663, 0.8129919298595197, 0.8512503736176148, 0.9744943708279367, 0.9744943708279367, 0.9673209126232938, 0.9673209126232938, 0.8941914914815183, 0.8941914914815183, 0.9559629371326094], ["Wrong", 0.0004981568197668626, 0.17166484009166086, 0.12483809903357578, 0.008667928663943409, 0.008667928663943409, 0.025505629172063365, 0.025505629172063365, 0.009963136395337252, 0.009963136395337252, 0.009365348211617016], ["Not Mapped", 0.0004981568197668626, 0.015343230048819368, 0.023911527348809407, 0.016837700508119956, 0.016837700508119956, 0.0071734582046428215, 0.0071734582046428215, 0.09584537212314437, 0.09584537212314437, 0.034671714655773636]], [["Correct", 0.9990036863604663, 0.8055195775630168, 0.8442761781408787, 0.9744943708279367, 0.9744943708279367, 0.9673209126232938, 0.9673209126232938, 0.8941914914815183, 0.8941914914815183, 0.9556640430407493], ["Wrong", 0.0004981568197668626, 0.13749128225565407, 0.11766464082893295, 0.008468665936036665, 0.008468665936036665, 0.025206735080203248, 0.025206735080203248, 0.009763873667430508, 0.009763873667430508, 0.009365348211617016], ["Not Mapped", 0.0004981568197668626, 0.056989140181329084, 0.0380591810301883, 0.0170369632360267, 0.0170369632360267, 0.007472352296502939, 0.007472352296502939, 0.09604463485105111, 0.09604463485105111, 0.034970608747633754]], [["Correct", 0.9990036863604663, 0.7957557038955864, 0.8182723921490486, 0.9738965826442164, 0.9738965826442164, 0.9673209126232938, 0.9673209126232938, 0.8907043937431504, 0.8907043937431504, 0.9555644116767958], ["Wrong", 0.0004981568197668626, 0.1207532131114875, 0.10381588123941417, 0.008070140480223174, 0.008070140480223174, 0.025206735080203248, 0.025206735080203248, 0.009265716847663644, 0.009265716847663644, 0.009365348211617016], ["Not Mapped", 0.0004981568197668626, 0.08349108299292618, 0.07791172661153731, 0.018033276875560427, 0.018033276875560427, 0.007472352296502939, 0.007472352296502939, 0.10002988940918602, 0.10002988940918602, 0.03507024011158713]], [["Correct", 0.9988044236325595, 0.7877851947793165, 0.8106007771246388, 0.9735976885523563, 0.9735976885523563, 0.9673209126232938, 0.9673209126232938, 0.88980771146757, 0.88980771146757, 0.9551658862209824], ["Wrong", 0.00019926272790674504, 0.11318122945103118, 0.10182325396034672, 0.00787087775231643, 0.00787087775231643, 0.025206735080203248, 0.025206735080203248, 0.009265716847663644, 0.009265716847663644, 0.009365348211617016], ["Not Mapped", 0.0009963136395337252, 0.09903357576965229, 0.08757596891501444, 0.01853143369532729, 0.01853143369532729, 0.007472352296502939, 0.007472352296502939, 0.10092657168476636, 0.10092657168476636, 0.03546876556740062]], [["Correct", 0.9983062668127927, 0.7786191092956063, 0.8106007771246388, 0.972999900368636, 0.972999900368636, 0.9672212812593405, 0.9672212812593405, 0.8887117664640829, 0.8887117664640829, 0.9548669921291223], ["Wrong", 0.0, 0.10740261034173558, 0.10182325396034672, 0.00787087775231643, 0.00787087775231643, 0.025206735080203248, 0.025206735080203248, 0.009066454119756899, 0.009066454119756899, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.11397828036265817, 0.08757596891501444, 0.019129221879047524, 0.019129221879047524, 0.007571983660456312, 0.007571983660456312, 0.1022217794161602, 0.1022217794161602, 0.03586729102321411]], [["Correct", 0.9983062668127927, 0.7712463883630567, 0.8106007771246388, 0.9729002690046826, 0.9729002690046826, 0.9672212812593405, 0.9672212812593405, 0.8867191391850154, 0.8867191391850154, 0.9544684666733088], ["Wrong", 0.0, 0.10301883032778719, 0.10172362259639335, 0.00787087775231643, 0.00787087775231643, 0.025206735080203248, 0.025206735080203248, 0.008667928663943409, 0.008667928663943409, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.12573478130915614, 0.08767560027896781, 0.019228853243000898, 0.019228853243000898, 0.007571983660456312, 0.007571983660456312, 0.10461293215104114, 0.10461293215104114, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7692537610839892, 0.8106007771246388, 0.9727010062767759, 0.9727010062767759, 0.9672212812593405, 0.9672212812593405, 0.8851250373617615, 0.8851250373617615, 0.9544684666733088], ["Wrong", 0.0, 0.10182325396034672, 0.10172362259639335, 0.00787087775231643, 0.00787087775231643, 0.025107103716249874, 0.025107103716249874, 0.008568297299990037, 0.008568297299990037, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.12892298495566404, 0.08767560027896781, 0.019428115970907642, 0.019428115970907642, 0.007671615024409684, 0.007671615024409684, 0.10630666533824848, 0.10630666533824848, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.8104015143967321, 0.9726013749128225, 0.9726013749128225, 0.9672212812593405, 0.9672212812593405, 0.8828335159908339, 0.8828335159908339, 0.9544684666733088], ["Wrong", 0.0, 0.10082694032081299, 0.10172362259639335, 0.007571983660456312, 0.007571983660456312, 0.02490784098834313, 0.02490784098834313, 0.008568297299990037, 0.008568297299990037, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13001892995915115, 0.08787486300687457, 0.019826641426721133, 0.019826641426721133, 0.00787087775231643, 0.00787087775231643, 0.10859818670917605, 0.10859818670917605, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.810102620304872, 0.9725017435488692, 0.9725017435488692, 0.9672212812593405, 0.9672212812593405, 0.8810401514396732, 0.8810401514396732, 0.9544684666733088], ["Wrong", 0.0, 0.10032878350104613, 0.10172362259639335, 0.007571983660456312, 0.007571983660456312, 0.02490784098834313, 0.02490784098834313, 0.008468665936036665, 0.008468665936036665, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.130517086778918, 0.08817375709873468, 0.019926272790674503, 0.019926272790674503, 0.00787087775231643, 0.00787087775231643, 0.11049118262429013, 0.11049118262429013, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.8100029889409186, 0.9721032180930557, 0.9721032180930557, 0.9672212812593405, 0.9672212812593405, 0.8802431005280462, 0.8802431005280462, 0.9544684666733088], ["Wrong", 0.0, 0.10012952077313939, 0.10172362259639335, 0.007372720932549566, 0.007372720932549566, 0.02490784098834313, 0.02490784098834313, 0.008369034572083291, 0.008369034572083291, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13071634950682476, 0.08827338846268805, 0.02052406097439474, 0.02052406097439474, 0.00787087775231643, 0.00787087775231643, 0.11138786489987047, 0.11138786489987047, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.8099033575769652, 0.9717046926372422, 0.9717046926372422, 0.9671216498953871, 0.9671216498953871, 0.8795456809803727, 0.8795456809803727, 0.9544684666733088], ["Wrong", 0.0, 0.10002988940918602, 0.1015243598684866, 0.007372720932549566, 0.007372720932549566, 0.024708578260436386, 0.024708578260436386, 0.00826940320812992, 0.00826940320812992, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13081598087077811, 0.08857228255454817, 0.02092258643020823, 0.02092258643020823, 0.008169771844176547, 0.008169771844176547, 0.11218491581149746, 0.11218491581149746, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.8098037262130119, 0.9715054299093354, 0.9715054299093354, 0.9670220185314337, 0.9670220185314337, 0.8791471555245591, 0.8791471555245591, 0.9544684666733088], ["Wrong", 0.0, 0.09993025804523264, 0.1015243598684866, 0.007372720932549566, 0.007372720932549566, 0.024608946896483012, 0.024608946896483012, 0.007771246388363057, 0.007771246388363057, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.1309156122347315, 0.08867191391850154, 0.021121849158114974, 0.021121849158114974, 0.008369034572083291, 0.008369034572083291, 0.11308159808707781, 0.11308159808707781, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7691541297200358, 0.8096044634851051, 0.9713061671814287, 0.9713061671814287, 0.9669223871674804, 0.9669223871674804, 0.8785493673408389, 0.8785493673408389, 0.9544684666733088], ["Wrong", 0.0, 0.09963136395337252, 0.1015243598684866, 0.007273089568596194, 0.007273089568596194, 0.02450931553252964, 0.02450931553252964, 0.007771246388363057, 0.007771246388363057, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13121450632659162, 0.08887117664640828, 0.021420743249975092, 0.021420743249975092, 0.008568297299990037, 0.008568297299990037, 0.11367938627079804, 0.11367938627079804, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7690544983560825, 0.8095048321211518, 0.9712065358174753, 0.9712065358174753, 0.966822755803527, 0.966822755803527, 0.8779515791571186, 0.8779515791571186, 0.9544684666733088], ["Wrong", 0.0, 0.09963136395337252, 0.1015243598684866, 0.007273089568596194, 0.007273089568596194, 0.02450931553252964, 0.02450931553252964, 0.007771246388363057, 0.007771246388363057, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13131413769054498, 0.08897080801036167, 0.021520374613928465, 0.021520374613928465, 0.008667928663943409, 0.008667928663943409, 0.11427717445451828, 0.11427717445451828, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.9710072730895686, 0.9710072730895686, 0.9665238617116668, 0.9665238617116668, 0.8774534223373518, 0.8774534223373518, 0.9544684666733088], ["Wrong", 0.0, 0.09953173258941915, 0.1015243598684866, 0.007273089568596194, 0.007273089568596194, 0.02440968416857627, 0.02440968416857627, 0.007472352296502939, 0.007472352296502939, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13151340041845172, 0.08897080801036167, 0.02171963734183521, 0.02171963734183521, 0.009066454119756899, 0.009066454119756899, 0.11507422536614527, 0.11507422536614527, 0.036265816479027595]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.9709076417256153, 0.9709076417256153, 0.9665238617116668, 0.9665238617116668, 0.8767560027896782, 0.8767560027896782, 0.9540699412174952], ["Wrong", 0.0, 0.09923283849755903, 0.1015243598684866, 0.007273089568596194, 0.007273089568596194, 0.02440968416857627, 0.02440968416857627, 0.007372720932549566, 0.007372720932549566, 0.009265716847663644], ["Not Mapped", 0.001693733187207333, 0.13181229451031184, 0.08897080801036167, 0.021819268705788583, 0.021819268705788583, 0.009066454119756899, 0.009066454119756899, 0.11587127627777224, 0.11587127627777224, 0.03666434193484109]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.9704094849058483, 0.9704094849058483, 0.9662249676198067, 0.9662249676198067, 0.8763574773338647, 0.8763574773338647, 0.9537710471256351], ["Wrong", 0.0, 0.09903357576965229, 0.1015243598684866, 0.0071734582046428215, 0.0071734582046428215, 0.02440968416857627, 0.02440968416857627, 0.007372720932549566, 0.007372720932549566, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13201155723821859, 0.08897080801036167, 0.02241705688950882, 0.02241705688950882, 0.009365348211617016, 0.009365348211617016, 0.11626980173358573, 0.11626980173358573, 0.03706286739065458]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.9698116967221281, 0.9698116967221281, 0.9661253362558534, 0.9661253362558534, 0.8757596891501445, 0.8757596891501445, 0.9524758393942413], ["Wrong", 0.0, 0.09903357576965229, 0.1015243598684866, 0.007073826840689449, 0.007073826840689449, 0.02440968416857627, 0.02440968416857627, 0.007273089568596194, 0.007273089568596194, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13201155723821859, 0.08897080801036167, 0.023114476437182424, 0.023114476437182424, 0.00946497957557039, 0.00946497957557039, 0.11696722128125935, 0.11696722128125935, 0.03835807512204842]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.969512802630268, 0.969512802630268, 0.9658264421639933, 0.9658264421639933, 0.8747633755106108, 0.8747633755106108, 0.9510810002988941], ["Wrong", 0.0, 0.09883431304174554, 0.10142472850453323, 0.006974195476736077, 0.006974195476736077, 0.024310052804622895, 0.024310052804622895, 0.006974195476736077, 0.006974195476736077, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13221081996612533, 0.08907043937431504, 0.023513001892995915, 0.023513001892995915, 0.00986350503138388, 0.00986350503138388, 0.11826242901265319, 0.11826242901265319, 0.039752914217395637]], [["Correct", 0.9983062668127927, 0.7689548669921291, 0.8095048321211518, 0.9693135399023612, 0.9693135399023612, 0.9655275480721331, 0.9655275480721331, 0.8738666932350304, 0.8738666932350304, 0.9510810002988941], ["Wrong", 0.0, 0.09873468167779217, 0.10142472850453323, 0.006974195476736077, 0.006974195476736077, 0.02411079007671615, 0.02411079007671615, 0.006974195476736077, 0.006974195476736077, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1323104513300787, 0.08907043937431504, 0.02371226462090266, 0.02371226462090266, 0.010361661851150743, 0.010361661851150743, 0.11915911128823353, 0.11915911128823353, 0.039752914217395637]], [["Correct", 0.9983062668127927, 0.7688552356281757, 0.8095048321211518, 0.9691142771744545, 0.9691142771744545, 0.9654279167081797, 0.9654279167081797, 0.8732689050513102, 0.8732689050513102, 0.9510810002988941], ["Wrong", 0.0, 0.09863505031383879, 0.10142472850453323, 0.006874564112782704, 0.006874564112782704, 0.024011158712762777, 0.024011158712762777, 0.006974195476736077, 0.006974195476736077, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13250971405798545, 0.08907043937431504, 0.024011158712762777, 0.024011158712762777, 0.010560924579057487, 0.010560924579057487, 0.11975689947195377, 0.11975689947195377, 0.039752914217395637]], [["Correct", 0.9983062668127927, 0.7688552356281757, 0.8093055693932449, 0.9688153830825944, 0.9688153830825944, 0.9649297598884129, 0.9649297598884129, 0.8720733286838697, 0.8720733286838697, 0.9510810002988941], ["Wrong", 0.0, 0.09853541894988542, 0.10142472850453323, 0.006675301384875959, 0.006675301384875959, 0.02371226462090266, 0.02371226462090266, 0.006874564112782704, 0.006874564112782704, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13260934542193883, 0.08926970210222178, 0.02450931553252964, 0.02450931553252964, 0.011357975490684468, 0.011357975490684468, 0.12105210720334761, 0.12105210720334761, 0.039752914217395637]], [["Correct", 0.9983062668127927, 0.7688552356281757, 0.8093055693932449, 0.9688153830825944, 0.9688153830825944, 0.9647304971605061, 0.9647304971605061, 0.8714755405001494, 0.8714755405001494, 0.9510810002988941], ["Wrong", 0.0, 0.09843578758593205, 0.10142472850453323, 0.006575670020922586, 0.006575670020922586, 0.02341337052904254, 0.02341337052904254, 0.006575670020922586, 0.006575670020922586, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1327089767858922, 0.08926970210222178, 0.024608946896483012, 0.024608946896483012, 0.01185613231045133, 0.01185613231045133, 0.12194878947892797, 0.12194878947892797, 0.039752914217395637]], [["Correct", 0.9983062668127927, 0.7687556042642224, 0.8093055693932449, 0.9685164889907343, 0.9685164889907343, 0.9643319717046926, 0.9643319717046926, 0.8706784895885225, 0.8706784895885225, 0.9508817375709874], ["Wrong", 0.0, 0.09833615622197868, 0.10142472850453323, 0.006476038656969214, 0.006476038656969214, 0.02331373916508917, 0.02331373916508917, 0.006575670020922586, 0.006575670020922586, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13290823951379893, 0.08926970210222178, 0.025007472352296504, 0.025007472352296504, 0.012354289130218193, 0.012354289130218193, 0.12274584039055494, 0.12274584039055494, 0.039952176945302384]], [["Correct", 0.9983062668127927, 0.768655972900269, 0.8093055693932449, 0.9685164889907343, 0.9685164889907343, 0.9642323403407392, 0.9642323403407392, 0.8698814386768955, 0.8698814386768955, 0.950782106207034], ["Wrong", 0.0, 0.09823652485802531, 0.10142472850453323, 0.0062767759290624685, 0.0062767759290624685, 0.023114476437182424, 0.023114476437182424, 0.006476038656969214, 0.006476038656969214, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1331075022417057, 0.08926970210222178, 0.025206735080203248, 0.025206735080203248, 0.01265318322207831, 0.01265318322207831, 0.1236425226661353, 0.1236425226661353, 0.040051808309255754]], [["Correct", 0.9983062668127927, 0.768655972900269, 0.8093055693932449, 0.9680183321709674, 0.9680183321709674, 0.963634552157019, 0.963634552157019, 0.8683869682175949, 0.8683869682175949, 0.950782106207034], ["Wrong", 0.0, 0.09813689349407194, 0.10142472850453323, 0.0061771445651090965, 0.0061771445651090965, 0.022616319617415562, 0.022616319617415562, 0.006476038656969214, 0.006476038656969214, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13320713360565906, 0.08926970210222178, 0.025804523263923483, 0.025804523263923483, 0.013749128225565408, 0.013749128225565408, 0.12513699312543589, 0.12513699312543589, 0.040051808309255754]], [["Correct", 0.9983062668127927, 0.768655972900269, 0.8093055693932449, 0.9678190694430606, 0.9678190694430606, 0.9633356580651589, 0.9633356580651589, 0.8667928663943409, 0.8667928663943409, 0.950782106207034], ["Wrong", 0.0, 0.09803726213011855, 0.10142472850453323, 0.006077513201155724, 0.006077513201155724, 0.02221779416160207, 0.02221779416160207, 0.006476038656969214, 0.006476038656969214, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13330676496961244, 0.08926970210222178, 0.0261034173557836, 0.0261034173557836, 0.014446547773239015, 0.014446547773239015, 0.12673109494868984, 0.12673109494868984, 0.040051808309255754]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8092059380292916, 0.9677194380791073, 0.9677194380791073, 0.9626382385174853, 0.9626382385174853, 0.8646009763873668, 0.8646009763873668, 0.950782106207034], ["Wrong", 0.0, 0.09803726213011855, 0.10142472850453323, 0.006077513201155724, 0.006077513201155724, 0.021520374613928465, 0.021520374613928465, 0.0062767759290624685, 0.0062767759290624685, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1334063963335658, 0.08936933346617515, 0.026203048719736974, 0.026203048719736974, 0.01584138686858623, 0.01584138686858623, 0.12912224768357078, 0.12912224768357078, 0.040051808309255754]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8092059380292916, 0.9675201753512006, 0.9675201753512006, 0.9623393444256252, 0.9623393444256252, 0.8632061372920196, 0.8632061372920196, 0.950782106207034], ["Wrong", 0.0, 0.09803726213011855, 0.10142472850453323, 0.006077513201155724, 0.006077513201155724, 0.02042442961044137, 0.02042442961044137, 0.0061771445651090965, 0.0061771445651090965, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1334063963335658, 0.08936933346617515, 0.02640231144764372, 0.02640231144764372, 0.017236225963933448, 0.017236225963933448, 0.13061671814287137, 0.13061671814287137, 0.040051808309255754]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8091063066653382, 0.9670220185314337, 0.9670220185314337, 0.9615422935139982, 0.9615422935139982, 0.8619109295606256, 0.8619109295606256, 0.9504832121151738], ["Wrong", 0.0, 0.09793763076616518, 0.10142472850453323, 0.006077513201155724, 0.006077513201155724, 0.019328484606954268, 0.019328484606954268, 0.0061771445651090965, 0.0061771445651090965, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13350602769751918, 0.08946896483012852, 0.02690046826741058, 0.02690046826741058, 0.019129221879047524, 0.019129221879047524, 0.13191192587426523, 0.13191192587426523, 0.04035070240111587]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8091063066653382, 0.966822755803527, 0.966822755803527, 0.9611437680581847, 0.9611437680581847, 0.8611138786489987, 0.8611138786489987, 0.9504832121151738], ["Wrong", 0.0, 0.09793763076616518, 0.10142472850453323, 0.006077513201155724, 0.006077513201155724, 0.018631065059280662, 0.018631065059280662, 0.006077513201155724, 0.006077513201155724, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13350602769751918, 0.08946896483012852, 0.027099730995317328, 0.027099730995317328, 0.02022516688253462, 0.02022516688253462, 0.13280860814984558, 0.13280860814984558, 0.04035070240111587]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8091063066653382, 0.9666234930756202, 0.9666234930756202, 0.9579555644116768, 0.9579555644116768, 0.8603168277373717, 0.8603168277373717, 0.9504832121151738], ["Wrong", 0.0, 0.09783799940221181, 0.10142472850453323, 0.005977881837202352, 0.005977881837202352, 0.01783401414765368, 0.01783401414765368, 0.006077513201155724, 0.006077513201155724, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13360565906147256, 0.08946896483012852, 0.027398625087177445, 0.027398625087177445, 0.02421042144066952, 0.02421042144066952, 0.13360565906147256, 0.13360565906147256, 0.04035070240111587]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9663245989837601, 0.9663245989837601, 0.9565607253163296, 0.9565607253163296, 0.8595197768257448, 0.8595197768257448, 0.9504832121151738], ["Wrong", 0.0, 0.09773836803825844, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.016837700508119956, 0.016837700508119956, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13370529042542592, 0.0895685961940819, 0.027797150542990933, 0.027797150542990933, 0.026601574175550462, 0.026601574175550462, 0.1345023413370529, 0.1345023413370529, 0.04035070240111587]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9660257048919, 0.9660257048919, 0.955066254857029, 0.955066254857029, 0.8586230945501644, 0.8586230945501644, 0.9504832121151738], ["Wrong", 0.0, 0.09763873667430507, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.016140280960446347, 0.016140280960446347, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1338049217893793, 0.0895685961940819, 0.02809604463485105, 0.02809604463485105, 0.02879346418252466, 0.02879346418252466, 0.13539902361263326, 0.13539902361263326, 0.04035070240111587]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9659260735279466, 0.9659260735279466, 0.9527747334861014, 0.9527747334861014, 0.8584238318222577, 0.8584238318222577, 0.9503835807512205], ["Wrong", 0.0, 0.09763873667430507, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.01544286141277274, 0.01544286141277274, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1338049217893793, 0.0895685961940819, 0.028195675998804424, 0.028195675998804424, 0.03178240510112584, 0.03178240510112584, 0.13559828634054, 0.13559828634054, 0.04045033376506924]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9657268108000399, 0.9657268108000399, 0.9506824748430805, 0.9506824748430805, 0.8580253063664441, 0.8580253063664441, 0.9503835807512205], ["Wrong", 0.0, 0.0975391053103517, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.013948390953472153, 0.013948390953472153, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13390455315333266, 0.0895685961940819, 0.02839493872671117, 0.02839493872671117, 0.03536913420344725, 0.03536913420344725, 0.13599681179635348, 0.13599681179635348, 0.04045033376506924]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9651290226163196, 0.9651290226163196, 0.9481916907442463, 0.9481916907442463, 0.8576267809106307, 0.8576267809106307, 0.9503835807512205], ["Wrong", 0.0, 0.0975391053103517, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.013649496861612036, 0.013649496861612036, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13390455315333266, 0.0895685961940819, 0.028992726910431404, 0.028992726910431404, 0.03815881239414168, 0.03815881239414168, 0.136395337252167, 0.136395337252167, 0.04045033376506924]], [["Correct", 0.9983062668127927, 0.7685563415363156, 0.8090066753013849, 0.9651290226163196, 0.9651290226163196, 0.944903855733785, 0.944903855733785, 0.8564312045431902, 0.8564312045431902, 0.9500846866593604], ["Wrong", 0.0, 0.0975391053103517, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.012952077313938428, 0.012952077313938428, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.13390455315333266, 0.0895685961940819, 0.028992726910431404, 0.028992726910431404, 0.04214406695227658, 0.04214406695227658, 0.13759091361960746, 0.13759091361960746, 0.04074922785692936]], [["Correct", 0.9983062668127927, 0.7684567101723623, 0.8090066753013849, 0.9650293912523662, 0.9650293912523662, 0.9408189698116968, 0.9408189698116968, 0.8557337849955166, 0.8557337849955166, 0.9500846866593604], ["Wrong", 0.0, 0.09743947394639832, 0.10142472850453323, 0.005878250473248979, 0.005878250473248979, 0.012055395038358075, 0.012055395038358075, 0.005977881837202352, 0.005977881837202352, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1341038158812394, 0.0895685961940819, 0.029092358274384778, 0.029092358274384778, 0.0471256351499452, 0.0471256351499452, 0.13828833316728106, 0.13828833316728106, 0.04074922785692936]], [["Correct", 0.9983062668127927, 0.7684567101723623, 0.8090066753013849, 0.9648301285244595, 0.9648301285244595, 0.936634452525655, 0.936634452525655, 0.8554348909036564, 0.8554348909036564, 0.949985055295407], ["Wrong", 0.0, 0.09733984258244495, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.010959450034870977, 0.010959450034870977, 0.005878250473248979, 0.005878250473248979, 0.009166085483710272], ["Not Mapped", 0.001693733187207333, 0.1342034472451928, 0.0895685961940819, 0.029391252366244895, 0.029391252366244895, 0.05240609743947395, 0.05240609743947395, 0.13868685862309454, 0.13868685862309454, 0.04084885922088274]], [["Correct", 0.9983062668127927, 0.7684567101723623, 0.8090066753013849, 0.9647304971605061, 0.9647304971605061, 0.9326491979675202, 0.9326491979675202, 0.8547374713559829, 0.8547374713559829, 0.94918800438378], ["Wrong", 0.0, 0.09733984258244495, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.010062767759290625, 0.010062767759290625, 0.005778619109295606, 0.005778619109295606, 0.009066454119756899], ["Not Mapped", 0.001693733187207333, 0.1342034472451928, 0.0895685961940819, 0.029490883730198265, 0.029490883730198265, 0.0572880342731892, 0.0572880342731892, 0.13948390953472153, 0.13948390953472153, 0.04174554149646309]], [["Correct", 0.0, 0.7684567101723623, 0.8090066753013849, 0.9647304971605061, 0.9647304971605061, 0.9266713161303178, 0.9266713161303178, 0.8539404204443559, 0.8539404204443559, 0.9489887416558732], ["Wrong", 0.0, 0.09733984258244495, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.009066454119756899, 0.009066454119756899, 0.005778619109295606, 0.005778619109295606, 0.009066454119756899], ["Not Mapped", 1.0, 0.1342034472451928, 0.0895685961940819, 0.029490883730198265, 0.029490883730198265, 0.06426222974992528, 0.06426222974992528, 0.14028096044634852, 0.14028096044634852, 0.04194480422436983]], [["Correct", 0.0, 0.7684567101723623, 0.8090066753013849, 0.9646308657965528, 0.9646308657965528, 0.9217893792966025, 0.9217893792966025, 0.853143369532729, 0.853143369532729, 0.9489887416558732], ["Wrong", 0.0, 0.09724021121849158, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.00826940320812992, 0.00826940320812992, 0.005778619109295606, 0.005778619109295606, 0.008966822755803527], ["Not Mapped", 1.0, 0.13430307860914617, 0.0895685961940819, 0.02959051509415164, 0.02959051509415164, 0.06994121749526751, 0.06994121749526751, 0.14107801135797549, 0.14107801135797549, 0.0420444355883232]], [["Correct", 0.0, 0.7684567101723623, 0.8090066753013849, 0.9645312344325994, 0.9645312344325994, 0.9145162897280064, 0.9145162897280064, 0.8524459499850553, 0.8524459499850553, 0.9488891102919199], ["Wrong", 0.0, 0.09724021121849158, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.007671615024409684, 0.007671615024409684, 0.005678987745342234, 0.005678987745342234, 0.008966822755803527], ["Not Mapped", 1.0, 0.13430307860914617, 0.0895685961940819, 0.029690146458105013, 0.029690146458105013, 0.07781209524758394, 0.07781209524758394, 0.14187506226960248, 0.14187506226960248, 0.04214406695227658]], [["Correct", 0.0, 0.7684567101723623, 0.8090066753013849, 0.9640330776128325, 0.9640330776128325, 0.9080402510710371, 0.9080402510710371, 0.8517485304373816, 0.8517485304373816, 0.9484905848361064], ["Wrong", 0.0, 0.09714057985453821, 0.10142472850453323, 0.005778619109295606, 0.005778619109295606, 0.0071734582046428215, 0.0071734582046428215, 0.005678987745342234, 0.005678987745342234, 0.008966822755803527], ["Not Mapped", 1.0, 0.13440270997309953, 0.0895685961940819, 0.030188303277871874, 0.030188303277871874, 0.08478629072432002, 0.08478629072432002, 0.14257248181727608, 0.14257248181727608, 0.042542592408090066]], [["Correct", 0.0, 0.7684567101723623, 0.8028295307362758, 0.9639334462488791, 0.9639334462488791, 0.9001693733187207, 0.9001693733187207, 0.8510511108897081, 0.8510511108897081, 0.9478927966523861], ["Wrong", 0.0, 0.09714057985453821, 0.10002988940918602, 0.005678987745342234, 0.005678987745342234, 0.006476038656969214, 0.006476038656969214, 0.005579356381388861, 0.005579356381388861, 0.008667928663943409], ["Not Mapped", 1.0, 0.13440270997309953, 0.09714057985453821, 0.03038756600577862, 0.03038756600577862, 0.09335458802431006, 0.09335458802431006, 0.14336953272890307, 0.14336953272890307, 0.04343927468367042]], [["Correct", 0.0, 0.7684567101723623, 0.8028295307362758, 0.9638338148849258, 0.9638338148849258, 0.8874165587326891, 0.8874165587326891, 0.8503536913420344, 0.8503536913420344, 0.9464979575570389], ["Wrong", 0.0, 0.09714057985453821, 0.10002988940918602, 0.005678987745342234, 0.005678987745342234, 0.006077513201155724, 0.006077513201155724, 0.005579356381388861, 0.005579356381388861, 0.008667928663943409], ["Not Mapped", 1.0, 0.13440270997309953, 0.09714057985453821, 0.030487197369731992, 0.030487197369731992, 0.10650592806615522, 0.10650592806615522, 0.14406695227657668, 0.14406695227657668, 0.04483411377901764]], [["Correct", 0.0, 0.7684567101723623, 0.8028295307362758, 0.9635349207930657, 0.9635349207930657, 0.8775530537013052, 0.8775530537013052, 0.8490584836106406, 0.8490584836106406, 0.9462986948291322], ["Wrong", 0.0, 0.09714057985453821, 0.10002988940918602, 0.005678987745342234, 0.005678987745342234, 0.005878250473248979, 0.005878250473248979, 0.005579356381388861, 0.005579356381388861, 0.008468665936036665], ["Not Mapped", 1.0, 0.13440270997309953, 0.09714057985453821, 0.03078609146159211, 0.03078609146159211, 0.11656869582544585, 0.11656869582544585, 0.1453621600079705, 0.1453621600079705, 0.045232639234831125]], [["Correct", 0.0, 0.7684567101723623, 0.8028295307362758, 0.9634352894291123, 0.9634352894291123, 0.8676895486699213, 0.8676895486699213, 0.8479625386071535, 0.8479625386071535, 0.9454020125535518], ["Wrong", 0.0, 0.09714057985453821, 0.10002988940918602, 0.005678987745342234, 0.005678987745342234, 0.005579356381388861, 0.005579356381388861, 0.005479725017435488, 0.005479725017435488, 0.008468665936036665], ["Not Mapped", 1.0, 0.13440270997309953, 0.09714057985453821, 0.03088572282554548, 0.03088572282554548, 0.12673109494868984, 0.12673109494868984, 0.14655773637541097, 0.14655773637541097, 0.04612932151041148]], [["Correct", 0.0, 0.7684567101723623, 0.79675201753512, 0.9632360267012056, 0.9632360267012056, 0.8463684367838996, 0.8463684367838996, 0.8473647504234333, 0.8473647504234333, 0.9450034870977384], ["Wrong", 0.0, 0.09704094849058484, 0.09793763076616518, 0.005579356381388861, 0.005579356381388861, 0.004782305469761881, 0.004782305469761881, 0.0052804622895287435, 0.0052804622895287435, 0.008468665936036665], ["Not Mapped", 1.0, 0.1345023413370529, 0.10531035169871475, 0.031184616917405598, 0.031184616917405598, 0.14884925774633856, 0.14884925774633856, 0.14735478728703796, 0.14735478728703796, 0.046527846966224966]], [["Correct", 0.0, 0.7684567101723623, 0.79675201753512, 0.9630367639732988, 0.9630367639732988, 0.8263425326292717, 0.8263425326292717, 0.8454717545083192, 0.8454717545083192, 0.944903855733785], ["Wrong", 0.0, 0.09694131712663147, 0.09783799940221181, 0.005380093653482116, 0.005380093653482116, 0.0042841486499950185, 0.0042841486499950185, 0.0051808309255753715, 0.0051808309255753715, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.10540998306266813, 0.03158314237321909, 0.03158314237321909, 0.16937331872073327, 0.16937331872073327, 0.1493474145661054, 0.1493474145661054, 0.04662747833017834]], [["Correct", 0.0, 0.7684567101723623, 0.79675201753512, 0.9629371326093454, 0.9629371326093454, 0.7909733984258245, 0.7909733984258245, 0.8442761781408787, 0.8442761781408787, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09783799940221181, 0.005380093653482116, 0.005380093653482116, 0.004084885922088274, 0.004084885922088274, 0.0051808309255753715, 0.0051808309255753715, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.10540998306266813, 0.03168277373717246, 0.03168277373717246, 0.20494171565208727, 0.20494171565208727, 0.15054299093354587, 0.15054299093354587, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.79675201753512, 0.9627378698814387, 0.9627378698814387, 0.7563016837700508, 0.7563016837700508, 0.8428813390455315, 0.8428813390455315, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09783799940221181, 0.005380093653482116, 0.005380093653482116, 0.002889309554647803, 0.002889309554647803, 0.005081199561621999, 0.005081199561621999, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.10540998306266813, 0.03188203646507921, 0.03188203646507921, 0.2408090066753014, 0.2408090066753014, 0.15203746139284646, 0.15203746139284646, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.789777822058384, 0.9626382385174853, 0.9626382385174853, 0.7106705190794061, 0.7106705190794061, 0.8420842881339046, 0.8420842881339046, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09634352894291123, 0.0052804622895287435, 0.0052804622895287435, 0.002490784098834313, 0.002490784098834313, 0.005081199561621999, 0.005081199561621999, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.1138786489987048, 0.032081299192985954, 0.032081299192985954, 0.2868386968217595, 0.2868386968217595, 0.15283451230447345, 0.15283451230447345, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7896781906944306, 0.9624389757895786, 0.9624389757895786, 0.6585633157317924, 0.6585633157317924, 0.8412872372222776, 0.8412872372222776, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09634352894291123, 0.0052804622895287435, 0.0052804622895287435, 0.002092258643020823, 0.002092258643020823, 0.004981568197668626, 0.004981568197668626, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.11397828036265817, 0.032280561920892695, 0.032280561920892695, 0.3393444256251868, 0.3393444256251868, 0.1537311945800538, 0.1537311945800538, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7896781906944306, 0.9623393444256252, 0.9623393444256252, 0.5876257845969911, 0.5876257845969911, 0.8402909235827438, 0.8402909235827438, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09634352894291123, 0.0052804622895287435, 0.0052804622895287435, 0.0017933645511607054, 0.0017933645511607054, 0.004981568197668626, 0.004981568197668626, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.11397828036265817, 0.03238019328484607, 0.03238019328484607, 0.41058085085184814, 0.41058085085184814, 0.15472750821958753, 0.15472750821958753, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7896781906944306, 0.9620404503337651, 0.9620404503337651, 0.500647603865697, 0.500647603865697, 0.8393942413071634, 0.8393942413071634, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09634352894291123, 0.0052804622895287435, 0.0052804622895287435, 0.0015941018232539603, 0.0015941018232539603, 0.004782305469761881, 0.004782305469761881, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.11397828036265817, 0.03267908737670619, 0.03267908737670619, 0.4977582943110491, 0.4977582943110491, 0.15582345322307461, 0.15582345322307461, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7824051011258344, 0.9619408189698117, 0.9619408189698117, 0.3985254558134901, 0.3985254558134901, 0.8388960844873966, 0.8388960844873966, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09524758393942413, 0.0052804622895287435, 0.0052804622895287435, 0.0010959450034870978, 0.0010959450034870978, 0.004782305469761881, 0.004782305469761881, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.12234731493474146, 0.03277871874065956, 0.03277871874065956, 0.6003785991830228, 0.6003785991830228, 0.15632161004284148, 0.15632161004284148, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7823054697618811, 0.9618411876058583, 0.9618411876058583, 0.29520773139384276, 0.29520773139384276, 0.8383979276676298, 0.8383979276676298, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09524758393942413, 0.0052804622895287435, 0.0052804622895287435, 0.0008966822755803527, 0.0008966822755803527, 0.004682674105808508, 0.004682674105808508, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.12244694629869483, 0.03287835010461293, 0.03287835010461293, 0.7038955863305769, 0.7038955863305769, 0.15691939822656173, 0.15691939822656173, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7822058383979277, 0.9617415562419049, 0.9617415562419049, 0.22705987844973596, 0.22705987844973596, 0.8381986649397231, 0.8381986649397231, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09524758393942413, 0.0052804622895287435, 0.0052804622895287435, 0.0008966822755803527, 0.0008966822755803527, 0.004583042741855136, 0.004583042741855136, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.1225465776626482, 0.03297798146856631, 0.03297798146856631, 0.7720434392746837, 0.7720434392746837, 0.15721829231842183, 0.15721829231842183, 0.04672710969413171]], [["Correct", 0.0, 0.7684567101723623, 0.7822058383979277, 0.9615422935139982, 0.9615422935139982, 0.21908936933346618, 0.21908936933346618, 0.8374016140280961, 0.8374016140280961, 0.9448042243698316], ["Wrong", 0.0, 0.09694131712663147, 0.09524758393942413, 0.0052804622895287435, 0.0052804622895287435, 0.0008966822755803527, 0.0008966822755803527, 0.004483411377901763, 0.004483411377901763, 0.008468665936036665], ["Not Mapped", 1.0, 0.13460197270100627, 0.1225465776626482, 0.03317724419647305, 0.03317724419647305, 0.7800139483909535, 0.7800139483909535, 0.1581149745940022, 0.1581149745940022, 0.04672710969413171]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]], [["Correct", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Not Mapped", 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]]];
+function updateMapstatsChart(cutoff)
+{
+	mapstats_chart.axis.labels({x:"Mappers (MAPQ Threshold "+cutoff+")"});
+	mapstats_chart.load({columns: column_mapqs[cutoff], type:'bar',groups: [['Not Mapped','Wrong','Correct']],order: null});
+}
+var mapstats_chart = c3.generate({
+bindto: '#plot_mapstats',
+size: {
+  height: 400
+},
+data: {
+  columns: [["Correct", 0.9990036863604663, 0.8129919298595197, 0.8512503736176148, 0.9744943708279367, 0.9744943708279367, 0.9673209126232938, 0.9673209126232938, 0.8941914914815183, 0.8941914914815183, 0.9559629371326094], ["Wrong", 0.0004981568197668626, 0.17166484009166086, 0.12483809903357578, 0.008667928663943409, 0.008667928663943409, 0.025505629172063365, 0.025505629172063365, 0.009963136395337252, 0.009963136395337252, 0.009365348211617016], ["Not Mapped", 0.0004981568197668626, 0.015343230048819368, 0.023911527348809407, 0.016837700508119956, 0.016837700508119956, 0.0071734582046428215, 0.0071734582046428215, 0.09584537212314437, 0.09584537212314437, 0.034671714655773636]],
+  type: 'bar',
+  groups: [['Not Mapped','Wrong','Correct']],
+  order: null,
+  colors: {
+	    "Correct": d3.rgb('#2CA02C'),
+	    "Wrong": d3.rgb('#FF7F0E'),
+	    "Not Mapped": d3.rgb('#1F77B4')  }
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Mapper (MAPQ Threshold 0)", position: "outer-middle" },
+    type: "category",
+    categories: ["GraphMap2", "LRA (def)", "LRA (p1)", "Minimap2 (def)", "Minimap2 (p1)", "NGMLR (def)", "NGMLR (p1)", "Winnowmap2 (def)", "Winnowmap2 (p1)", "lordFAST"]
+  },
+
+  y: {
+    label: { text: "Percentage of reads", position: "outer-middle" },
+    tick: {
+      format: d3.format(".3%")
+    },
+    padding:
+    {
+    top:15
+    }
+  }
+},
+legend: {
+	position: "bottom"
+},
+tooltip: {
+	grouped: false
+}
+});
+
+
+
+
+var chart = c3.generate({
+    bindto: '#plot_edit_dist',
+    size: {
+      height: 500
+    },
+    data: {
+      x: 'x',
+      columns: [["GraphMap2", 0.0004981568197668626], ["LRA (def)", 0.015343230048819368], ["LRA (p1)", 0.023911527348809407], ["Minimap2 (def)", 0.016837700508119956], ["Minimap2 (p1)", 0.016837700508119956], ["NGMLR (def)", 0.0071734582046428215], ["NGMLR (p1)", 0.0071734582046428215], ["Winnowmap2 (def)", 0.09584537212314437], ["Winnowmap2 (p1)", 0.09584537212314437], ["lordFAST", 0.034671714655773636], ["x", 0]]
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        label: {text: "Edit distance in read", position: "outer-middle"}
+      },
+
+      y: {
+        label: {text: "Not mapped reads [%]", position: "outer-middle"},
+		tick: {
+		  format: d3.format(".3%")
+		}
+      }
+    },
+    legend: {
+		show:true
+    },
+    point: {
+    	show: false
+    }
+});
+
+var chart = c3.generate({
+    bindto: '#plot_mapq_rating',
+    size: {
+      height: 500
+    },
+    data: {
+      x: 'x',
+      columns: [["GraphMap2", 0, 0, 0, 1.5, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.7143, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005, 0.0005], ["LRA (def)", 0, 4.5733, 2.9538, 2.3202, 1.8696, 1.6444, 1.5968, 1.6159, 1.6273, 1.6318, 1.6341, 1.6364, 1.6432, 1.6395, 1.638, 1.6448, 1.6493, 1.6493, 1.6538, 1.6561, 1.6546, 1.6569, 1.6591, 1.6577, 1.6562, 1.6584, 1.6607, 1.657, 1.657, 1.6592, 1.6592, 1.6689, 1.6779, 1.6779, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112, 0.2112], ["LRA (p1)", 0, 1.0286, 0.6375, 0.5662, 0.5662, 0.5686, 0.5686, 0.5659, 0.5617, 0.5604, 0.5639, 0.5625, 0.5598, 0.5585, 0.5585, 0.5585, 0.5585, 0.5585, 0.5609, 0.5609, 0.5609, 0.5582, 0.5582, 0.5582, 0.5582, 0.5582, 0.5582, 0.5569, 0.5569, 0.5556, 0.5556, 0.5542, 0.4954, 0.4286, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467, 0.1467], ["Minimap2 (def)", 0, 0, 1.0, 0.8889, 0.5333, 0.5, 0.4444, 0.5789, 0.55, 0.5417, 0.4643, 0.4333, 0.4375, 0.4242, 0.4, 0.3889, 0.3659, 0.3404, 0.34, 0.3269, 0.3333, 0.3509, 0.3684, 0.3667, 0.4, 0.3846, 0.3881, 0.3824, 0.3714, 0.3467, 0.3377, 0.2959, 0.287, 0.2615, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089], ["Minimap2 (p1)", 0, 0, 1.0, 0.8889, 0.5333, 0.5, 0.4444, 0.5789, 0.55, 0.5417, 0.4643, 0.4333, 0.4375, 0.4242, 0.4, 0.3889, 0.3659, 0.3404, 0.34, 0.3269, 0.3333, 0.3509, 0.3684, 0.3667, 0.4, 0.3846, 0.3881, 0.3824, 0.3714, 0.3467, 0.3377, 0.2959, 0.287, 0.2615, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089, 0.0089], ["NGMLR (def)", 0, 0, 0, 0, 3.0, 3.0, 4.0, 6.0, 6.0, 6.0, 4.0, 3.0, 2.5, 2.0, 1.375, 1.375, 1.0, 0.9167, 0.8, 0.7778, 0.7895, 0.75, 0.8077, 0.7333, 0.7742, 0.7838, 0.825, 0.8511, 1.02, 1.069, 1.1129, 0.4454, 0.1505, 0.0329, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264], ["NGMLR (p1)", 0, 0, 0, 0, 3.0, 3.0, 4.0, 6.0, 6.0, 6.0, 4.0, 3.0, 2.5, 2.0, 1.375, 1.375, 1.0, 0.9167, 0.8, 0.7778, 0.7895, 0.75, 0.8077, 0.7333, 0.7742, 0.7838, 0.825, 0.8511, 1.02, 1.069, 1.1129, 0.4454, 0.1505, 0.0329, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264, 0.0264], ["Winnowmap2 (def)", 0, 0, 0.2, 0.1591, 0.1636, 0.1733, 0.1538, 0.1228, 0.1136, 0.1143, 0.1156, 0.1457, 0.1401, 0.135, 0.1488, 0.1486, 0.1453, 0.1459, 0.1538, 0.1471, 0.1429, 0.1396, 0.1491, 0.1441, 0.1434, 0.1351, 0.1273, 0.1246, 0.1222, 0.1173, 0.1175, 0.1061, 0.0982, 0.0965, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111], ["Winnowmap2 (p1)", 0, 0, 0.2, 0.1591, 0.1636, 0.1733, 0.1538, 0.1228, 0.1136, 0.1143, 0.1156, 0.1457, 0.1401, 0.135, 0.1488, 0.1486, 0.1453, 0.1459, 0.1538, 0.1471, 0.1429, 0.1396, 0.1491, 0.1441, 0.1434, 0.1351, 0.1273, 0.1246, 0.1222, 0.1173, 0.1175, 0.1061, 0.0982, 0.0965, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111, 0.0111], ["lordFAST", 0, 0.0, 0.0, 0.0, 0.0909, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0667, 0.0526, 0.0909, 0.0571, 0.0408, 0.0408, 0.0408, 0.0408, 0.0408, 0.0392, 0.0385, 0.0385, 0.0385, 0.0385, 0.0385, 0.0364, 0.0364, 0.0441, 0.0811, 0.0804, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098, 0.0098], ["x", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200, 220, 240, 255]]
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        label: {text: "Mapping Quality Threshold", position: "outer-middle"},
+        min: -5
+      },
+
+      y: {
+        label: {text: "Filtered wrong reads  / Filtered correct reads", position: "outer-middle"}
+      }
+    },
+    legend: {
+		show:true
+    },
+    point: {
+    	show: false
+    },
+    subchart:
+    {
+        show:true
+    }
+});
+
+var chart = c3.generate({
+    bindto: '#plot_mapq_dist',
+    size: {
+      height: 500
+    },
+    data: {
+      x: 'x',
+      columns: [["GraphMap2", 10032, 10032, 10032, 10027, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 10020, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["LRA (def)", 9883, 9465, 9199, 9043, 8893, 8775, 8743, 8732, 8727, 8725, 8724, 8723, 8720, 8719, 8717, 8714, 8712, 8712, 8710, 8709, 8707, 8706, 8705, 8703, 8701, 8700, 8699, 8698, 8698, 8697, 8697, 8690, 8686, 8686, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["LRA (p1)", 9797, 9655, 9255, 9158, 9158, 9157, 9157, 9155, 9152, 9151, 9148, 9147, 9145, 9144, 9144, 9144, 9144, 9144, 9143, 9143, 9143, 9141, 9141, 9141, 9141, 9141, 9141, 9140, 9140, 9139, 9139, 9138, 8979, 8807, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Minimap2 (def)", 9868, 9866, 9856, 9851, 9845, 9844, 9842, 9838, 9837, 9831, 9827, 9825, 9822, 9821, 9819, 9818, 9812, 9805, 9801, 9799, 9796, 9791, 9790, 9786, 9784, 9778, 9775, 9774, 9772, 9767, 9765, 9741, 9720, 9704, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Minimap2 (p1)", 9868, 9866, 9856, 9851, 9845, 9844, 9842, 9838, 9837, 9831, 9827, 9825, 9822, 9821, 9819, 9818, 9812, 9805, 9801, 9799, 9796, 9791, 9790, 9786, 9784, 9778, 9775, 9774, 9772, 9767, 9765, 9741, 9720, 9704, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["NGMLR (def)", 9965, 9962, 9962, 9962, 9961, 9961, 9960, 9958, 9958, 9958, 9955, 9953, 9951, 9950, 9946, 9946, 9943, 9942, 9938, 9933, 9931, 9923, 9918, 9913, 9910, 9899, 9892, 9878, 9864, 9845, 9834, 9462, 8337, 2208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["NGMLR (p1)", 9965, 9962, 9962, 9962, 9961, 9961, 9960, 9958, 9958, 9958, 9955, 9953, 9951, 9950, 9946, 9946, 9943, 9942, 9938, 9933, 9931, 9923, 9918, 9913, 9910, 9899, 9892, 9878, 9864, 9845, 9834, 9462, 8337, 2208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Winnowmap2 (def)", 9075, 9073, 9033, 9024, 9011, 8987, 8970, 8947, 8928, 8919, 8911, 8902, 8896, 8890, 8882, 8874, 8870, 8863, 8850, 8841, 8835, 8822, 8813, 8805, 8796, 8781, 8765, 8741, 8726, 8713, 8704, 8637, 8538, 8450, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["Winnowmap2 (p1)", 9075, 9073, 9033, 9024, 9011, 8987, 8970, 8947, 8928, 8919, 8911, 8902, 8896, 8890, 8882, 8874, 8870, 8863, 8850, 8841, 8835, 8822, 8813, 8805, 8796, 8781, 8765, 8741, 8726, 8713, 8704, 8637, 8538, 8450, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["lordFAST", 9689, 9686, 9685, 9681, 9677, 9673, 9673, 9673, 9673, 9673, 9673, 9673, 9673, 9673, 9673, 9669, 9665, 9652, 9638, 9638, 9638, 9638, 9638, 9636, 9635, 9635, 9635, 9635, 9635, 9632, 9632, 9618, 9569, 9568, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], ["x", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200, 220, 240, 255]],
+      type: 'step'
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        label: {text: "Mapping Quality Threshold", position: "outer-middle"},
+        min: -5
+      },
+
+      y: {
+        label: {text: "Number of Reads Mapped", position: "outer-middle"}
+      }
+    },
+    legend: {
+		show:true
+    },
+    point: {
+    	show: false
+    }
+});
+
+var roc_plot = c3.generate({
+bindto: '#mapq_roc',
+size: { height: 500 },
+data: {
+  xs: {"GraphMap2": "GraphMap2_x", "NGMLR (p1)": "NGMLR (p1)_x", "Minimap2 (def)": "Minimap2 (def)_x", "LRA (def)": "LRA (def)_x", "lordFAST": "lordFAST_x", "Winnowmap2 (def)": "Winnowmap2 (def)_x", "Minimap2 (p1)": "Minimap2 (p1)_x", "NGMLR (def)": "NGMLR (def)_x", "Winnowmap2 (p1)": "Winnowmap2 (p1)_x", "LRA (p1)": "LRA (p1)_x"},
+  columns: [["GraphMap2_x", 0.6989700043360187, 0.6989700043360187, 0.6989700043360187, 0.30102999566398114], ["GraphMap2", 4.0011710149414, 4.0011710149414, 4.0011710149414, 4.00108438129222], ["LRA (def)_x", 3.236285277448028, 3.139879086401236, 3.083502619830267, 3.055378331375, 3.0326187608507196, 3.0145205387579233, 3.0094508957986936, 3.00518051250378, 3.003029470553618, 3.0021660617565074, 3.001733712809, 3.001300933020418, 2.9999999999999996, 2.9999999999999996, 2.9995654882259823, 2.9982593384236984, 2.997386384397313, 2.997386384397313, 2.996511672154178, 2.9960736544852753, 2.9956351945975497, 2.9951962915971793, 2.994756944587628, 2.9943171526696366, 2.993876914941211, 2.9934362304976116, 2.9929950984313414, 2.9929950984313414, 2.9929950984313414, 2.9925535178321354, 2.9925535178321354, 2.9921114877869495, 2.9916690073799486, 2.9912260756924947, 2.9912260756924947, 2.9907826918031377, 2.9907826918031377, 2.9907826918031377, 2.9903388547876015, 2.9898945637187726, 2.9898945637187726, 2.9898945637187726, 2.9894498176666913, 2.9894498176666913, 2.9890046156985366, 2.9890046156985366, 2.9890046156985366, 2.9890046156985366, 2.9890046156985366, 2.9885589568786153, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514, 2.9881128402683514], ["LRA (def)", 3.911690158753861, 3.90768002424242, 3.9023836844324706, 3.8980117387975013, 3.892928982355205, 3.88879706745668, 3.887673552454447, 3.8876173003357355, 3.8876173003357355, 3.8876173003357355, 3.8876173003357355, 3.8876173003357355, 3.8876173003357355, 3.887561040930009, 3.887504774235378, 3.887504774235378, 3.887504774235378, 3.887504774235378, 3.887504774235378, 3.887504774235378, 3.887448500249953, 3.887448500249953, 3.887448500249953, 3.887392218971846, 3.887335930399167, 3.887335930399167, 3.887335930399167, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887279634530023, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523, 3.887223331362523], ["LRA (p1)_x", 3.09795107099415, 3.0722498976135144, 3.0178677189635055, 3.0094508957986936, 3.0094508957986936, 3.00902574208691, 3.00902574208691, 3.00902574208691, 3.00902574208691, 3.00902574208691, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.008174184006426, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.0077477780007396, 3.001733712809, 3.001733712809, 3.001733712809, 3.001733712809, 2.9925535178321354, 2.9921114877869495, 2.9921114877869495, 2.9921114877869495, 2.985426474083001, 2.985426474083001, 2.985426474083001, 2.985426474083001, 2.9804578922760996, 2.9804578922760996, 2.9804578922760996, 2.9804578922760996], ["LRA (p1)", 3.931661239684481, 3.9280884596649703, 3.9145018228273134, 3.9104109399146876, 3.9104109399146876, 3.9104109399146876, 3.9104109399146876, 3.910304168068569, 3.9101439610645126, 3.910090545594068, 3.9100371235530504, 3.909983694939844, 3.9098768179903924, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9098233696509115, 3.9097164532343442, 3.9097164532343442, 3.9097164532343442, 3.9097164532343442, 3.9097164532343442, 3.9097164532343442, 3.909662985154018, 3.909662985154018, 3.909609510490169, 3.909609510490169, 3.909609510490169, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.909556029241175, 3.9062272630523585, 3.9062272630523585, 3.9062272630523585, 3.9062272630523585, 3.9029270960172626, 3.9029270960172626, 3.9029270960172626, 3.9029270960172626, 3.899108858193399, 3.8990540679981707, 3.8990540679981707, 3.8990540679981707, 3.895035597452322, 3.8949802909279683, 3.894924977359543, 3.894924977359543], ["Minimap2 (def)_x", 1.9395192526186182, 1.9294189257142926, 1.9084850188786497, 1.8976270912904412, 1.8976270912904412, 1.8976270912904412, 1.8976270912904412, 1.8808135922807911, 1.8808135922807911, 1.8692317197309762, 1.8692317197309762, 1.8692317197309762, 1.8633228601204557, 1.8633228601204557, 1.8633228601204557, 1.8633228601204557, 1.8573324964312683, 1.851258348719075, 1.845098040014257, 1.845098040014257, 1.8388490907372552, 1.8260748027008262, 1.8195439355418683, 1.8129133566428552, 1.7993405494535815, 1.7923916894982537, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.7781512503836434, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7558748556724912, 1.7558748556724912, 1.7558748556724912, 1.7558748556724912, 1.7481880270062005, 1.7323937598229684, 1.7323937598229684, 1.7323937598229684, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789], ["Minimap2 (def)", 3.990383258906233, 3.990383258906233, 3.9901167660679038, 3.9899834583013987, 3.989716719948104, 3.9896722476238726, 3.989583289311005, 3.9895388033205017, 3.989494312772709, 3.989316304989951, 3.9891382242157887, 3.9890491564382202, 3.988960070390338, 3.9889155205126867, 3.9888264070452757, 3.98878184345364, 3.988558956878615, 3.9882913419074875, 3.9881574725567526, 3.9880682033926345, 3.9879789158754817, 3.987844950171298, 3.987844950171298, 3.9877109431303057, 3.9877109431303057, 3.9874875061330926, 3.987398099137017, 3.987353388735793, 3.9872639541222354, 3.987040286979266, 3.986950787858516, 3.9868612702900443, 3.986726959331218, 3.98659260682221, 3.986547813414724, 3.9864582127373063, 3.986189299736824, 3.986189299736824, 3.98614446471052, 3.986054780769695, 3.9860099318532605, 3.9860099318532605, 3.98596507830487, 3.985920220123567, 3.9856958596898417, 3.985650973690949, 3.9856060830524362, 3.985471383289587, 3.9854264740830008, 3.9853366417356124, 3.9852467908028615, 3.985201858364571, 3.9851119795393535, 3.9850670331505005, 3.9849771264154934, 3.9849321660674115, 3.9847972570892924, 3.984752278115413, 3.9847072944826727, 3.984662306190106, 3.9845723156216315], ["Minimap2 (p1)_x", 1.9395192526186182, 1.9294189257142926, 1.9084850188786497, 1.8976270912904412, 1.8976270912904412, 1.8976270912904412, 1.8976270912904412, 1.8808135922807911, 1.8808135922807911, 1.8692317197309762, 1.8692317197309762, 1.8692317197309762, 1.8633228601204557, 1.8633228601204557, 1.8633228601204557, 1.8633228601204557, 1.8573324964312683, 1.851258348719075, 1.845098040014257, 1.845098040014257, 1.8388490907372552, 1.8260748027008262, 1.8195439355418683, 1.8129133566428552, 1.7993405494535815, 1.7923916894982537, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.785329835010767, 1.7781512503836434, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7708520116421442, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7558748556724912, 1.7558748556724912, 1.7558748556724912, 1.7558748556724912, 1.7481880270062005, 1.7323937598229684, 1.7323937598229684, 1.7323937598229684, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789, 1.724275869600789], ["Minimap2 (p1)", 3.990383258906233, 3.990383258906233, 3.9901167660679038, 3.9899834583013987, 3.989716719948104, 3.9896722476238726, 3.989583289311005, 3.9895388033205017, 3.989494312772709, 3.989316304989951, 3.9891382242157887, 3.9890491564382202, 3.988960070390338, 3.9889155205126867, 3.9888264070452757, 3.98878184345364, 3.988558956878615, 3.9882913419074875, 3.9881574725567526, 3.9880682033926345, 3.9879789158754817, 3.987844950171298, 3.987844950171298, 3.9877109431303057, 3.9877109431303057, 3.9874875061330926, 3.987398099137017, 3.987353388735793, 3.9872639541222354, 3.987040286979266, 3.986950787858516, 3.9868612702900443, 3.986726959331218, 3.98659260682221, 3.986547813414724, 3.9864582127373063, 3.986189299736824, 3.986189299736824, 3.98614446471052, 3.986054780769695, 3.9860099318532605, 3.9860099318532605, 3.98596507830487, 3.985920220123567, 3.9856958596898417, 3.985650973690949, 3.9856060830524362, 3.985471383289587, 3.9854264740830008, 3.9853366417356124, 3.9852467908028615, 3.985201858364571, 3.9851119795393535, 3.9850670331505005, 3.9849771264154934, 3.9849321660674115, 3.9847972570892924, 3.984752278115413, 3.9847072944826727, 3.984662306190106, 3.9845723156216315], ["NGMLR (def)_x", 2.408239965311849, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4014005407815437, 2.397940008672037, 2.397940008672037, 2.397940008672037, 2.394451680826216, 2.392696953259666, 2.390935107103379, 2.390935107103379, 2.3891660843645326, 2.3891660843645326, 2.3891660843645326, 2.3891660843645326, 2.387389826338729, 2.383815365980431, 2.382017042574868, 2.376576957056512, 2.371067862271736, 2.3692158574101425, 2.3654879848908994, 2.3560258571931225, 2.3483048630481607, 2.3344537511509307, 2.311753861055754, 2.287801729930226, 2.271841606536499, 2.252853030979893, 2.2278867046136734, 2.2095150145426303, 2.1903316981702914, 2.1461280356782377, 2.1367205671564067, 2.1139433523068365, 2.08278537031645, 2.041392685158225, 2.0043213737826426, 1.9590413923210932, 1.919078092376074, 1.8864907251724818, 1.8573324964312683, 1.8129133566428552, 1.785329835010767, 1.7708520116421442, 1.7481880270062005, 1.6812412373755872, 1.6334684555795864, 1.6127838567197355, 1.462397997898956, 1.3979400086720375, 1.322219294733919, 1.2552725051033058, 1.2041199826559246, 1.041392685158225, 0.9542425094393249, 0.9542425094393249, 0.9542425094393249], ["NGMLR (def)", 3.9871745010875412, 3.9871745010875412, 3.9871745010875412, 3.9871745010875412, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.987085029624122, 3.987040286979266, 3.986995539724381, 3.986950787858516, 3.9868165045855357, 3.9868165045855357, 3.9866821797795047, 3.986637395610154, 3.98650301538674, 3.9863685935702726, 3.9863237770507647, 3.9860996250551293, 3.9860099318532605, 3.985830489858392, 3.985785617772605, 3.985516287852715, 3.985381560231997, 3.9850670331505005, 3.9849321660674115, 3.9845723156216315, 3.9843922785242647, 3.982949288574498, 3.9823164696920648, 3.981637424655769, 3.9805941557762194, 3.9796394122229066, 3.978500069311459, 3.9769915453061504, 3.9751099896861612, 3.973174052682972, 3.9713222452428125, 3.9685296443748395, 3.9662356240985814, 3.9627953698572327, 3.95970902424643, 3.95592815689695, 3.9497314523157065, 3.944877305963695, 3.9399682905513362, 3.929163383205064, 3.9187640310279988, 3.8997658019443855, 3.8802989914257524, 3.8532722240206825, 3.8202014594856397, 3.770704768215779, 3.701136066092526, 3.602059991327962, 3.471731651480051, 3.3577443251803754, 3.34222522936079], ["NGMLR (p1)_x", 2.408239965311849, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4031205211758175, 2.4014005407815437, 2.397940008672037, 2.397940008672037, 2.397940008672037, 2.394451680826216, 2.392696953259666, 2.390935107103379, 2.390935107103379, 2.3891660843645326, 2.3891660843645326, 2.3891660843645326, 2.3891660843645326, 2.387389826338729, 2.383815365980431, 2.382017042574868, 2.376576957056512, 2.371067862271736, 2.3692158574101425, 2.3654879848908994, 2.3560258571931225, 2.3483048630481607, 2.3344537511509307, 2.311753861055754, 2.287801729930226, 2.271841606536499, 2.252853030979893, 2.2278867046136734, 2.2095150145426303, 2.1903316981702914, 2.1461280356782377, 2.1367205671564067, 2.1139433523068365, 2.08278537031645, 2.041392685158225, 2.0043213737826426, 1.9590413923210932, 1.919078092376074, 1.8864907251724818, 1.8573324964312683, 1.8129133566428552, 1.785329835010767, 1.7708520116421442, 1.7481880270062005, 1.6812412373755872, 1.6334684555795864, 1.6127838567197355, 1.462397997898956, 1.3979400086720375, 1.322219294733919, 1.2552725051033058, 1.2041199826559246, 1.041392685158225, 0.9542425094393249, 0.9542425094393249, 0.9542425094393249], ["NGMLR (p1)", 3.9871745010875412, 3.9871745010875412, 3.9871745010875412, 3.9871745010875412, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.9871297676598965, 3.987085029624122, 3.987040286979266, 3.986995539724381, 3.986950787858516, 3.9868165045855357, 3.9868165045855357, 3.9866821797795047, 3.986637395610154, 3.98650301538674, 3.9863685935702726, 3.9863237770507647, 3.9860996250551293, 3.9860099318532605, 3.985830489858392, 3.985785617772605, 3.985516287852715, 3.985381560231997, 3.9850670331505005, 3.9849321660674115, 3.9845723156216315, 3.9843922785242647, 3.982949288574498, 3.9823164696920648, 3.981637424655769, 3.9805941557762194, 3.9796394122229066, 3.978500069311459, 3.9769915453061504, 3.9751099896861612, 3.973174052682972, 3.9713222452428125, 3.9685296443748395, 3.9662356240985814, 3.9627953698572327, 3.95970902424643, 3.95592815689695, 3.9497314523157065, 3.944877305963695, 3.9399682905513362, 3.929163383205064, 3.9187640310279988, 3.8997658019443855, 3.8802989914257524, 3.8532722240206825, 3.8202014594856397, 3.770704768215779, 3.701136066092526, 3.602059991327962, 3.471731651480051, 3.3577443251803754, 3.34222522936079], ["Winnowmap2 (def)_x", 2.0, 1.9912260756924949, 1.968482948553935, 1.968482948553935, 1.9590413923210932, 1.9395192526186182, 1.9344984512435675, 1.9344984512435675, 1.9294189257142926, 1.9242792860618814, 1.919078092376074, 1.8920946026904801, 1.8920946026904801, 1.8920946026904801, 1.8750612633916997, 1.8692317197309762, 1.8692317197309762, 1.8633228601204557, 1.845098040014257, 1.845098040014257, 1.845098040014257, 1.8388490907372552, 1.8195439355418683, 1.8195439355418683, 1.8129133566428552, 1.8129133566428552, 1.8129133566428552, 1.7993405494535815, 1.7923916894982537, 1.7923916894982537, 1.785329835010767, 1.785329835010767, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7708520116421442, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7558748556724912, 1.7558748556724912, 1.7481880270062005, 1.7481880270062005, 1.7481880270062005, 1.7403626894942439, 1.724275869600789, 1.716003343634799, 1.716003343634799, 1.7075701760979363, 1.7075701760979363, 1.6989700043360185, 1.6989700043360185, 1.6812412373755872, 1.6812412373755872, 1.6720978579357173, 1.6627578316815739, 1.6532125137753435], ["Winnowmap2 (def)", 3.953034457250357, 3.953034457250357, 3.951337518795917, 3.950900089366387, 3.9503648543761227, 3.9493900066449124, 3.9486085498764356, 3.947482736556918, 3.946599625015132, 3.9462065538427824, 3.9458623244896174, 3.945665499432134, 3.945370094490303, 3.94507448847873, 3.944827996343216, 3.9444826721501687, 3.944285220688752, 3.9439888750737717, 3.943494515906102, 3.9430491110084067, 3.942751920429813, 3.9421569284674898, 3.941859126525373, 3.941461739347329, 3.9410639882199017, 3.940317221574218, 3.9395192526186182, 3.938419645793193, 3.937718443617263, 3.937066312017428, 3.936664513000075, 3.9362623419034777, 3.9358597980378796, 3.935406489752349, 3.935305690289925, 3.935104021151449, 3.9349022583223134, 3.9342964068194055, 3.933942602741261, 3.9337908841434195, 3.93343666782628, 3.933031495102405, 3.9326259440217823, 3.9322707758994904, 3.9319153170812458, 3.931559567090805, 3.931203525450752, 3.9305415298644344, 3.9299805905155143, 3.9296743179485873, 3.9287030274305965, 3.9280884596649703, 3.9273703630390235, 3.926959488380276, 3.9265482246356185, 3.926033596678844, 3.925569909543376, 3.9253120914996487, 3.925054120311842, 3.9249508889156104, 3.924537717775489], ["Winnowmap2 (p1)_x", 2.0, 1.9912260756924949, 1.968482948553935, 1.968482948553935, 1.9590413923210932, 1.9395192526186182, 1.9344984512435675, 1.9344984512435675, 1.9294189257142926, 1.9242792860618814, 1.919078092376074, 1.8920946026904801, 1.8920946026904801, 1.8920946026904801, 1.8750612633916997, 1.8692317197309762, 1.8692317197309762, 1.8633228601204557, 1.845098040014257, 1.845098040014257, 1.845098040014257, 1.8388490907372552, 1.8195439355418683, 1.8195439355418683, 1.8129133566428552, 1.8129133566428552, 1.8129133566428552, 1.7993405494535815, 1.7923916894982537, 1.7923916894982537, 1.785329835010767, 1.785329835010767, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7781512503836434, 1.7708520116421442, 1.7634279935629371, 1.7634279935629371, 1.7634279935629371, 1.7558748556724912, 1.7558748556724912, 1.7481880270062005, 1.7481880270062005, 1.7481880270062005, 1.7403626894942439, 1.724275869600789, 1.716003343634799, 1.716003343634799, 1.7075701760979363, 1.7075701760979363, 1.6989700043360185, 1.6989700043360185, 1.6812412373755872, 1.6812412373755872, 1.6720978579357173, 1.6627578316815739, 1.6532125137753435], ["Winnowmap2 (p1)", 3.953034457250357, 3.953034457250357, 3.951337518795917, 3.950900089366387, 3.9503648543761227, 3.9493900066449124, 3.9486085498764356, 3.947482736556918, 3.946599625015132, 3.9462065538427824, 3.9458623244896174, 3.945665499432134, 3.945370094490303, 3.94507448847873, 3.944827996343216, 3.9444826721501687, 3.944285220688752, 3.9439888750737717, 3.943494515906102, 3.9430491110084067, 3.942751920429813, 3.9421569284674898, 3.941859126525373, 3.941461739347329, 3.9410639882199017, 3.940317221574218, 3.9395192526186182, 3.938419645793193, 3.937718443617263, 3.937066312017428, 3.936664513000075, 3.9362623419034777, 3.9358597980378796, 3.935406489752349, 3.935305690289925, 3.935104021151449, 3.9349022583223134, 3.9342964068194055, 3.933942602741261, 3.9337908841434195, 3.93343666782628, 3.933031495102405, 3.9326259440217823, 3.9322707758994904, 3.9319153170812458, 3.931559567090805, 3.931203525450752, 3.9305415298644344, 3.9299805905155143, 3.9296743179485873, 3.9287030274305965, 3.9280884596649703, 3.9273703630390235, 3.926959488380276, 3.9265482246356185, 3.926033596678844, 3.925569909543376, 3.9253120914996487, 3.925054120311842, 3.9249508889156104, 3.924537717775489], ["lordFAST_x", 1.9731278535996983, 1.9731278535996983, 1.9731278535996983, 1.9731278535996983, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.968482948553935, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9637878273455551, 1.9590413923210932, 1.9590413923210932, 1.9542425094393248, 1.9542425094393248, 1.9542425094393248, 1.9395192526186182, 1.9395192526186182, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926, 1.9294189257142926], ["lordFAST", 3.9820449790714902, 3.981909170090792, 3.9818638909913497, 3.981682727371285, 3.9815468050452356, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9813655090785445, 3.9811841373983543, 3.9810480589131725, 3.9804578922760996, 3.979821430030225, 3.979821430030225, 3.979821430030225, 3.979821430030225, 3.979821430030225, 3.9797304306622845, 3.9796849238270258, 3.9796849238270258, 3.9796849238270258, 3.9796849238270258, 3.9796849238270258, 3.979548374704095, 3.979548374704095, 3.979548374704095, 3.979548374704095, 3.979548374704095, 3.9795028487874005, 3.9795028487874005, 3.9795028487874005, 3.9793662423961607, 3.9793662423961607, 3.979320697382024, 3.978956165217591, 3.9788649843476565, 3.9788649843476565, 3.9788193867328423, 3.9786369483844743, 3.9783631470838823, 3.977723605288847, 3.977632165245999, 3.977220446635385, 3.9770373352246806, 3.9769915453061504, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416, 3.9769457505592416]]
+},
+grid: {
+  x: {
+    show: true
+  },
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "log10(Wrongly Mapped)", position: "outer-middle" },
+    tick: { fit: false, format: d3.format("10.3f") }
+  },
+
+  y: {
+    label: { text: "log10(Correctly Mapped)", position: "outer-middle"},
+    tick: { format: d3.format("10.3f") }
+  }
+},
+point: {
+  r: 5
+},
+legend: {
+    position: "bottom",
+    inset: {
+        anchor: 'top-left',
+        x: 20,
+        y: 10,
+        step: 2
+    }
+},
+tooltip: {
+	grouped: false
+}});
+
+
+
+var chart = c3.generate({
+bindto: '#plot_pr',
+size: { height: 500 },
+data: {
+  xs: {"GraphMap2": "GraphMap2_x", "NGMLR (p1)": "NGMLR (p1)_x", "Minimap2 (def)": "Minimap2 (def)_x", "LRA (def)": "LRA (def)_x", "lordFAST": "lordFAST_x", "Winnowmap2 (def)": "Winnowmap2 (def)_x", "Minimap2 (p1)": "Minimap2 (p1)_x", "NGMLR (def)": "NGMLR (def)_x", "Winnowmap2 (p1)": "Winnowmap2 (p1)_x", "LRA (p1)": "LRA (p1)_x"},
+  columns: [["GraphMap2_x", 0.9996, 0], ["GraphMap2", 0.9995], ["LRA (def)_x", 0.9853, 0], ["LRA (def)", 0.8257], ["LRA (p1)_x", 0.975, 0], ["LRA (p1)", 0.8721], ["Minimap2 (def)_x", 0.9846, 0], ["Minimap2 (def)", 0.9912], ["Minimap2 (p1)_x", 0.9846, 0], ["Minimap2 (p1)", 0.9912], ["NGMLR (def)_x", 0.9932, 0], ["NGMLR (def)", 0.9743], ["NGMLR (p1)_x", 0.9932, 0], ["NGMLR (p1)", 0.9743], ["Winnowmap2 (def)_x", 0.9122, 0], ["Winnowmap2 (def)", 0.989], ["Winnowmap2 (p1)_x", 0.9122, 0], ["Winnowmap2 (p1)", 0.989], ["lordFAST_x", 0.9682, 0], ["lordFAST", 0.9903]],
+  type: 'scatter',
+},
+grid: {
+  x: {
+    show: true
+  },
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Recall", position: "outer-middle" },
+    tick: { fit: false, format: d3.format("10.3f") }
+  },
+
+  y: {
+    label: { text: "Precision", position: "outer-middle"},
+    tick: { format: d3.format("10.3f") }
+  }
+},
+point: {
+  r: 5
+},
+legend: {
+	position: "bottom",
+	inset: {
+		anchor: 'top-left',
+		x: 20,
+		y: 10,
+		step: 2
+	}
+},
+tooltip: {
+	format: {
+		//title: function (d) { return ""; }
+	},
+	grouped: false
+}
+});
+
+var chart = c3.generate({
+bindto: '#plot_resource_corrects',
+data: {
+  columns: [["Correct/s", 100.617, 219.336, 141.191, 796.791, 777.792, 61.435, 72.478, 553.175, 518.168, 1191.621]],
+  type: 'bar',
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Mapper", position: "outer-middle" },
+    type: "category",
+    categories: ["GraphMap2", "LRA (def)", "LRA (p1)", "Minimap2 (def)", "Minimap2 (p1)", "NGMLR (def)", "NGMLR (p1)", "Winnowmap2 (def)", "Winnowmap2 (p1)", "lordFAST"]
+  },
+
+  y: {
+    label: { text: "Correctly Mapped [reads/s]", position: "outer-middle" },
+    tick: { format: d3.format("10.3f") }
+  }
+},
+legend: {
+	position: "inset",
+	show:false,
+	inset: {
+		anchor: 'top-right'
+	}
+}
+});
+
+var chart = c3.generate({
+bindto: '#plot_resource_runtime',
+data: {
+  columns: [["Runtime/mio. reads", 165.48, 61.777, 100.485, 20.384, 20.882, 262.422, 222.441, 26.941, 28.761, 13.371]],
+  type: 'bar',
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Mapper", position: "outer-middle" },
+    type: "category",
+    categories: ["GraphMap2", "LRA (def)", "LRA (p1)", "Minimap2 (def)", "Minimap2 (p1)", "NGMLR (def)", "NGMLR (p1)", "Winnowmap2 (def)", "Winnowmap2 (p1)", "lordFAST"]
+  },
+
+  y: {
+    label: { text: "Runtime [min/mio. reads]", position: "outer-middle" },
+    tick: { format: d3.format("10.3f") }
+  }
+},
+legend: {
+	position: "inset",
+	show:false,
+	inset: {
+		anchor: 'top-right'
+	}
+}
+});
+
+var chart = c3.generate({
+bindto: '#plot_resource_memory',
+data: {
+  columns: [["Memory Usage", 631.0, 480.0, 942.0, 3319.0, 3317.0, 3861.0, 3913.0, 3375.0, 3376.0, 425.0]],
+  type: 'bar',
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: { text: "Mapper", position: "outer-middle" },
+    type: "category",
+    categories: ["GraphMap2", "LRA (def)", "LRA (p1)", "Minimap2 (def)", "Minimap2 (p1)", "NGMLR (def)", "NGMLR (p1)", "Winnowmap2 (def)", "Winnowmap2 (p1)", "lordFAST"]
+  },
+
+  y: {
+    label: { text: "Memory Usage [MB]", position: "outer-middle" },
+    tick: { format: d3.format("10.3f") }
+  }
+},
+legend: {
+	position: "inset",
+	show:false,
+	inset: {
+		anchor: 'top-right'
+	}
+}
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>

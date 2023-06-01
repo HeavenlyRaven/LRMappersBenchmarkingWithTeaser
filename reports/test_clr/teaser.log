@@ -1,0 +1,61 @@
+[22:01:16] [Main        ] framework cmd:  ./teaser.py test_clr.yaml
+[22:01:16] [Main        ] framework hash: vevev
+[22:01:16] [Main        ] deployment mode: production (False)
+[22:01:16] [Main        ] Test Runner Setup - ""
+
+[22:01:16] [Main        ] Using Teaser for data set creation
+[22:01:16] [Teaser      ] Init. Creating 1 test datasets.
+[22:01:16] [Teaser      ] Data set e_coli_sim_clr already exists, not creating.
+[22:01:16] [Main        ] Data set creation completed
+[22:01:16] [Main        ] 
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<minimap2> /home/raven/Desktop/Diploma/Teaser/cache/dev_15d6248cdae0ae26eeb944374c0a6721.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<winnowmap> /home/raven/Desktop/Diploma/Teaser/cache/dev_2bd57a0f8beae2144711a7c75193fe1c.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<graphmap> /home/raven/Desktop/Diploma/Teaser/cache/dev_960e954dcc5d89b19c0b713a0717709b.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<ngmlr> /home/raven/Desktop/Diploma/Teaser/cache/dev_7da133c264935798ef2e4eb2a407dedb.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lra> /home/raven/Desktop/Diploma/Teaser/cache/dev_cccae9bac6f74f2532fea0db0d14131c.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lordfast> /home/raven/Desktop/Diploma/Teaser/cache/dev_6619f14058edf3a9d6bf1e1ac61edb94.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<minimap2_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_eeef414974e02debc2818dbb62d5695a.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<winnowmap_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_e7b97a0b3312f0495cfb9df944e34b85.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<ngmlr_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_f1cd3508baabd9f2413022abca85b68d.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lra_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_b58408399e021c9aa93f93e4e384546e.test
+[22:01:17] [minimap2    ] Skip: e_coli_sim_clr<minimap2> (already run)
+
+[22:01:17] [winnowmap   ] Skip: e_coli_sim_clr<winnowmap> (already run)
+
+[22:01:17] [graphmap    ] Skip: e_coli_sim_clr<graphmap> (already run)
+
+[22:01:17] [ngmlr       ] Skip: e_coli_sim_clr<ngmlr> (already run)
+
+[22:01:17] [lra         ] Skip: e_coli_sim_clr<lra> (already run)
+
+[22:01:17] [lordfast    ] Skip: e_coli_sim_clr<lordfast> (already run)
+
+[22:01:17] [minimap2_01 ] Skip: e_coli_sim_clr<minimap2_01> (already run)
+
+[22:01:17] [winnowmap_01] Skip: e_coli_sim_clr<winnowmap_01> (already run)
+
+[22:01:17] [ngmlr_01    ] Skip: e_coli_sim_clr<ngmlr_01> (already run)
+
+[22:01:17] [lra_01      ] Skip: e_coli_sim_clr<lra_01> (already run)
+
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_overview_scatter.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_overview.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_mapping_statistics.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_mapq_rating.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_mapq_distribution.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_precision_recall.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_corrects.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_runtime.csv
+[22:01:17] [report_overview] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_memory.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_lra_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_ngmlr_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_minimap2_01_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_lra_01_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_winnowmap_01_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_winnowmap_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_lordfast_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_minimap2_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_graphmap_mapqs.csv
+[22:01:17] [report_detail] Wrote CSV to /home/raven/Desktop/Diploma/Teaser/reports/test_clr/e_coli_sim_clr_ngmlr_01_mapqs.csv
+[22:01:17] [Main        ] Benchmark completed. Results were placed in: /home/raven/Desktop/Diploma/Teaser/reports/test_clr
+

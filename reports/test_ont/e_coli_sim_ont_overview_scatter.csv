@@ -1,0 +1,11 @@
+parameter,correct_percent,throughput_reads_per_sec
+graphmap,,0.999000,119.000000
+lra,,0.847000,350.000000
+lra_01, -ONT,0.882000,314.000000
+minimap2,,0.982000,1197.000000
+minimap2_01, -x map-ont,0.982000,1230.000000
+ngmlr,,0.962000,98.000000
+ngmlr_01, -x ont,0.962000,98.000000
+winnowmap,,0.941000,861.000000
+winnowmap_01, -x map-ont,0.941000,907.000000
+lordfast,,0.955000,1270.000000

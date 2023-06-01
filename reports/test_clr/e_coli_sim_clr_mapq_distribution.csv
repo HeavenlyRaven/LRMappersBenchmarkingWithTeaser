@@ -1,0 +1,2561 @@
+mapper,mapq_value,read_count
+GraphMap2,0,10032
+GraphMap2,1,10032
+GraphMap2,2,10032
+GraphMap2,3,10027
+GraphMap2,4,10020
+GraphMap2,5,10020
+GraphMap2,6,10020
+GraphMap2,7,10020
+GraphMap2,8,10020
+GraphMap2,9,10020
+GraphMap2,10,10020
+GraphMap2,11,10020
+GraphMap2,12,10020
+GraphMap2,13,10020
+GraphMap2,14,10020
+GraphMap2,15,10020
+GraphMap2,16,10020
+GraphMap2,17,10020
+GraphMap2,18,10020
+GraphMap2,19,10020
+GraphMap2,20,10020
+GraphMap2,21,10020
+GraphMap2,22,10020
+GraphMap2,23,10020
+GraphMap2,24,10020
+GraphMap2,25,10020
+GraphMap2,26,10020
+GraphMap2,27,10020
+GraphMap2,28,10020
+GraphMap2,29,10020
+GraphMap2,30,10020
+GraphMap2,31,10020
+GraphMap2,32,10020
+GraphMap2,33,10020
+GraphMap2,34,10020
+GraphMap2,35,10020
+GraphMap2,36,10020
+GraphMap2,37,10020
+GraphMap2,38,10020
+GraphMap2,39,10020
+GraphMap2,40,10020
+GraphMap2,41,10020
+GraphMap2,42,10020
+GraphMap2,43,10020
+GraphMap2,44,10020
+GraphMap2,45,10020
+GraphMap2,46,10020
+GraphMap2,47,10020
+GraphMap2,48,10020
+GraphMap2,49,10020
+GraphMap2,50,0
+GraphMap2,51,0
+GraphMap2,52,0
+GraphMap2,53,0
+GraphMap2,54,0
+GraphMap2,55,0
+GraphMap2,56,0
+GraphMap2,57,0
+GraphMap2,58,0
+GraphMap2,59,0
+GraphMap2,60,0
+GraphMap2,61,0
+GraphMap2,62,0
+GraphMap2,63,0
+GraphMap2,64,0
+GraphMap2,65,0
+GraphMap2,66,0
+GraphMap2,67,0
+GraphMap2,68,0
+GraphMap2,69,0
+GraphMap2,70,0
+GraphMap2,71,0
+GraphMap2,72,0
+GraphMap2,73,0
+GraphMap2,74,0
+GraphMap2,75,0
+GraphMap2,76,0
+GraphMap2,77,0
+GraphMap2,78,0
+GraphMap2,79,0
+GraphMap2,80,0
+GraphMap2,81,0
+GraphMap2,82,0
+GraphMap2,83,0
+GraphMap2,84,0
+GraphMap2,85,0
+GraphMap2,86,0
+GraphMap2,87,0
+GraphMap2,88,0
+GraphMap2,89,0
+GraphMap2,90,0
+GraphMap2,91,0
+GraphMap2,92,0
+GraphMap2,93,0
+GraphMap2,94,0
+GraphMap2,95,0
+GraphMap2,96,0
+GraphMap2,97,0
+GraphMap2,98,0
+GraphMap2,99,0
+GraphMap2,100,0
+GraphMap2,101,0
+GraphMap2,102,0
+GraphMap2,103,0
+GraphMap2,104,0
+GraphMap2,105,0
+GraphMap2,106,0
+GraphMap2,107,0
+GraphMap2,108,0
+GraphMap2,109,0
+GraphMap2,110,0
+GraphMap2,111,0
+GraphMap2,112,0
+GraphMap2,113,0
+GraphMap2,114,0
+GraphMap2,115,0
+GraphMap2,116,0
+GraphMap2,117,0
+GraphMap2,118,0
+GraphMap2,119,0
+GraphMap2,120,0
+GraphMap2,121,0
+GraphMap2,122,0
+GraphMap2,123,0
+GraphMap2,124,0
+GraphMap2,125,0
+GraphMap2,126,0
+GraphMap2,127,0
+GraphMap2,128,0
+GraphMap2,129,0
+GraphMap2,130,0
+GraphMap2,131,0
+GraphMap2,132,0
+GraphMap2,133,0
+GraphMap2,134,0
+GraphMap2,135,0
+GraphMap2,136,0
+GraphMap2,137,0
+GraphMap2,138,0
+GraphMap2,139,0
+GraphMap2,140,0
+GraphMap2,141,0
+GraphMap2,142,0
+GraphMap2,143,0
+GraphMap2,144,0
+GraphMap2,145,0
+GraphMap2,146,0
+GraphMap2,147,0
+GraphMap2,148,0
+GraphMap2,149,0
+GraphMap2,150,0
+GraphMap2,151,0
+GraphMap2,152,0
+GraphMap2,153,0
+GraphMap2,154,0
+GraphMap2,155,0
+GraphMap2,156,0
+GraphMap2,157,0
+GraphMap2,158,0
+GraphMap2,159,0
+GraphMap2,160,0
+GraphMap2,161,0
+GraphMap2,162,0
+GraphMap2,163,0
+GraphMap2,164,0
+GraphMap2,165,0
+GraphMap2,166,0
+GraphMap2,167,0
+GraphMap2,168,0
+GraphMap2,169,0
+GraphMap2,170,0
+GraphMap2,171,0
+GraphMap2,172,0
+GraphMap2,173,0
+GraphMap2,174,0
+GraphMap2,175,0
+GraphMap2,176,0
+GraphMap2,177,0
+GraphMap2,178,0
+GraphMap2,179,0
+GraphMap2,180,0
+GraphMap2,181,0
+GraphMap2,182,0
+GraphMap2,183,0
+GraphMap2,184,0
+GraphMap2,185,0
+GraphMap2,186,0
+GraphMap2,187,0
+GraphMap2,188,0
+GraphMap2,189,0
+GraphMap2,190,0
+GraphMap2,191,0
+GraphMap2,192,0
+GraphMap2,193,0
+GraphMap2,194,0
+GraphMap2,195,0
+GraphMap2,196,0
+GraphMap2,197,0
+GraphMap2,198,0
+GraphMap2,199,0
+GraphMap2,200,0
+GraphMap2,201,0
+GraphMap2,202,0
+GraphMap2,203,0
+GraphMap2,204,0
+GraphMap2,205,0
+GraphMap2,206,0
+GraphMap2,207,0
+GraphMap2,208,0
+GraphMap2,209,0
+GraphMap2,210,0
+GraphMap2,211,0
+GraphMap2,212,0
+GraphMap2,213,0
+GraphMap2,214,0
+GraphMap2,215,0
+GraphMap2,216,0
+GraphMap2,217,0
+GraphMap2,218,0
+GraphMap2,219,0
+GraphMap2,220,0
+GraphMap2,221,0
+GraphMap2,222,0
+GraphMap2,223,0
+GraphMap2,224,0
+GraphMap2,225,0
+GraphMap2,226,0
+GraphMap2,227,0
+GraphMap2,228,0
+GraphMap2,229,0
+GraphMap2,230,0
+GraphMap2,231,0
+GraphMap2,232,0
+GraphMap2,233,0
+GraphMap2,234,0
+GraphMap2,235,0
+GraphMap2,236,0
+GraphMap2,237,0
+GraphMap2,238,0
+GraphMap2,239,0
+GraphMap2,240,0
+GraphMap2,241,0
+GraphMap2,242,0
+GraphMap2,243,0
+GraphMap2,244,0
+GraphMap2,245,0
+GraphMap2,246,0
+GraphMap2,247,0
+GraphMap2,248,0
+GraphMap2,249,0
+GraphMap2,250,0
+GraphMap2,251,0
+GraphMap2,252,0
+GraphMap2,253,0
+GraphMap2,254,0
+GraphMap2,255,0
+LRA (def),0,9883
+LRA (def),1,9465
+LRA (def),2,9199
+LRA (def),3,9043
+LRA (def),4,8893
+LRA (def),5,8775
+LRA (def),6,8743
+LRA (def),7,8732
+LRA (def),8,8727
+LRA (def),9,8725
+LRA (def),10,8724
+LRA (def),11,8723
+LRA (def),12,8720
+LRA (def),13,8719
+LRA (def),14,8717
+LRA (def),15,8714
+LRA (def),16,8712
+LRA (def),17,8712
+LRA (def),18,8710
+LRA (def),19,8709
+LRA (def),20,8707
+LRA (def),21,8706
+LRA (def),22,8705
+LRA (def),23,8703
+LRA (def),24,8701
+LRA (def),25,8700
+LRA (def),26,8699
+LRA (def),27,8698
+LRA (def),28,8698
+LRA (def),29,8697
+LRA (def),30,8697
+LRA (def),31,8697
+LRA (def),32,8697
+LRA (def),33,8697
+LRA (def),34,8697
+LRA (def),35,8697
+LRA (def),36,8697
+LRA (def),37,8697
+LRA (def),38,8697
+LRA (def),39,8697
+LRA (def),40,8690
+LRA (def),41,8690
+LRA (def),42,8690
+LRA (def),43,8690
+LRA (def),44,8690
+LRA (def),45,8690
+LRA (def),46,8690
+LRA (def),47,8690
+LRA (def),48,8690
+LRA (def),49,8690
+LRA (def),50,8686
+LRA (def),51,8686
+LRA (def),52,8686
+LRA (def),53,8686
+LRA (def),54,8686
+LRA (def),55,8686
+LRA (def),56,8686
+LRA (def),57,8686
+LRA (def),58,8686
+LRA (def),59,8686
+LRA (def),60,8686
+LRA (def),61,8686
+LRA (def),62,8686
+LRA (def),63,8686
+LRA (def),64,8686
+LRA (def),65,8686
+LRA (def),66,8686
+LRA (def),67,8686
+LRA (def),68,8686
+LRA (def),69,8686
+LRA (def),70,0
+LRA (def),71,0
+LRA (def),72,0
+LRA (def),73,0
+LRA (def),74,0
+LRA (def),75,0
+LRA (def),76,0
+LRA (def),77,0
+LRA (def),78,0
+LRA (def),79,0
+LRA (def),80,0
+LRA (def),81,0
+LRA (def),82,0
+LRA (def),83,0
+LRA (def),84,0
+LRA (def),85,0
+LRA (def),86,0
+LRA (def),87,0
+LRA (def),88,0
+LRA (def),89,0
+LRA (def),90,0
+LRA (def),91,0
+LRA (def),92,0
+LRA (def),93,0
+LRA (def),94,0
+LRA (def),95,0
+LRA (def),96,0
+LRA (def),97,0
+LRA (def),98,0
+LRA (def),99,0
+LRA (def),100,0
+LRA (def),101,0
+LRA (def),102,0
+LRA (def),103,0
+LRA (def),104,0
+LRA (def),105,0
+LRA (def),106,0
+LRA (def),107,0
+LRA (def),108,0
+LRA (def),109,0
+LRA (def),110,0
+LRA (def),111,0
+LRA (def),112,0
+LRA (def),113,0
+LRA (def),114,0
+LRA (def),115,0
+LRA (def),116,0
+LRA (def),117,0
+LRA (def),118,0
+LRA (def),119,0
+LRA (def),120,0
+LRA (def),121,0
+LRA (def),122,0
+LRA (def),123,0
+LRA (def),124,0
+LRA (def),125,0
+LRA (def),126,0
+LRA (def),127,0
+LRA (def),128,0
+LRA (def),129,0
+LRA (def),130,0
+LRA (def),131,0
+LRA (def),132,0
+LRA (def),133,0
+LRA (def),134,0
+LRA (def),135,0
+LRA (def),136,0
+LRA (def),137,0
+LRA (def),138,0
+LRA (def),139,0
+LRA (def),140,0
+LRA (def),141,0
+LRA (def),142,0
+LRA (def),143,0
+LRA (def),144,0
+LRA (def),145,0
+LRA (def),146,0
+LRA (def),147,0
+LRA (def),148,0
+LRA (def),149,0
+LRA (def),150,0
+LRA (def),151,0
+LRA (def),152,0
+LRA (def),153,0
+LRA (def),154,0
+LRA (def),155,0
+LRA (def),156,0
+LRA (def),157,0
+LRA (def),158,0
+LRA (def),159,0
+LRA (def),160,0
+LRA (def),161,0
+LRA (def),162,0
+LRA (def),163,0
+LRA (def),164,0
+LRA (def),165,0
+LRA (def),166,0
+LRA (def),167,0
+LRA (def),168,0
+LRA (def),169,0
+LRA (def),170,0
+LRA (def),171,0
+LRA (def),172,0
+LRA (def),173,0
+LRA (def),174,0
+LRA (def),175,0
+LRA (def),176,0
+LRA (def),177,0
+LRA (def),178,0
+LRA (def),179,0
+LRA (def),180,0
+LRA (def),181,0
+LRA (def),182,0
+LRA (def),183,0
+LRA (def),184,0
+LRA (def),185,0
+LRA (def),186,0
+LRA (def),187,0
+LRA (def),188,0
+LRA (def),189,0
+LRA (def),190,0
+LRA (def),191,0
+LRA (def),192,0
+LRA (def),193,0
+LRA (def),194,0
+LRA (def),195,0
+LRA (def),196,0
+LRA (def),197,0
+LRA (def),198,0
+LRA (def),199,0
+LRA (def),200,0
+LRA (def),201,0
+LRA (def),202,0
+LRA (def),203,0
+LRA (def),204,0
+LRA (def),205,0
+LRA (def),206,0
+LRA (def),207,0
+LRA (def),208,0
+LRA (def),209,0
+LRA (def),210,0
+LRA (def),211,0
+LRA (def),212,0
+LRA (def),213,0
+LRA (def),214,0
+LRA (def),215,0
+LRA (def),216,0
+LRA (def),217,0
+LRA (def),218,0
+LRA (def),219,0
+LRA (def),220,0
+LRA (def),221,0
+LRA (def),222,0
+LRA (def),223,0
+LRA (def),224,0
+LRA (def),225,0
+LRA (def),226,0
+LRA (def),227,0
+LRA (def),228,0
+LRA (def),229,0
+LRA (def),230,0
+LRA (def),231,0
+LRA (def),232,0
+LRA (def),233,0
+LRA (def),234,0
+LRA (def),235,0
+LRA (def),236,0
+LRA (def),237,0
+LRA (def),238,0
+LRA (def),239,0
+LRA (def),240,0
+LRA (def),241,0
+LRA (def),242,0
+LRA (def),243,0
+LRA (def),244,0
+LRA (def),245,0
+LRA (def),246,0
+LRA (def),247,0
+LRA (def),248,0
+LRA (def),249,0
+LRA (def),250,0
+LRA (def),251,0
+LRA (def),252,0
+LRA (def),253,0
+LRA (def),254,0
+LRA (def),255,0
+LRA (p1),0,9797
+LRA (p1),1,9655
+LRA (p1),2,9255
+LRA (p1),3,9158
+LRA (p1),4,9158
+LRA (p1),5,9157
+LRA (p1),6,9157
+LRA (p1),7,9155
+LRA (p1),8,9152
+LRA (p1),9,9151
+LRA (p1),10,9148
+LRA (p1),11,9147
+LRA (p1),12,9145
+LRA (p1),13,9144
+LRA (p1),14,9144
+LRA (p1),15,9144
+LRA (p1),16,9144
+LRA (p1),17,9144
+LRA (p1),18,9143
+LRA (p1),19,9143
+LRA (p1),20,9143
+LRA (p1),21,9141
+LRA (p1),22,9141
+LRA (p1),23,9141
+LRA (p1),24,9141
+LRA (p1),25,9141
+LRA (p1),26,9141
+LRA (p1),27,9140
+LRA (p1),28,9140
+LRA (p1),29,9139
+LRA (p1),30,9139
+LRA (p1),31,9139
+LRA (p1),32,9139
+LRA (p1),33,9139
+LRA (p1),34,9139
+LRA (p1),35,9139
+LRA (p1),36,9139
+LRA (p1),37,9139
+LRA (p1),38,9139
+LRA (p1),39,9139
+LRA (p1),40,9138
+LRA (p1),41,9138
+LRA (p1),42,9138
+LRA (p1),43,9138
+LRA (p1),44,9138
+LRA (p1),45,9138
+LRA (p1),46,9138
+LRA (p1),47,9138
+LRA (p1),48,9138
+LRA (p1),49,9138
+LRA (p1),50,8979
+LRA (p1),51,8979
+LRA (p1),52,8979
+LRA (p1),53,8979
+LRA (p1),54,8979
+LRA (p1),55,8979
+LRA (p1),56,8979
+LRA (p1),57,8979
+LRA (p1),58,8979
+LRA (p1),59,8979
+LRA (p1),60,8807
+LRA (p1),61,8807
+LRA (p1),62,8807
+LRA (p1),63,8807
+LRA (p1),64,8807
+LRA (p1),65,8807
+LRA (p1),66,8807
+LRA (p1),67,8807
+LRA (p1),68,8807
+LRA (p1),69,8807
+LRA (p1),70,0
+LRA (p1),71,0
+LRA (p1),72,0
+LRA (p1),73,0
+LRA (p1),74,0
+LRA (p1),75,0
+LRA (p1),76,0
+LRA (p1),77,0
+LRA (p1),78,0
+LRA (p1),79,0
+LRA (p1),80,0
+LRA (p1),81,0
+LRA (p1),82,0
+LRA (p1),83,0
+LRA (p1),84,0
+LRA (p1),85,0
+LRA (p1),86,0
+LRA (p1),87,0
+LRA (p1),88,0
+LRA (p1),89,0
+LRA (p1),90,0
+LRA (p1),91,0
+LRA (p1),92,0
+LRA (p1),93,0
+LRA (p1),94,0
+LRA (p1),95,0
+LRA (p1),96,0
+LRA (p1),97,0
+LRA (p1),98,0
+LRA (p1),99,0
+LRA (p1),100,0
+LRA (p1),101,0
+LRA (p1),102,0
+LRA (p1),103,0
+LRA (p1),104,0
+LRA (p1),105,0
+LRA (p1),106,0
+LRA (p1),107,0
+LRA (p1),108,0
+LRA (p1),109,0
+LRA (p1),110,0
+LRA (p1),111,0
+LRA (p1),112,0
+LRA (p1),113,0
+LRA (p1),114,0
+LRA (p1),115,0
+LRA (p1),116,0
+LRA (p1),117,0
+LRA (p1),118,0
+LRA (p1),119,0
+LRA (p1),120,0
+LRA (p1),121,0
+LRA (p1),122,0
+LRA (p1),123,0
+LRA (p1),124,0
+LRA (p1),125,0
+LRA (p1),126,0
+LRA (p1),127,0
+LRA (p1),128,0
+LRA (p1),129,0
+LRA (p1),130,0
+LRA (p1),131,0
+LRA (p1),132,0
+LRA (p1),133,0
+LRA (p1),134,0
+LRA (p1),135,0
+LRA (p1),136,0
+LRA (p1),137,0
+LRA (p1),138,0
+LRA (p1),139,0
+LRA (p1),140,0
+LRA (p1),141,0
+LRA (p1),142,0
+LRA (p1),143,0
+LRA (p1),144,0
+LRA (p1),145,0
+LRA (p1),146,0
+LRA (p1),147,0
+LRA (p1),148,0
+LRA (p1),149,0
+LRA (p1),150,0
+LRA (p1),151,0
+LRA (p1),152,0
+LRA (p1),153,0
+LRA (p1),154,0
+LRA (p1),155,0
+LRA (p1),156,0
+LRA (p1),157,0
+LRA (p1),158,0
+LRA (p1),159,0
+LRA (p1),160,0
+LRA (p1),161,0
+LRA (p1),162,0
+LRA (p1),163,0
+LRA (p1),164,0
+LRA (p1),165,0
+LRA (p1),166,0
+LRA (p1),167,0
+LRA (p1),168,0
+LRA (p1),169,0
+LRA (p1),170,0
+LRA (p1),171,0
+LRA (p1),172,0
+LRA (p1),173,0
+LRA (p1),174,0
+LRA (p1),175,0
+LRA (p1),176,0
+LRA (p1),177,0
+LRA (p1),178,0
+LRA (p1),179,0
+LRA (p1),180,0
+LRA (p1),181,0
+LRA (p1),182,0
+LRA (p1),183,0
+LRA (p1),184,0
+LRA (p1),185,0
+LRA (p1),186,0
+LRA (p1),187,0
+LRA (p1),188,0
+LRA (p1),189,0
+LRA (p1),190,0
+LRA (p1),191,0
+LRA (p1),192,0
+LRA (p1),193,0
+LRA (p1),194,0
+LRA (p1),195,0
+LRA (p1),196,0
+LRA (p1),197,0
+LRA (p1),198,0
+LRA (p1),199,0
+LRA (p1),200,0
+LRA (p1),201,0
+LRA (p1),202,0
+LRA (p1),203,0
+LRA (p1),204,0
+LRA (p1),205,0
+LRA (p1),206,0
+LRA (p1),207,0
+LRA (p1),208,0
+LRA (p1),209,0
+LRA (p1),210,0
+LRA (p1),211,0
+LRA (p1),212,0
+LRA (p1),213,0
+LRA (p1),214,0
+LRA (p1),215,0
+LRA (p1),216,0
+LRA (p1),217,0
+LRA (p1),218,0
+LRA (p1),219,0
+LRA (p1),220,0
+LRA (p1),221,0
+LRA (p1),222,0
+LRA (p1),223,0
+LRA (p1),224,0
+LRA (p1),225,0
+LRA (p1),226,0
+LRA (p1),227,0
+LRA (p1),228,0
+LRA (p1),229,0
+LRA (p1),230,0
+LRA (p1),231,0
+LRA (p1),232,0
+LRA (p1),233,0
+LRA (p1),234,0
+LRA (p1),235,0
+LRA (p1),236,0
+LRA (p1),237,0
+LRA (p1),238,0
+LRA (p1),239,0
+LRA (p1),240,0
+LRA (p1),241,0
+LRA (p1),242,0
+LRA (p1),243,0
+LRA (p1),244,0
+LRA (p1),245,0
+LRA (p1),246,0
+LRA (p1),247,0
+LRA (p1),248,0
+LRA (p1),249,0
+LRA (p1),250,0
+LRA (p1),251,0
+LRA (p1),252,0
+LRA (p1),253,0
+LRA (p1),254,0
+LRA (p1),255,0
+Minimap2 (def),0,9868
+Minimap2 (def),1,9866
+Minimap2 (def),2,9856
+Minimap2 (def),3,9851
+Minimap2 (def),4,9845
+Minimap2 (def),5,9844
+Minimap2 (def),6,9842
+Minimap2 (def),7,9838
+Minimap2 (def),8,9837
+Minimap2 (def),9,9831
+Minimap2 (def),10,9827
+Minimap2 (def),11,9825
+Minimap2 (def),12,9822
+Minimap2 (def),13,9821
+Minimap2 (def),14,9819
+Minimap2 (def),15,9818
+Minimap2 (def),16,9812
+Minimap2 (def),17,9805
+Minimap2 (def),18,9801
+Minimap2 (def),19,9799
+Minimap2 (def),20,9796
+Minimap2 (def),21,9791
+Minimap2 (def),22,9790
+Minimap2 (def),23,9786
+Minimap2 (def),24,9784
+Minimap2 (def),25,9778
+Minimap2 (def),26,9775
+Minimap2 (def),27,9774
+Minimap2 (def),28,9772
+Minimap2 (def),29,9767
+Minimap2 (def),30,9765
+Minimap2 (def),31,9765
+Minimap2 (def),32,9765
+Minimap2 (def),33,9765
+Minimap2 (def),34,9765
+Minimap2 (def),35,9765
+Minimap2 (def),36,9765
+Minimap2 (def),37,9765
+Minimap2 (def),38,9765
+Minimap2 (def),39,9765
+Minimap2 (def),40,9741
+Minimap2 (def),41,9741
+Minimap2 (def),42,9741
+Minimap2 (def),43,9741
+Minimap2 (def),44,9741
+Minimap2 (def),45,9741
+Minimap2 (def),46,9741
+Minimap2 (def),47,9741
+Minimap2 (def),48,9741
+Minimap2 (def),49,9741
+Minimap2 (def),50,9720
+Minimap2 (def),51,9720
+Minimap2 (def),52,9720
+Minimap2 (def),53,9720
+Minimap2 (def),54,9720
+Minimap2 (def),55,9720
+Minimap2 (def),56,9720
+Minimap2 (def),57,9720
+Minimap2 (def),58,9720
+Minimap2 (def),59,9720
+Minimap2 (def),60,9704
+Minimap2 (def),61,9704
+Minimap2 (def),62,9704
+Minimap2 (def),63,9704
+Minimap2 (def),64,9704
+Minimap2 (def),65,9704
+Minimap2 (def),66,9704
+Minimap2 (def),67,9704
+Minimap2 (def),68,9704
+Minimap2 (def),69,9704
+Minimap2 (def),70,0
+Minimap2 (def),71,0
+Minimap2 (def),72,0
+Minimap2 (def),73,0
+Minimap2 (def),74,0
+Minimap2 (def),75,0
+Minimap2 (def),76,0
+Minimap2 (def),77,0
+Minimap2 (def),78,0
+Minimap2 (def),79,0
+Minimap2 (def),80,0
+Minimap2 (def),81,0
+Minimap2 (def),82,0
+Minimap2 (def),83,0
+Minimap2 (def),84,0
+Minimap2 (def),85,0
+Minimap2 (def),86,0
+Minimap2 (def),87,0
+Minimap2 (def),88,0
+Minimap2 (def),89,0
+Minimap2 (def),90,0
+Minimap2 (def),91,0
+Minimap2 (def),92,0
+Minimap2 (def),93,0
+Minimap2 (def),94,0
+Minimap2 (def),95,0
+Minimap2 (def),96,0
+Minimap2 (def),97,0
+Minimap2 (def),98,0
+Minimap2 (def),99,0
+Minimap2 (def),100,0
+Minimap2 (def),101,0
+Minimap2 (def),102,0
+Minimap2 (def),103,0
+Minimap2 (def),104,0
+Minimap2 (def),105,0
+Minimap2 (def),106,0
+Minimap2 (def),107,0
+Minimap2 (def),108,0
+Minimap2 (def),109,0
+Minimap2 (def),110,0
+Minimap2 (def),111,0
+Minimap2 (def),112,0
+Minimap2 (def),113,0
+Minimap2 (def),114,0
+Minimap2 (def),115,0
+Minimap2 (def),116,0
+Minimap2 (def),117,0
+Minimap2 (def),118,0
+Minimap2 (def),119,0
+Minimap2 (def),120,0
+Minimap2 (def),121,0
+Minimap2 (def),122,0
+Minimap2 (def),123,0
+Minimap2 (def),124,0
+Minimap2 (def),125,0
+Minimap2 (def),126,0
+Minimap2 (def),127,0
+Minimap2 (def),128,0
+Minimap2 (def),129,0
+Minimap2 (def),130,0
+Minimap2 (def),131,0
+Minimap2 (def),132,0
+Minimap2 (def),133,0
+Minimap2 (def),134,0
+Minimap2 (def),135,0
+Minimap2 (def),136,0
+Minimap2 (def),137,0
+Minimap2 (def),138,0
+Minimap2 (def),139,0
+Minimap2 (def),140,0
+Minimap2 (def),141,0
+Minimap2 (def),142,0
+Minimap2 (def),143,0
+Minimap2 (def),144,0
+Minimap2 (def),145,0
+Minimap2 (def),146,0
+Minimap2 (def),147,0
+Minimap2 (def),148,0
+Minimap2 (def),149,0
+Minimap2 (def),150,0
+Minimap2 (def),151,0
+Minimap2 (def),152,0
+Minimap2 (def),153,0
+Minimap2 (def),154,0
+Minimap2 (def),155,0
+Minimap2 (def),156,0
+Minimap2 (def),157,0
+Minimap2 (def),158,0
+Minimap2 (def),159,0
+Minimap2 (def),160,0
+Minimap2 (def),161,0
+Minimap2 (def),162,0
+Minimap2 (def),163,0
+Minimap2 (def),164,0
+Minimap2 (def),165,0
+Minimap2 (def),166,0
+Minimap2 (def),167,0
+Minimap2 (def),168,0
+Minimap2 (def),169,0
+Minimap2 (def),170,0
+Minimap2 (def),171,0
+Minimap2 (def),172,0
+Minimap2 (def),173,0
+Minimap2 (def),174,0
+Minimap2 (def),175,0
+Minimap2 (def),176,0
+Minimap2 (def),177,0
+Minimap2 (def),178,0
+Minimap2 (def),179,0
+Minimap2 (def),180,0
+Minimap2 (def),181,0
+Minimap2 (def),182,0
+Minimap2 (def),183,0
+Minimap2 (def),184,0
+Minimap2 (def),185,0
+Minimap2 (def),186,0
+Minimap2 (def),187,0
+Minimap2 (def),188,0
+Minimap2 (def),189,0
+Minimap2 (def),190,0
+Minimap2 (def),191,0
+Minimap2 (def),192,0
+Minimap2 (def),193,0
+Minimap2 (def),194,0
+Minimap2 (def),195,0
+Minimap2 (def),196,0
+Minimap2 (def),197,0
+Minimap2 (def),198,0
+Minimap2 (def),199,0
+Minimap2 (def),200,0
+Minimap2 (def),201,0
+Minimap2 (def),202,0
+Minimap2 (def),203,0
+Minimap2 (def),204,0
+Minimap2 (def),205,0
+Minimap2 (def),206,0
+Minimap2 (def),207,0
+Minimap2 (def),208,0
+Minimap2 (def),209,0
+Minimap2 (def),210,0
+Minimap2 (def),211,0
+Minimap2 (def),212,0
+Minimap2 (def),213,0
+Minimap2 (def),214,0
+Minimap2 (def),215,0
+Minimap2 (def),216,0
+Minimap2 (def),217,0
+Minimap2 (def),218,0
+Minimap2 (def),219,0
+Minimap2 (def),220,0
+Minimap2 (def),221,0
+Minimap2 (def),222,0
+Minimap2 (def),223,0
+Minimap2 (def),224,0
+Minimap2 (def),225,0
+Minimap2 (def),226,0
+Minimap2 (def),227,0
+Minimap2 (def),228,0
+Minimap2 (def),229,0
+Minimap2 (def),230,0
+Minimap2 (def),231,0
+Minimap2 (def),232,0
+Minimap2 (def),233,0
+Minimap2 (def),234,0
+Minimap2 (def),235,0
+Minimap2 (def),236,0
+Minimap2 (def),237,0
+Minimap2 (def),238,0
+Minimap2 (def),239,0
+Minimap2 (def),240,0
+Minimap2 (def),241,0
+Minimap2 (def),242,0
+Minimap2 (def),243,0
+Minimap2 (def),244,0
+Minimap2 (def),245,0
+Minimap2 (def),246,0
+Minimap2 (def),247,0
+Minimap2 (def),248,0
+Minimap2 (def),249,0
+Minimap2 (def),250,0
+Minimap2 (def),251,0
+Minimap2 (def),252,0
+Minimap2 (def),253,0
+Minimap2 (def),254,0
+Minimap2 (def),255,0
+Minimap2 (p1),0,9868
+Minimap2 (p1),1,9866
+Minimap2 (p1),2,9856
+Minimap2 (p1),3,9851
+Minimap2 (p1),4,9845
+Minimap2 (p1),5,9844
+Minimap2 (p1),6,9842
+Minimap2 (p1),7,9838
+Minimap2 (p1),8,9837
+Minimap2 (p1),9,9831
+Minimap2 (p1),10,9827
+Minimap2 (p1),11,9825
+Minimap2 (p1),12,9822
+Minimap2 (p1),13,9821
+Minimap2 (p1),14,9819
+Minimap2 (p1),15,9818
+Minimap2 (p1),16,9812
+Minimap2 (p1),17,9805
+Minimap2 (p1),18,9801
+Minimap2 (p1),19,9799
+Minimap2 (p1),20,9796
+Minimap2 (p1),21,9791
+Minimap2 (p1),22,9790
+Minimap2 (p1),23,9786
+Minimap2 (p1),24,9784
+Minimap2 (p1),25,9778
+Minimap2 (p1),26,9775
+Minimap2 (p1),27,9774
+Minimap2 (p1),28,9772
+Minimap2 (p1),29,9767
+Minimap2 (p1),30,9765
+Minimap2 (p1),31,9765
+Minimap2 (p1),32,9765
+Minimap2 (p1),33,9765
+Minimap2 (p1),34,9765
+Minimap2 (p1),35,9765
+Minimap2 (p1),36,9765
+Minimap2 (p1),37,9765
+Minimap2 (p1),38,9765
+Minimap2 (p1),39,9765
+Minimap2 (p1),40,9741
+Minimap2 (p1),41,9741
+Minimap2 (p1),42,9741
+Minimap2 (p1),43,9741
+Minimap2 (p1),44,9741
+Minimap2 (p1),45,9741
+Minimap2 (p1),46,9741
+Minimap2 (p1),47,9741
+Minimap2 (p1),48,9741
+Minimap2 (p1),49,9741
+Minimap2 (p1),50,9720
+Minimap2 (p1),51,9720
+Minimap2 (p1),52,9720
+Minimap2 (p1),53,9720
+Minimap2 (p1),54,9720
+Minimap2 (p1),55,9720
+Minimap2 (p1),56,9720
+Minimap2 (p1),57,9720
+Minimap2 (p1),58,9720
+Minimap2 (p1),59,9720
+Minimap2 (p1),60,9704
+Minimap2 (p1),61,9704
+Minimap2 (p1),62,9704
+Minimap2 (p1),63,9704
+Minimap2 (p1),64,9704
+Minimap2 (p1),65,9704
+Minimap2 (p1),66,9704
+Minimap2 (p1),67,9704
+Minimap2 (p1),68,9704
+Minimap2 (p1),69,9704
+Minimap2 (p1),70,0
+Minimap2 (p1),71,0
+Minimap2 (p1),72,0
+Minimap2 (p1),73,0
+Minimap2 (p1),74,0
+Minimap2 (p1),75,0
+Minimap2 (p1),76,0
+Minimap2 (p1),77,0
+Minimap2 (p1),78,0
+Minimap2 (p1),79,0
+Minimap2 (p1),80,0
+Minimap2 (p1),81,0
+Minimap2 (p1),82,0
+Minimap2 (p1),83,0
+Minimap2 (p1),84,0
+Minimap2 (p1),85,0
+Minimap2 (p1),86,0
+Minimap2 (p1),87,0
+Minimap2 (p1),88,0
+Minimap2 (p1),89,0
+Minimap2 (p1),90,0
+Minimap2 (p1),91,0
+Minimap2 (p1),92,0
+Minimap2 (p1),93,0
+Minimap2 (p1),94,0
+Minimap2 (p1),95,0
+Minimap2 (p1),96,0
+Minimap2 (p1),97,0
+Minimap2 (p1),98,0
+Minimap2 (p1),99,0
+Minimap2 (p1),100,0
+Minimap2 (p1),101,0
+Minimap2 (p1),102,0
+Minimap2 (p1),103,0
+Minimap2 (p1),104,0
+Minimap2 (p1),105,0
+Minimap2 (p1),106,0
+Minimap2 (p1),107,0
+Minimap2 (p1),108,0
+Minimap2 (p1),109,0
+Minimap2 (p1),110,0
+Minimap2 (p1),111,0
+Minimap2 (p1),112,0
+Minimap2 (p1),113,0
+Minimap2 (p1),114,0
+Minimap2 (p1),115,0
+Minimap2 (p1),116,0
+Minimap2 (p1),117,0
+Minimap2 (p1),118,0
+Minimap2 (p1),119,0
+Minimap2 (p1),120,0
+Minimap2 (p1),121,0
+Minimap2 (p1),122,0
+Minimap2 (p1),123,0
+Minimap2 (p1),124,0
+Minimap2 (p1),125,0
+Minimap2 (p1),126,0
+Minimap2 (p1),127,0
+Minimap2 (p1),128,0
+Minimap2 (p1),129,0
+Minimap2 (p1),130,0
+Minimap2 (p1),131,0
+Minimap2 (p1),132,0
+Minimap2 (p1),133,0
+Minimap2 (p1),134,0
+Minimap2 (p1),135,0
+Minimap2 (p1),136,0
+Minimap2 (p1),137,0
+Minimap2 (p1),138,0
+Minimap2 (p1),139,0
+Minimap2 (p1),140,0
+Minimap2 (p1),141,0
+Minimap2 (p1),142,0
+Minimap2 (p1),143,0
+Minimap2 (p1),144,0
+Minimap2 (p1),145,0
+Minimap2 (p1),146,0
+Minimap2 (p1),147,0
+Minimap2 (p1),148,0
+Minimap2 (p1),149,0
+Minimap2 (p1),150,0
+Minimap2 (p1),151,0
+Minimap2 (p1),152,0
+Minimap2 (p1),153,0
+Minimap2 (p1),154,0
+Minimap2 (p1),155,0
+Minimap2 (p1),156,0
+Minimap2 (p1),157,0
+Minimap2 (p1),158,0
+Minimap2 (p1),159,0
+Minimap2 (p1),160,0
+Minimap2 (p1),161,0
+Minimap2 (p1),162,0
+Minimap2 (p1),163,0
+Minimap2 (p1),164,0
+Minimap2 (p1),165,0
+Minimap2 (p1),166,0
+Minimap2 (p1),167,0
+Minimap2 (p1),168,0
+Minimap2 (p1),169,0
+Minimap2 (p1),170,0
+Minimap2 (p1),171,0
+Minimap2 (p1),172,0
+Minimap2 (p1),173,0
+Minimap2 (p1),174,0
+Minimap2 (p1),175,0
+Minimap2 (p1),176,0
+Minimap2 (p1),177,0
+Minimap2 (p1),178,0
+Minimap2 (p1),179,0
+Minimap2 (p1),180,0
+Minimap2 (p1),181,0
+Minimap2 (p1),182,0
+Minimap2 (p1),183,0
+Minimap2 (p1),184,0
+Minimap2 (p1),185,0
+Minimap2 (p1),186,0
+Minimap2 (p1),187,0
+Minimap2 (p1),188,0
+Minimap2 (p1),189,0
+Minimap2 (p1),190,0
+Minimap2 (p1),191,0
+Minimap2 (p1),192,0
+Minimap2 (p1),193,0
+Minimap2 (p1),194,0
+Minimap2 (p1),195,0
+Minimap2 (p1),196,0
+Minimap2 (p1),197,0
+Minimap2 (p1),198,0
+Minimap2 (p1),199,0
+Minimap2 (p1),200,0
+Minimap2 (p1),201,0
+Minimap2 (p1),202,0
+Minimap2 (p1),203,0
+Minimap2 (p1),204,0
+Minimap2 (p1),205,0
+Minimap2 (p1),206,0
+Minimap2 (p1),207,0
+Minimap2 (p1),208,0
+Minimap2 (p1),209,0
+Minimap2 (p1),210,0
+Minimap2 (p1),211,0
+Minimap2 (p1),212,0
+Minimap2 (p1),213,0
+Minimap2 (p1),214,0
+Minimap2 (p1),215,0
+Minimap2 (p1),216,0
+Minimap2 (p1),217,0
+Minimap2 (p1),218,0
+Minimap2 (p1),219,0
+Minimap2 (p1),220,0
+Minimap2 (p1),221,0
+Minimap2 (p1),222,0
+Minimap2 (p1),223,0
+Minimap2 (p1),224,0
+Minimap2 (p1),225,0
+Minimap2 (p1),226,0
+Minimap2 (p1),227,0
+Minimap2 (p1),228,0
+Minimap2 (p1),229,0
+Minimap2 (p1),230,0
+Minimap2 (p1),231,0
+Minimap2 (p1),232,0
+Minimap2 (p1),233,0
+Minimap2 (p1),234,0
+Minimap2 (p1),235,0
+Minimap2 (p1),236,0
+Minimap2 (p1),237,0
+Minimap2 (p1),238,0
+Minimap2 (p1),239,0
+Minimap2 (p1),240,0
+Minimap2 (p1),241,0
+Minimap2 (p1),242,0
+Minimap2 (p1),243,0
+Minimap2 (p1),244,0
+Minimap2 (p1),245,0
+Minimap2 (p1),246,0
+Minimap2 (p1),247,0
+Minimap2 (p1),248,0
+Minimap2 (p1),249,0
+Minimap2 (p1),250,0
+Minimap2 (p1),251,0
+Minimap2 (p1),252,0
+Minimap2 (p1),253,0
+Minimap2 (p1),254,0
+Minimap2 (p1),255,0
+NGMLR (def),0,9965
+NGMLR (def),1,9962
+NGMLR (def),2,9962
+NGMLR (def),3,9962
+NGMLR (def),4,9961
+NGMLR (def),5,9961
+NGMLR (def),6,9960
+NGMLR (def),7,9958
+NGMLR (def),8,9958
+NGMLR (def),9,9958
+NGMLR (def),10,9955
+NGMLR (def),11,9953
+NGMLR (def),12,9951
+NGMLR (def),13,9950
+NGMLR (def),14,9946
+NGMLR (def),15,9946
+NGMLR (def),16,9943
+NGMLR (def),17,9942
+NGMLR (def),18,9938
+NGMLR (def),19,9933
+NGMLR (def),20,9931
+NGMLR (def),21,9923
+NGMLR (def),22,9918
+NGMLR (def),23,9913
+NGMLR (def),24,9910
+NGMLR (def),25,9899
+NGMLR (def),26,9892
+NGMLR (def),27,9878
+NGMLR (def),28,9864
+NGMLR (def),29,9845
+NGMLR (def),30,9834
+NGMLR (def),31,9834
+NGMLR (def),32,9834
+NGMLR (def),33,9834
+NGMLR (def),34,9834
+NGMLR (def),35,9834
+NGMLR (def),36,9834
+NGMLR (def),37,9834
+NGMLR (def),38,9834
+NGMLR (def),39,9834
+NGMLR (def),40,9462
+NGMLR (def),41,9462
+NGMLR (def),42,9462
+NGMLR (def),43,9462
+NGMLR (def),44,9462
+NGMLR (def),45,9462
+NGMLR (def),46,9462
+NGMLR (def),47,9462
+NGMLR (def),48,9462
+NGMLR (def),49,9462
+NGMLR (def),50,8337
+NGMLR (def),51,8337
+NGMLR (def),52,8337
+NGMLR (def),53,8337
+NGMLR (def),54,8337
+NGMLR (def),55,8337
+NGMLR (def),56,8337
+NGMLR (def),57,8337
+NGMLR (def),58,8337
+NGMLR (def),59,8337
+NGMLR (def),60,2208
+NGMLR (def),61,2208
+NGMLR (def),62,2208
+NGMLR (def),63,2208
+NGMLR (def),64,2208
+NGMLR (def),65,2208
+NGMLR (def),66,2208
+NGMLR (def),67,2208
+NGMLR (def),68,2208
+NGMLR (def),69,2208
+NGMLR (def),70,0
+NGMLR (def),71,0
+NGMLR (def),72,0
+NGMLR (def),73,0
+NGMLR (def),74,0
+NGMLR (def),75,0
+NGMLR (def),76,0
+NGMLR (def),77,0
+NGMLR (def),78,0
+NGMLR (def),79,0
+NGMLR (def),80,0
+NGMLR (def),81,0
+NGMLR (def),82,0
+NGMLR (def),83,0
+NGMLR (def),84,0
+NGMLR (def),85,0
+NGMLR (def),86,0
+NGMLR (def),87,0
+NGMLR (def),88,0
+NGMLR (def),89,0
+NGMLR (def),90,0
+NGMLR (def),91,0
+NGMLR (def),92,0
+NGMLR (def),93,0
+NGMLR (def),94,0
+NGMLR (def),95,0
+NGMLR (def),96,0
+NGMLR (def),97,0
+NGMLR (def),98,0
+NGMLR (def),99,0
+NGMLR (def),100,0
+NGMLR (def),101,0
+NGMLR (def),102,0
+NGMLR (def),103,0
+NGMLR (def),104,0
+NGMLR (def),105,0
+NGMLR (def),106,0
+NGMLR (def),107,0
+NGMLR (def),108,0
+NGMLR (def),109,0
+NGMLR (def),110,0
+NGMLR (def),111,0
+NGMLR (def),112,0
+NGMLR (def),113,0
+NGMLR (def),114,0
+NGMLR (def),115,0
+NGMLR (def),116,0
+NGMLR (def),117,0
+NGMLR (def),118,0
+NGMLR (def),119,0
+NGMLR (def),120,0
+NGMLR (def),121,0
+NGMLR (def),122,0
+NGMLR (def),123,0
+NGMLR (def),124,0
+NGMLR (def),125,0
+NGMLR (def),126,0
+NGMLR (def),127,0
+NGMLR (def),128,0
+NGMLR (def),129,0
+NGMLR (def),130,0
+NGMLR (def),131,0
+NGMLR (def),132,0
+NGMLR (def),133,0
+NGMLR (def),134,0
+NGMLR (def),135,0
+NGMLR (def),136,0
+NGMLR (def),137,0
+NGMLR (def),138,0
+NGMLR (def),139,0
+NGMLR (def),140,0
+NGMLR (def),141,0
+NGMLR (def),142,0
+NGMLR (def),143,0
+NGMLR (def),144,0
+NGMLR (def),145,0
+NGMLR (def),146,0
+NGMLR (def),147,0
+NGMLR (def),148,0
+NGMLR (def),149,0
+NGMLR (def),150,0
+NGMLR (def),151,0
+NGMLR (def),152,0
+NGMLR (def),153,0
+NGMLR (def),154,0
+NGMLR (def),155,0
+NGMLR (def),156,0
+NGMLR (def),157,0
+NGMLR (def),158,0
+NGMLR (def),159,0
+NGMLR (def),160,0
+NGMLR (def),161,0
+NGMLR (def),162,0
+NGMLR (def),163,0
+NGMLR (def),164,0
+NGMLR (def),165,0
+NGMLR (def),166,0
+NGMLR (def),167,0
+NGMLR (def),168,0
+NGMLR (def),169,0
+NGMLR (def),170,0
+NGMLR (def),171,0
+NGMLR (def),172,0
+NGMLR (def),173,0
+NGMLR (def),174,0
+NGMLR (def),175,0
+NGMLR (def),176,0
+NGMLR (def),177,0
+NGMLR (def),178,0
+NGMLR (def),179,0
+NGMLR (def),180,0
+NGMLR (def),181,0
+NGMLR (def),182,0
+NGMLR (def),183,0
+NGMLR (def),184,0
+NGMLR (def),185,0
+NGMLR (def),186,0
+NGMLR (def),187,0
+NGMLR (def),188,0
+NGMLR (def),189,0
+NGMLR (def),190,0
+NGMLR (def),191,0
+NGMLR (def),192,0
+NGMLR (def),193,0
+NGMLR (def),194,0
+NGMLR (def),195,0
+NGMLR (def),196,0
+NGMLR (def),197,0
+NGMLR (def),198,0
+NGMLR (def),199,0
+NGMLR (def),200,0
+NGMLR (def),201,0
+NGMLR (def),202,0
+NGMLR (def),203,0
+NGMLR (def),204,0
+NGMLR (def),205,0
+NGMLR (def),206,0
+NGMLR (def),207,0
+NGMLR (def),208,0
+NGMLR (def),209,0
+NGMLR (def),210,0
+NGMLR (def),211,0
+NGMLR (def),212,0
+NGMLR (def),213,0
+NGMLR (def),214,0
+NGMLR (def),215,0
+NGMLR (def),216,0
+NGMLR (def),217,0
+NGMLR (def),218,0
+NGMLR (def),219,0
+NGMLR (def),220,0
+NGMLR (def),221,0
+NGMLR (def),222,0
+NGMLR (def),223,0
+NGMLR (def),224,0
+NGMLR (def),225,0
+NGMLR (def),226,0
+NGMLR (def),227,0
+NGMLR (def),228,0
+NGMLR (def),229,0
+NGMLR (def),230,0
+NGMLR (def),231,0
+NGMLR (def),232,0
+NGMLR (def),233,0
+NGMLR (def),234,0
+NGMLR (def),235,0
+NGMLR (def),236,0
+NGMLR (def),237,0
+NGMLR (def),238,0
+NGMLR (def),239,0
+NGMLR (def),240,0
+NGMLR (def),241,0
+NGMLR (def),242,0
+NGMLR (def),243,0
+NGMLR (def),244,0
+NGMLR (def),245,0
+NGMLR (def),246,0
+NGMLR (def),247,0
+NGMLR (def),248,0
+NGMLR (def),249,0
+NGMLR (def),250,0
+NGMLR (def),251,0
+NGMLR (def),252,0
+NGMLR (def),253,0
+NGMLR (def),254,0
+NGMLR (def),255,0
+NGMLR (p1),0,9965
+NGMLR (p1),1,9962
+NGMLR (p1),2,9962
+NGMLR (p1),3,9962
+NGMLR (p1),4,9961
+NGMLR (p1),5,9961
+NGMLR (p1),6,9960
+NGMLR (p1),7,9958
+NGMLR (p1),8,9958
+NGMLR (p1),9,9958
+NGMLR (p1),10,9955
+NGMLR (p1),11,9953
+NGMLR (p1),12,9951
+NGMLR (p1),13,9950
+NGMLR (p1),14,9946
+NGMLR (p1),15,9946
+NGMLR (p1),16,9943
+NGMLR (p1),17,9942
+NGMLR (p1),18,9938
+NGMLR (p1),19,9933
+NGMLR (p1),20,9931
+NGMLR (p1),21,9923
+NGMLR (p1),22,9918
+NGMLR (p1),23,9913
+NGMLR (p1),24,9910
+NGMLR (p1),25,9899
+NGMLR (p1),26,9892
+NGMLR (p1),27,9878
+NGMLR (p1),28,9864
+NGMLR (p1),29,9845
+NGMLR (p1),30,9834
+NGMLR (p1),31,9834
+NGMLR (p1),32,9834
+NGMLR (p1),33,9834
+NGMLR (p1),34,9834
+NGMLR (p1),35,9834
+NGMLR (p1),36,9834
+NGMLR (p1),37,9834
+NGMLR (p1),38,9834
+NGMLR (p1),39,9834
+NGMLR (p1),40,9462
+NGMLR (p1),41,9462
+NGMLR (p1),42,9462
+NGMLR (p1),43,9462
+NGMLR (p1),44,9462
+NGMLR (p1),45,9462
+NGMLR (p1),46,9462
+NGMLR (p1),47,9462
+NGMLR (p1),48,9462
+NGMLR (p1),49,9462
+NGMLR (p1),50,8337
+NGMLR (p1),51,8337
+NGMLR (p1),52,8337
+NGMLR (p1),53,8337
+NGMLR (p1),54,8337
+NGMLR (p1),55,8337
+NGMLR (p1),56,8337
+NGMLR (p1),57,8337
+NGMLR (p1),58,8337
+NGMLR (p1),59,8337
+NGMLR (p1),60,2208
+NGMLR (p1),61,2208
+NGMLR (p1),62,2208
+NGMLR (p1),63,2208
+NGMLR (p1),64,2208
+NGMLR (p1),65,2208
+NGMLR (p1),66,2208
+NGMLR (p1),67,2208
+NGMLR (p1),68,2208
+NGMLR (p1),69,2208
+NGMLR (p1),70,0
+NGMLR (p1),71,0
+NGMLR (p1),72,0
+NGMLR (p1),73,0
+NGMLR (p1),74,0
+NGMLR (p1),75,0
+NGMLR (p1),76,0
+NGMLR (p1),77,0
+NGMLR (p1),78,0
+NGMLR (p1),79,0
+NGMLR (p1),80,0
+NGMLR (p1),81,0
+NGMLR (p1),82,0
+NGMLR (p1),83,0
+NGMLR (p1),84,0
+NGMLR (p1),85,0
+NGMLR (p1),86,0
+NGMLR (p1),87,0
+NGMLR (p1),88,0
+NGMLR (p1),89,0
+NGMLR (p1),90,0
+NGMLR (p1),91,0
+NGMLR (p1),92,0
+NGMLR (p1),93,0
+NGMLR (p1),94,0
+NGMLR (p1),95,0
+NGMLR (p1),96,0
+NGMLR (p1),97,0
+NGMLR (p1),98,0
+NGMLR (p1),99,0
+NGMLR (p1),100,0
+NGMLR (p1),101,0
+NGMLR (p1),102,0
+NGMLR (p1),103,0
+NGMLR (p1),104,0
+NGMLR (p1),105,0
+NGMLR (p1),106,0
+NGMLR (p1),107,0
+NGMLR (p1),108,0
+NGMLR (p1),109,0
+NGMLR (p1),110,0
+NGMLR (p1),111,0
+NGMLR (p1),112,0
+NGMLR (p1),113,0
+NGMLR (p1),114,0
+NGMLR (p1),115,0
+NGMLR (p1),116,0
+NGMLR (p1),117,0
+NGMLR (p1),118,0
+NGMLR (p1),119,0
+NGMLR (p1),120,0
+NGMLR (p1),121,0
+NGMLR (p1),122,0
+NGMLR (p1),123,0
+NGMLR (p1),124,0
+NGMLR (p1),125,0
+NGMLR (p1),126,0
+NGMLR (p1),127,0
+NGMLR (p1),128,0
+NGMLR (p1),129,0
+NGMLR (p1),130,0
+NGMLR (p1),131,0
+NGMLR (p1),132,0
+NGMLR (p1),133,0
+NGMLR (p1),134,0
+NGMLR (p1),135,0
+NGMLR (p1),136,0
+NGMLR (p1),137,0
+NGMLR (p1),138,0
+NGMLR (p1),139,0
+NGMLR (p1),140,0
+NGMLR (p1),141,0
+NGMLR (p1),142,0
+NGMLR (p1),143,0
+NGMLR (p1),144,0
+NGMLR (p1),145,0
+NGMLR (p1),146,0
+NGMLR (p1),147,0
+NGMLR (p1),148,0
+NGMLR (p1),149,0
+NGMLR (p1),150,0
+NGMLR (p1),151,0
+NGMLR (p1),152,0
+NGMLR (p1),153,0
+NGMLR (p1),154,0
+NGMLR (p1),155,0
+NGMLR (p1),156,0
+NGMLR (p1),157,0
+NGMLR (p1),158,0
+NGMLR (p1),159,0
+NGMLR (p1),160,0
+NGMLR (p1),161,0
+NGMLR (p1),162,0
+NGMLR (p1),163,0
+NGMLR (p1),164,0
+NGMLR (p1),165,0
+NGMLR (p1),166,0
+NGMLR (p1),167,0
+NGMLR (p1),168,0
+NGMLR (p1),169,0
+NGMLR (p1),170,0
+NGMLR (p1),171,0
+NGMLR (p1),172,0
+NGMLR (p1),173,0
+NGMLR (p1),174,0
+NGMLR (p1),175,0
+NGMLR (p1),176,0
+NGMLR (p1),177,0
+NGMLR (p1),178,0
+NGMLR (p1),179,0
+NGMLR (p1),180,0
+NGMLR (p1),181,0
+NGMLR (p1),182,0
+NGMLR (p1),183,0
+NGMLR (p1),184,0
+NGMLR (p1),185,0
+NGMLR (p1),186,0
+NGMLR (p1),187,0
+NGMLR (p1),188,0
+NGMLR (p1),189,0
+NGMLR (p1),190,0
+NGMLR (p1),191,0
+NGMLR (p1),192,0
+NGMLR (p1),193,0
+NGMLR (p1),194,0
+NGMLR (p1),195,0
+NGMLR (p1),196,0
+NGMLR (p1),197,0
+NGMLR (p1),198,0
+NGMLR (p1),199,0
+NGMLR (p1),200,0
+NGMLR (p1),201,0
+NGMLR (p1),202,0
+NGMLR (p1),203,0
+NGMLR (p1),204,0
+NGMLR (p1),205,0
+NGMLR (p1),206,0
+NGMLR (p1),207,0
+NGMLR (p1),208,0
+NGMLR (p1),209,0
+NGMLR (p1),210,0
+NGMLR (p1),211,0
+NGMLR (p1),212,0
+NGMLR (p1),213,0
+NGMLR (p1),214,0
+NGMLR (p1),215,0
+NGMLR (p1),216,0
+NGMLR (p1),217,0
+NGMLR (p1),218,0
+NGMLR (p1),219,0
+NGMLR (p1),220,0
+NGMLR (p1),221,0
+NGMLR (p1),222,0
+NGMLR (p1),223,0
+NGMLR (p1),224,0
+NGMLR (p1),225,0
+NGMLR (p1),226,0
+NGMLR (p1),227,0
+NGMLR (p1),228,0
+NGMLR (p1),229,0
+NGMLR (p1),230,0
+NGMLR (p1),231,0
+NGMLR (p1),232,0
+NGMLR (p1),233,0
+NGMLR (p1),234,0
+NGMLR (p1),235,0
+NGMLR (p1),236,0
+NGMLR (p1),237,0
+NGMLR (p1),238,0
+NGMLR (p1),239,0
+NGMLR (p1),240,0
+NGMLR (p1),241,0
+NGMLR (p1),242,0
+NGMLR (p1),243,0
+NGMLR (p1),244,0
+NGMLR (p1),245,0
+NGMLR (p1),246,0
+NGMLR (p1),247,0
+NGMLR (p1),248,0
+NGMLR (p1),249,0
+NGMLR (p1),250,0
+NGMLR (p1),251,0
+NGMLR (p1),252,0
+NGMLR (p1),253,0
+NGMLR (p1),254,0
+NGMLR (p1),255,0
+Winnowmap2 (def),0,9075
+Winnowmap2 (def),1,9073
+Winnowmap2 (def),2,9033
+Winnowmap2 (def),3,9024
+Winnowmap2 (def),4,9011
+Winnowmap2 (def),5,8987
+Winnowmap2 (def),6,8970
+Winnowmap2 (def),7,8947
+Winnowmap2 (def),8,8928
+Winnowmap2 (def),9,8919
+Winnowmap2 (def),10,8911
+Winnowmap2 (def),11,8902
+Winnowmap2 (def),12,8896
+Winnowmap2 (def),13,8890
+Winnowmap2 (def),14,8882
+Winnowmap2 (def),15,8874
+Winnowmap2 (def),16,8870
+Winnowmap2 (def),17,8863
+Winnowmap2 (def),18,8850
+Winnowmap2 (def),19,8841
+Winnowmap2 (def),20,8835
+Winnowmap2 (def),21,8822
+Winnowmap2 (def),22,8813
+Winnowmap2 (def),23,8805
+Winnowmap2 (def),24,8796
+Winnowmap2 (def),25,8781
+Winnowmap2 (def),26,8765
+Winnowmap2 (def),27,8741
+Winnowmap2 (def),28,8726
+Winnowmap2 (def),29,8713
+Winnowmap2 (def),30,8704
+Winnowmap2 (def),31,8704
+Winnowmap2 (def),32,8704
+Winnowmap2 (def),33,8704
+Winnowmap2 (def),34,8704
+Winnowmap2 (def),35,8704
+Winnowmap2 (def),36,8704
+Winnowmap2 (def),37,8704
+Winnowmap2 (def),38,8704
+Winnowmap2 (def),39,8704
+Winnowmap2 (def),40,8637
+Winnowmap2 (def),41,8637
+Winnowmap2 (def),42,8637
+Winnowmap2 (def),43,8637
+Winnowmap2 (def),44,8637
+Winnowmap2 (def),45,8637
+Winnowmap2 (def),46,8637
+Winnowmap2 (def),47,8637
+Winnowmap2 (def),48,8637
+Winnowmap2 (def),49,8637
+Winnowmap2 (def),50,8538
+Winnowmap2 (def),51,8538
+Winnowmap2 (def),52,8538
+Winnowmap2 (def),53,8538
+Winnowmap2 (def),54,8538
+Winnowmap2 (def),55,8538
+Winnowmap2 (def),56,8538
+Winnowmap2 (def),57,8538
+Winnowmap2 (def),58,8538
+Winnowmap2 (def),59,8538
+Winnowmap2 (def),60,8450
+Winnowmap2 (def),61,8450
+Winnowmap2 (def),62,8450
+Winnowmap2 (def),63,8450
+Winnowmap2 (def),64,8450
+Winnowmap2 (def),65,8450
+Winnowmap2 (def),66,8450
+Winnowmap2 (def),67,8450
+Winnowmap2 (def),68,8450
+Winnowmap2 (def),69,8450
+Winnowmap2 (def),70,0
+Winnowmap2 (def),71,0
+Winnowmap2 (def),72,0
+Winnowmap2 (def),73,0
+Winnowmap2 (def),74,0
+Winnowmap2 (def),75,0
+Winnowmap2 (def),76,0
+Winnowmap2 (def),77,0
+Winnowmap2 (def),78,0
+Winnowmap2 (def),79,0
+Winnowmap2 (def),80,0
+Winnowmap2 (def),81,0
+Winnowmap2 (def),82,0
+Winnowmap2 (def),83,0
+Winnowmap2 (def),84,0
+Winnowmap2 (def),85,0
+Winnowmap2 (def),86,0
+Winnowmap2 (def),87,0
+Winnowmap2 (def),88,0
+Winnowmap2 (def),89,0
+Winnowmap2 (def),90,0
+Winnowmap2 (def),91,0
+Winnowmap2 (def),92,0
+Winnowmap2 (def),93,0
+Winnowmap2 (def),94,0
+Winnowmap2 (def),95,0
+Winnowmap2 (def),96,0
+Winnowmap2 (def),97,0
+Winnowmap2 (def),98,0
+Winnowmap2 (def),99,0
+Winnowmap2 (def),100,0
+Winnowmap2 (def),101,0
+Winnowmap2 (def),102,0
+Winnowmap2 (def),103,0
+Winnowmap2 (def),104,0
+Winnowmap2 (def),105,0
+Winnowmap2 (def),106,0
+Winnowmap2 (def),107,0
+Winnowmap2 (def),108,0
+Winnowmap2 (def),109,0
+Winnowmap2 (def),110,0
+Winnowmap2 (def),111,0
+Winnowmap2 (def),112,0
+Winnowmap2 (def),113,0
+Winnowmap2 (def),114,0
+Winnowmap2 (def),115,0
+Winnowmap2 (def),116,0
+Winnowmap2 (def),117,0
+Winnowmap2 (def),118,0
+Winnowmap2 (def),119,0
+Winnowmap2 (def),120,0
+Winnowmap2 (def),121,0
+Winnowmap2 (def),122,0
+Winnowmap2 (def),123,0
+Winnowmap2 (def),124,0
+Winnowmap2 (def),125,0
+Winnowmap2 (def),126,0
+Winnowmap2 (def),127,0
+Winnowmap2 (def),128,0
+Winnowmap2 (def),129,0
+Winnowmap2 (def),130,0
+Winnowmap2 (def),131,0
+Winnowmap2 (def),132,0
+Winnowmap2 (def),133,0
+Winnowmap2 (def),134,0
+Winnowmap2 (def),135,0
+Winnowmap2 (def),136,0
+Winnowmap2 (def),137,0
+Winnowmap2 (def),138,0
+Winnowmap2 (def),139,0
+Winnowmap2 (def),140,0
+Winnowmap2 (def),141,0
+Winnowmap2 (def),142,0
+Winnowmap2 (def),143,0
+Winnowmap2 (def),144,0
+Winnowmap2 (def),145,0
+Winnowmap2 (def),146,0
+Winnowmap2 (def),147,0
+Winnowmap2 (def),148,0
+Winnowmap2 (def),149,0
+Winnowmap2 (def),150,0
+Winnowmap2 (def),151,0
+Winnowmap2 (def),152,0
+Winnowmap2 (def),153,0
+Winnowmap2 (def),154,0
+Winnowmap2 (def),155,0
+Winnowmap2 (def),156,0
+Winnowmap2 (def),157,0
+Winnowmap2 (def),158,0
+Winnowmap2 (def),159,0
+Winnowmap2 (def),160,0
+Winnowmap2 (def),161,0
+Winnowmap2 (def),162,0
+Winnowmap2 (def),163,0
+Winnowmap2 (def),164,0
+Winnowmap2 (def),165,0
+Winnowmap2 (def),166,0
+Winnowmap2 (def),167,0
+Winnowmap2 (def),168,0
+Winnowmap2 (def),169,0
+Winnowmap2 (def),170,0
+Winnowmap2 (def),171,0
+Winnowmap2 (def),172,0
+Winnowmap2 (def),173,0
+Winnowmap2 (def),174,0
+Winnowmap2 (def),175,0
+Winnowmap2 (def),176,0
+Winnowmap2 (def),177,0
+Winnowmap2 (def),178,0
+Winnowmap2 (def),179,0
+Winnowmap2 (def),180,0
+Winnowmap2 (def),181,0
+Winnowmap2 (def),182,0
+Winnowmap2 (def),183,0
+Winnowmap2 (def),184,0
+Winnowmap2 (def),185,0
+Winnowmap2 (def),186,0
+Winnowmap2 (def),187,0
+Winnowmap2 (def),188,0
+Winnowmap2 (def),189,0
+Winnowmap2 (def),190,0
+Winnowmap2 (def),191,0
+Winnowmap2 (def),192,0
+Winnowmap2 (def),193,0
+Winnowmap2 (def),194,0
+Winnowmap2 (def),195,0
+Winnowmap2 (def),196,0
+Winnowmap2 (def),197,0
+Winnowmap2 (def),198,0
+Winnowmap2 (def),199,0
+Winnowmap2 (def),200,0
+Winnowmap2 (def),201,0
+Winnowmap2 (def),202,0
+Winnowmap2 (def),203,0
+Winnowmap2 (def),204,0
+Winnowmap2 (def),205,0
+Winnowmap2 (def),206,0
+Winnowmap2 (def),207,0
+Winnowmap2 (def),208,0
+Winnowmap2 (def),209,0
+Winnowmap2 (def),210,0
+Winnowmap2 (def),211,0
+Winnowmap2 (def),212,0
+Winnowmap2 (def),213,0
+Winnowmap2 (def),214,0
+Winnowmap2 (def),215,0
+Winnowmap2 (def),216,0
+Winnowmap2 (def),217,0
+Winnowmap2 (def),218,0
+Winnowmap2 (def),219,0
+Winnowmap2 (def),220,0
+Winnowmap2 (def),221,0
+Winnowmap2 (def),222,0
+Winnowmap2 (def),223,0
+Winnowmap2 (def),224,0
+Winnowmap2 (def),225,0
+Winnowmap2 (def),226,0
+Winnowmap2 (def),227,0
+Winnowmap2 (def),228,0
+Winnowmap2 (def),229,0
+Winnowmap2 (def),230,0
+Winnowmap2 (def),231,0
+Winnowmap2 (def),232,0
+Winnowmap2 (def),233,0
+Winnowmap2 (def),234,0
+Winnowmap2 (def),235,0
+Winnowmap2 (def),236,0
+Winnowmap2 (def),237,0
+Winnowmap2 (def),238,0
+Winnowmap2 (def),239,0
+Winnowmap2 (def),240,0
+Winnowmap2 (def),241,0
+Winnowmap2 (def),242,0
+Winnowmap2 (def),243,0
+Winnowmap2 (def),244,0
+Winnowmap2 (def),245,0
+Winnowmap2 (def),246,0
+Winnowmap2 (def),247,0
+Winnowmap2 (def),248,0
+Winnowmap2 (def),249,0
+Winnowmap2 (def),250,0
+Winnowmap2 (def),251,0
+Winnowmap2 (def),252,0
+Winnowmap2 (def),253,0
+Winnowmap2 (def),254,0
+Winnowmap2 (def),255,0
+Winnowmap2 (p1),0,9075
+Winnowmap2 (p1),1,9073
+Winnowmap2 (p1),2,9033
+Winnowmap2 (p1),3,9024
+Winnowmap2 (p1),4,9011
+Winnowmap2 (p1),5,8987
+Winnowmap2 (p1),6,8970
+Winnowmap2 (p1),7,8947
+Winnowmap2 (p1),8,8928
+Winnowmap2 (p1),9,8919
+Winnowmap2 (p1),10,8911
+Winnowmap2 (p1),11,8902
+Winnowmap2 (p1),12,8896
+Winnowmap2 (p1),13,8890
+Winnowmap2 (p1),14,8882
+Winnowmap2 (p1),15,8874
+Winnowmap2 (p1),16,8870
+Winnowmap2 (p1),17,8863
+Winnowmap2 (p1),18,8850
+Winnowmap2 (p1),19,8841
+Winnowmap2 (p1),20,8835
+Winnowmap2 (p1),21,8822
+Winnowmap2 (p1),22,8813
+Winnowmap2 (p1),23,8805
+Winnowmap2 (p1),24,8796
+Winnowmap2 (p1),25,8781
+Winnowmap2 (p1),26,8765
+Winnowmap2 (p1),27,8741
+Winnowmap2 (p1),28,8726
+Winnowmap2 (p1),29,8713
+Winnowmap2 (p1),30,8704
+Winnowmap2 (p1),31,8704
+Winnowmap2 (p1),32,8704
+Winnowmap2 (p1),33,8704
+Winnowmap2 (p1),34,8704
+Winnowmap2 (p1),35,8704
+Winnowmap2 (p1),36,8704
+Winnowmap2 (p1),37,8704
+Winnowmap2 (p1),38,8704
+Winnowmap2 (p1),39,8704
+Winnowmap2 (p1),40,8637
+Winnowmap2 (p1),41,8637
+Winnowmap2 (p1),42,8637
+Winnowmap2 (p1),43,8637
+Winnowmap2 (p1),44,8637
+Winnowmap2 (p1),45,8637
+Winnowmap2 (p1),46,8637
+Winnowmap2 (p1),47,8637
+Winnowmap2 (p1),48,8637
+Winnowmap2 (p1),49,8637
+Winnowmap2 (p1),50,8538
+Winnowmap2 (p1),51,8538
+Winnowmap2 (p1),52,8538
+Winnowmap2 (p1),53,8538
+Winnowmap2 (p1),54,8538
+Winnowmap2 (p1),55,8538
+Winnowmap2 (p1),56,8538
+Winnowmap2 (p1),57,8538
+Winnowmap2 (p1),58,8538
+Winnowmap2 (p1),59,8538
+Winnowmap2 (p1),60,8450
+Winnowmap2 (p1),61,8450
+Winnowmap2 (p1),62,8450
+Winnowmap2 (p1),63,8450
+Winnowmap2 (p1),64,8450
+Winnowmap2 (p1),65,8450
+Winnowmap2 (p1),66,8450
+Winnowmap2 (p1),67,8450
+Winnowmap2 (p1),68,8450
+Winnowmap2 (p1),69,8450
+Winnowmap2 (p1),70,0
+Winnowmap2 (p1),71,0
+Winnowmap2 (p1),72,0
+Winnowmap2 (p1),73,0
+Winnowmap2 (p1),74,0
+Winnowmap2 (p1),75,0
+Winnowmap2 (p1),76,0
+Winnowmap2 (p1),77,0
+Winnowmap2 (p1),78,0
+Winnowmap2 (p1),79,0
+Winnowmap2 (p1),80,0
+Winnowmap2 (p1),81,0
+Winnowmap2 (p1),82,0
+Winnowmap2 (p1),83,0
+Winnowmap2 (p1),84,0
+Winnowmap2 (p1),85,0
+Winnowmap2 (p1),86,0
+Winnowmap2 (p1),87,0
+Winnowmap2 (p1),88,0
+Winnowmap2 (p1),89,0
+Winnowmap2 (p1),90,0
+Winnowmap2 (p1),91,0
+Winnowmap2 (p1),92,0
+Winnowmap2 (p1),93,0
+Winnowmap2 (p1),94,0
+Winnowmap2 (p1),95,0
+Winnowmap2 (p1),96,0
+Winnowmap2 (p1),97,0
+Winnowmap2 (p1),98,0
+Winnowmap2 (p1),99,0
+Winnowmap2 (p1),100,0
+Winnowmap2 (p1),101,0
+Winnowmap2 (p1),102,0
+Winnowmap2 (p1),103,0
+Winnowmap2 (p1),104,0
+Winnowmap2 (p1),105,0
+Winnowmap2 (p1),106,0
+Winnowmap2 (p1),107,0
+Winnowmap2 (p1),108,0
+Winnowmap2 (p1),109,0
+Winnowmap2 (p1),110,0
+Winnowmap2 (p1),111,0
+Winnowmap2 (p1),112,0
+Winnowmap2 (p1),113,0
+Winnowmap2 (p1),114,0
+Winnowmap2 (p1),115,0
+Winnowmap2 (p1),116,0
+Winnowmap2 (p1),117,0
+Winnowmap2 (p1),118,0
+Winnowmap2 (p1),119,0
+Winnowmap2 (p1),120,0
+Winnowmap2 (p1),121,0
+Winnowmap2 (p1),122,0
+Winnowmap2 (p1),123,0
+Winnowmap2 (p1),124,0
+Winnowmap2 (p1),125,0
+Winnowmap2 (p1),126,0
+Winnowmap2 (p1),127,0
+Winnowmap2 (p1),128,0
+Winnowmap2 (p1),129,0
+Winnowmap2 (p1),130,0
+Winnowmap2 (p1),131,0
+Winnowmap2 (p1),132,0
+Winnowmap2 (p1),133,0
+Winnowmap2 (p1),134,0
+Winnowmap2 (p1),135,0
+Winnowmap2 (p1),136,0
+Winnowmap2 (p1),137,0
+Winnowmap2 (p1),138,0
+Winnowmap2 (p1),139,0
+Winnowmap2 (p1),140,0
+Winnowmap2 (p1),141,0
+Winnowmap2 (p1),142,0
+Winnowmap2 (p1),143,0
+Winnowmap2 (p1),144,0
+Winnowmap2 (p1),145,0
+Winnowmap2 (p1),146,0
+Winnowmap2 (p1),147,0
+Winnowmap2 (p1),148,0
+Winnowmap2 (p1),149,0
+Winnowmap2 (p1),150,0
+Winnowmap2 (p1),151,0
+Winnowmap2 (p1),152,0
+Winnowmap2 (p1),153,0
+Winnowmap2 (p1),154,0
+Winnowmap2 (p1),155,0
+Winnowmap2 (p1),156,0
+Winnowmap2 (p1),157,0
+Winnowmap2 (p1),158,0
+Winnowmap2 (p1),159,0
+Winnowmap2 (p1),160,0
+Winnowmap2 (p1),161,0
+Winnowmap2 (p1),162,0
+Winnowmap2 (p1),163,0
+Winnowmap2 (p1),164,0
+Winnowmap2 (p1),165,0
+Winnowmap2 (p1),166,0
+Winnowmap2 (p1),167,0
+Winnowmap2 (p1),168,0
+Winnowmap2 (p1),169,0
+Winnowmap2 (p1),170,0
+Winnowmap2 (p1),171,0
+Winnowmap2 (p1),172,0
+Winnowmap2 (p1),173,0
+Winnowmap2 (p1),174,0
+Winnowmap2 (p1),175,0
+Winnowmap2 (p1),176,0
+Winnowmap2 (p1),177,0
+Winnowmap2 (p1),178,0
+Winnowmap2 (p1),179,0
+Winnowmap2 (p1),180,0
+Winnowmap2 (p1),181,0
+Winnowmap2 (p1),182,0
+Winnowmap2 (p1),183,0
+Winnowmap2 (p1),184,0
+Winnowmap2 (p1),185,0
+Winnowmap2 (p1),186,0
+Winnowmap2 (p1),187,0
+Winnowmap2 (p1),188,0
+Winnowmap2 (p1),189,0
+Winnowmap2 (p1),190,0
+Winnowmap2 (p1),191,0
+Winnowmap2 (p1),192,0
+Winnowmap2 (p1),193,0
+Winnowmap2 (p1),194,0
+Winnowmap2 (p1),195,0
+Winnowmap2 (p1),196,0
+Winnowmap2 (p1),197,0
+Winnowmap2 (p1),198,0
+Winnowmap2 (p1),199,0
+Winnowmap2 (p1),200,0
+Winnowmap2 (p1),201,0
+Winnowmap2 (p1),202,0
+Winnowmap2 (p1),203,0
+Winnowmap2 (p1),204,0
+Winnowmap2 (p1),205,0
+Winnowmap2 (p1),206,0
+Winnowmap2 (p1),207,0
+Winnowmap2 (p1),208,0
+Winnowmap2 (p1),209,0
+Winnowmap2 (p1),210,0
+Winnowmap2 (p1),211,0
+Winnowmap2 (p1),212,0
+Winnowmap2 (p1),213,0
+Winnowmap2 (p1),214,0
+Winnowmap2 (p1),215,0
+Winnowmap2 (p1),216,0
+Winnowmap2 (p1),217,0
+Winnowmap2 (p1),218,0
+Winnowmap2 (p1),219,0
+Winnowmap2 (p1),220,0
+Winnowmap2 (p1),221,0
+Winnowmap2 (p1),222,0
+Winnowmap2 (p1),223,0
+Winnowmap2 (p1),224,0
+Winnowmap2 (p1),225,0
+Winnowmap2 (p1),226,0
+Winnowmap2 (p1),227,0
+Winnowmap2 (p1),228,0
+Winnowmap2 (p1),229,0
+Winnowmap2 (p1),230,0
+Winnowmap2 (p1),231,0
+Winnowmap2 (p1),232,0
+Winnowmap2 (p1),233,0
+Winnowmap2 (p1),234,0
+Winnowmap2 (p1),235,0
+Winnowmap2 (p1),236,0
+Winnowmap2 (p1),237,0
+Winnowmap2 (p1),238,0
+Winnowmap2 (p1),239,0
+Winnowmap2 (p1),240,0
+Winnowmap2 (p1),241,0
+Winnowmap2 (p1),242,0
+Winnowmap2 (p1),243,0
+Winnowmap2 (p1),244,0
+Winnowmap2 (p1),245,0
+Winnowmap2 (p1),246,0
+Winnowmap2 (p1),247,0
+Winnowmap2 (p1),248,0
+Winnowmap2 (p1),249,0
+Winnowmap2 (p1),250,0
+Winnowmap2 (p1),251,0
+Winnowmap2 (p1),252,0
+Winnowmap2 (p1),253,0
+Winnowmap2 (p1),254,0
+Winnowmap2 (p1),255,0
+lordFAST,0,9689
+lordFAST,1,9686
+lordFAST,2,9685
+lordFAST,3,9681
+lordFAST,4,9677
+lordFAST,5,9673
+lordFAST,6,9673
+lordFAST,7,9673
+lordFAST,8,9673
+lordFAST,9,9673
+lordFAST,10,9673
+lordFAST,11,9673
+lordFAST,12,9673
+lordFAST,13,9673
+lordFAST,14,9673
+lordFAST,15,9669
+lordFAST,16,9665
+lordFAST,17,9652
+lordFAST,18,9638
+lordFAST,19,9638
+lordFAST,20,9638
+lordFAST,21,9638
+lordFAST,22,9638
+lordFAST,23,9636
+lordFAST,24,9635
+lordFAST,25,9635
+lordFAST,26,9635
+lordFAST,27,9635
+lordFAST,28,9635
+lordFAST,29,9632
+lordFAST,30,9632
+lordFAST,31,9632
+lordFAST,32,9632
+lordFAST,33,9632
+lordFAST,34,9632
+lordFAST,35,9632
+lordFAST,36,9632
+lordFAST,37,9632
+lordFAST,38,9632
+lordFAST,39,9632
+lordFAST,40,9618
+lordFAST,41,9618
+lordFAST,42,9618
+lordFAST,43,9618
+lordFAST,44,9618
+lordFAST,45,9618
+lordFAST,46,9618
+lordFAST,47,9618
+lordFAST,48,9618
+lordFAST,49,9618
+lordFAST,50,9569
+lordFAST,51,9569
+lordFAST,52,9569
+lordFAST,53,9569
+lordFAST,54,9569
+lordFAST,55,9569
+lordFAST,56,9569
+lordFAST,57,9569
+lordFAST,58,9569
+lordFAST,59,9569
+lordFAST,60,9568
+lordFAST,61,9568
+lordFAST,62,9568
+lordFAST,63,9568
+lordFAST,64,9568
+lordFAST,65,9568
+lordFAST,66,9568
+lordFAST,67,9568
+lordFAST,68,9568
+lordFAST,69,9568
+lordFAST,70,0
+lordFAST,71,0
+lordFAST,72,0
+lordFAST,73,0
+lordFAST,74,0
+lordFAST,75,0
+lordFAST,76,0
+lordFAST,77,0
+lordFAST,78,0
+lordFAST,79,0
+lordFAST,80,0
+lordFAST,81,0
+lordFAST,82,0
+lordFAST,83,0
+lordFAST,84,0
+lordFAST,85,0
+lordFAST,86,0
+lordFAST,87,0
+lordFAST,88,0
+lordFAST,89,0
+lordFAST,90,0
+lordFAST,91,0
+lordFAST,92,0
+lordFAST,93,0
+lordFAST,94,0
+lordFAST,95,0
+lordFAST,96,0
+lordFAST,97,0
+lordFAST,98,0
+lordFAST,99,0
+lordFAST,100,0
+lordFAST,101,0
+lordFAST,102,0
+lordFAST,103,0
+lordFAST,104,0
+lordFAST,105,0
+lordFAST,106,0
+lordFAST,107,0
+lordFAST,108,0
+lordFAST,109,0
+lordFAST,110,0
+lordFAST,111,0
+lordFAST,112,0
+lordFAST,113,0
+lordFAST,114,0
+lordFAST,115,0
+lordFAST,116,0
+lordFAST,117,0
+lordFAST,118,0
+lordFAST,119,0
+lordFAST,120,0
+lordFAST,121,0
+lordFAST,122,0
+lordFAST,123,0
+lordFAST,124,0
+lordFAST,125,0
+lordFAST,126,0
+lordFAST,127,0
+lordFAST,128,0
+lordFAST,129,0
+lordFAST,130,0
+lordFAST,131,0
+lordFAST,132,0
+lordFAST,133,0
+lordFAST,134,0
+lordFAST,135,0
+lordFAST,136,0
+lordFAST,137,0
+lordFAST,138,0
+lordFAST,139,0
+lordFAST,140,0
+lordFAST,141,0
+lordFAST,142,0
+lordFAST,143,0
+lordFAST,144,0
+lordFAST,145,0
+lordFAST,146,0
+lordFAST,147,0
+lordFAST,148,0
+lordFAST,149,0
+lordFAST,150,0
+lordFAST,151,0
+lordFAST,152,0
+lordFAST,153,0
+lordFAST,154,0
+lordFAST,155,0
+lordFAST,156,0
+lordFAST,157,0
+lordFAST,158,0
+lordFAST,159,0
+lordFAST,160,0
+lordFAST,161,0
+lordFAST,162,0
+lordFAST,163,0
+lordFAST,164,0
+lordFAST,165,0
+lordFAST,166,0
+lordFAST,167,0
+lordFAST,168,0
+lordFAST,169,0
+lordFAST,170,0
+lordFAST,171,0
+lordFAST,172,0
+lordFAST,173,0
+lordFAST,174,0
+lordFAST,175,0
+lordFAST,176,0
+lordFAST,177,0
+lordFAST,178,0
+lordFAST,179,0
+lordFAST,180,0
+lordFAST,181,0
+lordFAST,182,0
+lordFAST,183,0
+lordFAST,184,0
+lordFAST,185,0
+lordFAST,186,0
+lordFAST,187,0
+lordFAST,188,0
+lordFAST,189,0
+lordFAST,190,0
+lordFAST,191,0
+lordFAST,192,0
+lordFAST,193,0
+lordFAST,194,0
+lordFAST,195,0
+lordFAST,196,0
+lordFAST,197,0
+lordFAST,198,0
+lordFAST,199,0
+lordFAST,200,0
+lordFAST,201,0
+lordFAST,202,0
+lordFAST,203,0
+lordFAST,204,0
+lordFAST,205,0
+lordFAST,206,0
+lordFAST,207,0
+lordFAST,208,0
+lordFAST,209,0
+lordFAST,210,0
+lordFAST,211,0
+lordFAST,212,0
+lordFAST,213,0
+lordFAST,214,0
+lordFAST,215,0
+lordFAST,216,0
+lordFAST,217,0
+lordFAST,218,0
+lordFAST,219,0
+lordFAST,220,0
+lordFAST,221,0
+lordFAST,222,0
+lordFAST,223,0
+lordFAST,224,0
+lordFAST,225,0
+lordFAST,226,0
+lordFAST,227,0
+lordFAST,228,0
+lordFAST,229,0
+lordFAST,230,0
+lordFAST,231,0
+lordFAST,232,0
+lordFAST,233,0
+lordFAST,234,0
+lordFAST,235,0
+lordFAST,236,0
+lordFAST,237,0
+lordFAST,238,0
+lordFAST,239,0
+lordFAST,240,0
+lordFAST,241,0
+lordFAST,242,0
+lordFAST,243,0
+lordFAST,244,0
+lordFAST,245,0
+lordFAST,246,0
+lordFAST,247,0
+lordFAST,248,0
+lordFAST,249,0
+lordFAST,250,0
+lordFAST,251,0
+lordFAST,252,0
+lordFAST,253,0
+lordFAST,254,0
+lordFAST,255,0

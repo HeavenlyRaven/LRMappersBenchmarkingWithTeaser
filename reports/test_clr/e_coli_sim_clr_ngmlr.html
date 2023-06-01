@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li><a href="e_coli_sim_clr.html">Sim CLR</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">NGMLR (def)<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_sim_clr_lra.html">LRA (def)</a></li><li><a href="e_coli_sim_clr_ngmlr.html">NGMLR (def)</a></li><li><a href="e_coli_sim_clr_minimap2_01.html">Minimap2 (p1)</a></li><li><a href="e_coli_sim_clr_lra_01.html">LRA (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap_01.html">Winnowmap2 (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap.html">Winnowmap2 (def)</a></li><li><a href="e_coli_sim_clr_lordfast.html">lordFAST</a></li><li><a href="e_coli_sim_clr_minimap2.html">Minimap2 (def)</a></li><li><a href="e_coli_sim_clr_graphmap.html">GraphMap2</a></li><li><a href="e_coli_sim_clr_ngmlr_01.html">NGMLR (p1)</a></li></ul></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Mapping Quality Thresholds</a></li><li><a href="#section2">Basic Statistics</a></li><li><a href="#section3">Read Failure Statistics</a></li><li><a href="#section4">Advanced Statistics</a></li><li><a href="#section5">Timing</a></li><li><a href="#section6">Additional Information</a></li><li><a href="#section7">Errors and Warnings</a></li><li><a href="#section8">Subprocess Log</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Mapping Quality Thresholds</div><div class="panel-body"><p>The plot below shows the percentages of correctly and wrongly mapped reads for all mapping quality thresholds for this mapper. The values at threshold 0 therefore correspond to the unfiltered results.</p><div id="plot_mapq_thresh"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_thresh');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_ngmlr_mapqs.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Basic Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Correctly Mapped</th><td class="col-md-2">9709</td><td class="col-md-2">96.732%</td></tr><tr><th>Wrongly Mapped</th><td>256</td><td>2.551%</td></tr><tr><th>Not Mapped</th><td>72</td><td>0.717%</td></tr><tr><th>Total</th><td>10037</td><td>100.0%</td></tbody></table></div></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Read Failure Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Not mapped</th><td class="col-md-2">66</td><td class="col-md-2">0.658%</td></tr><tr><th>Missing in mapper output</th><td>6</td><td>0.06%</td></tr><tr><th>Mapped to wrong chromosome</th><td>0</td><td>0.0%</td></tr><tr><th>Mapped to wrong position</th><td>256</td><td>2.551%</td></tr><tr><th>Mapped to wrong strand</th><td>0</td><td>0.0%</td></tbody></table></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Advanced Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th>Missing in comparison alignment</th><td>6</td></tr><tr><th class="col-md-6">Secondary Alignments</th><td class="col-md-4">138</td></tr><tr><th><abbr title="Harmonic Mean of Precision and Recall">F-Measure</abbr></th><td>0.983700</td></tr><tr><th><abbr title="Correctly Mapped / (Correctly Mapped + Wrongly Mapped)">Precision</abbr></th><td>0.974300</td></tr><tr><th><abbr title="Correctly Mapped / (Correctly Mapped + Unmapped)">Recall</abbr></th><td>0.993200</td></tbody></table></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Timing</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Raw Mapping Time</th><td class="col-md-4">160.328s</td></tr><tr><th>Effective Mapping Time</th><td>158.036s</td></tr><tr><th>Effective Init Time</th><td>2.292s</td></tr><tr><th>Effective Time Measure</th><td>Wall clock</td></tr><tr><th>Mapping Time (Wall)</th><td>160.328s</td></tr><tr><th>Mapping Time (CPU)</th><td>1042.251s</td></tr><tr><th>Mapping Time (CPU User)</th><td>1036.925s</td></tr><tr><th>Mapping Time (CPU System)</th><td>5.326s</td></tr><tr><th>Init Time (Wall)</th><td>2.292s</td></tr><tr><th>Init Time (CPU)</th><td>2.767s</td></tr><tr><th>Init Time (CPU User)</th><td>0.457s</td></tr><tr><th>Init Time (CPU System)</th><td>2.310s</td></tr></tbody></table></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">Additional Information</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapper Memory Usage</th><td class="col-md-4">3861 MB</td></tr><tr><th>Total Test Runtime (Wall)</th><td>170.174s</td></tr><tr><th>Mapper Command Line:</th><td>&nbsp;</td></tr><tr><td colspan=2>/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr.sam</td></tr></tbody></table></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Errors and Warnings</div><div class="panel-body"><i>No problems were encountered.</i></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Subprocess Log</div><div class="panel-body"><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>2732580000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse7" class="collapsed">stderr</a></h4></div><div id="collapse7" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse8" class="collapsed">stdout</a></h4></div><div id="collapse8" class="panel-collapse collapse"><div class="panel-body"><pre>ngmlr 0.2.7 (build: May 16 2023 08:30:10, start: 2023-05-31.13:26:03)<br>
+Contact: philipp.rescheneder@univie.ac.at<br>
+Opening for output (SAM): out_ngmlr.sam<br>
+Reading encoded reference from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-enc.2.ngm<br>
+Reading 4 Mbp from disk took 0.00s<br>
+Reading reference index from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-ht-13-2.2.ngm<br>
+Reading from disk took 0.41s<br>
+Opening query file reads_base.fastq<br>
+Mapping reads...<br>
+Processed: 1 (0.00), R/S: 0.50, RL: 60, Time: 50.00 0.00 0.00, Align: 1.00, 158, 0.00<br>
+[A[2KProcessed: 1 (0.00), R/S: 0.50, RL: 60, Time: 50.00 0.00 0.00, Align: 1.00, 158, 0.00<br>
+Done (0 reads mapped (0.00%), 1 reads not mapped, 1 lines written)(elapsed: 0m, 0 r/s)<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>2.745165</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>2.4635989666</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.347253</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads_base.fastq -o out_ngmlr.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>2404692000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse9" class="collapsed">stderr</a></h4></div><div id="collapse9" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse10" class="collapsed">stdout</a></h4></div><div id="collapse10" class="panel-collapse collapse"><div class="panel-body"><pre>ngmlr 0.2.7 (build: May 16 2023 08:30:10, start: 2023-05-31.13:26:06)<br>
+Contact: philipp.rescheneder@univie.ac.at<br>
+Opening for output (SAM): out_ngmlr.sam<br>
+Reading encoded reference from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-enc.2.ngm<br>
+Reading 4 Mbp from disk took 0.00s<br>
+Reading reference index from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-ht-13-2.2.ngm<br>
+Reading from disk took 0.25s<br>
+Opening query file reads_base.fastq<br>
+Mapping reads...<br>
+Processed: 1 (0.00), R/S: 0.50, RL: 60, Time: 50.00 0.00 0.00, Align: 1.00, 158, 0.00<br>
+[A[2KProcessed: 1 (0.00), R/S: 0.50, RL: 60, Time: 50.00 0.00 0.00, Align: 1.00, 158, 0.00<br>
+Done (0 reads mapped (0.00%), 1 reads not mapped, 1 lines written)(elapsed: 0m, 0 r/s)<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>2.309908</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>2.29197692871</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.457129</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/ngmlr  -t 8 -r /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta -q reads.fastq -o out_ngmlr.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>3861728000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse11" class="collapsed">stderr</a></h4></div><div id="collapse11" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse12" class="collapsed">stdout</a></h4></div><div id="collapse12" class="panel-collapse collapse"><div class="panel-body"><pre>ngmlr 0.2.7 (build: May 16 2023 08:30:10, start: 2023-05-31.13:26:09)<br>
+Contact: philipp.rescheneder@univie.ac.at<br>
+Opening for output (SAM): out_ngmlr.sam<br>
+Reading encoded reference from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-enc.2.ngm<br>
+Reading 4 Mbp from disk took 0.00s<br>
+Reading reference index from /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta-ht-13-2.2.ngm<br>
+Reading from disk took 0.25s<br>
+Opening query file reads.fastq<br>
+Mapping reads...<br>
+Processed: 134 (0.99), R/S: 67.00, RL: 13106, Time: 3.55 1.85 92.73, Align: 1.00, 394, 1.00<br>
+[A[2KProcessed: 322 (0.99), R/S: 80.50, RL: 10007, Time: 2.80 2.25 92.95, Align: 1.00, 381, 0.99<br>
+[A[2KProcessed: 488 (0.99), R/S: 81.33, RL: 10244, Time: 2.27 2.00 91.21, Align: 1.00, 382, 0.99<br>
+[A[2KProcessed: 669 (0.99), R/S: 83.62, RL: 9792, Time: 2.00 2.00 93.67, Align: 1.00, 379, 0.99<br>
+[A[2KProcessed: 826 (0.99), R/S: 82.60, RL: 9692, Time: 2.00 2.00 93.51, Align: 1.00, 379, 0.99<br>
+[A[2KProcessed: 979 (0.99), R/S: 81.58, RL: 9595, Time: 2.03 2.00 92.89, Align: 1.00, 378, 0.99<br>
+[A[2KProcessed: 1109 (0.99), R/S: 79.21, RL: 9683, Time: 2.13 2.00 93.13, Align: 1.00, 384, 0.99<br>
+[A[2KProcessed: 1241 (0.99), R/S: 77.56, RL: 9529, Time: 2.13 2.00 93.13, Align: 1.00, 385, 0.99<br>
+[A[2KProcessed: 1407 (0.99), R/S: 78.16, RL: 9656, Time: 2.00 2.00 93.73, Align: 1.00, 385, 0.99<br>
+[A[2KProcessed: 1557 (0.99), R/S: 77.85, RL: 9412, Time: 2.00 2.00 93.02, Align: 1.00, 388, 0.99<br>
+[A[2KProcessed: 1731 (0.99), R/S: 78.68, RL: 9485, Time: 2.00 2.00 93.26, Align: 1.00, 387, 0.99<br>
+[A[2KProcessed: 1892 (0.99), R/S: 78.83, RL: 9464, Time: 2.00 2.00 92.06, Align: 1.00, 387, 0.99<br>
+[A[2KProcessed: 2037 (0.99), R/S: 78.34, RL: 9468, Time: 2.00 2.00 93.40, Align: 1.00, 387, 0.99<br>
+[A[2KProcessed: 2169 (0.99), R/S: 77.46, RL: 9363, Time: 2.00 2.00 93.78, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 2305 (0.99), R/S: 76.83, RL: 9318, Time: 2.00 1.87 92.85, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 2430 (0.99), R/S: 75.93, RL: 9397, Time: 2.00 1.97 93.69, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 2548 (0.99), R/S: 74.94, RL: 9339, Time: 2.00 2.00 93.34, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 2674 (0.99), R/S: 74.27, RL: 9355, Time: 2.00 1.99 92.44, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 2821 (0.99), R/S: 74.23, RL: 9345, Time: 2.00 2.00 93.40, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 2945 (0.99), R/S: 73.62, RL: 9285, Time: 2.00 2.00 92.55, Align: 1.00, 388, 0.99<br>
+[A[2KProcessed: 3060 (0.99), R/S: 72.85, RL: 9290, Time: 2.00 2.00 92.45, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 3190 (0.99), R/S: 72.50, RL: 9344, Time: 2.00 2.00 92.65, Align: 1.00, 388, 0.99<br>
+[A[2KProcessed: 3308 (0.99), R/S: 71.91, RL: 9365, Time: 2.00 2.00 93.65, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 3444 (0.99), R/S: 71.75, RL: 9348, Time: 2.00 2.00 93.03, Align: 1.00, 388, 0.99<br>
+[A[2KProcessed: 3578 (0.99), R/S: 71.56, RL: 9367, Time: 2.00 2.00 93.42, Align: 1.00, 388, 0.99<br>
+[A[2KProcessed: 3681 (0.99), R/S: 70.78, RL: 9320, Time: 2.00 2.00 93.51, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 3793 (0.99), R/S: 70.24, RL: 9355, Time: 2.00 2.00 92.96, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 3911 (0.99), R/S: 69.84, RL: 9404, Time: 2.00 2.00 92.84, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 4029 (0.99), R/S: 69.46, RL: 9344, Time: 2.00 2.00 92.64, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 4141 (0.99), R/S: 69.01, RL: 9357, Time: 2.00 2.00 92.81, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 4267 (0.99), R/S: 68.82, RL: 9351, Time: 2.00 2.00 92.83, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 4394 (0.99), R/S: 68.65, RL: 9318, Time: 2.00 2.00 92.82, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 4550 (0.99), R/S: 68.94, RL: 9313, Time: 2.00 2.00 92.66, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 4694 (0.99), R/S: 69.03, RL: 9283, Time: 2.00 2.00 93.44, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 4831 (0.99), R/S: 69.01, RL: 9283, Time: 2.00 2.00 93.24, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 4911 (0.99), R/S: 68.20, RL: 9283, Time: 2.00 2.00 93.90, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 5019 (0.99), R/S: 67.82, RL: 9257, Time: 2.00 2.00 93.68, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 5120 (0.99), R/S: 67.36, RL: 9292, Time: 2.00 2.00 93.20, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 5232 (0.99), R/S: 67.07, RL: 9243, Time: 2.00 2.00 92.73, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 5354 (0.99), R/S: 66.92, RL: 9261, Time: 2.00 2.00 93.25, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 5482 (0.99), R/S: 66.85, RL: 9257, Time: 2.00 2.00 93.16, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 5601 (0.99), R/S: 66.68, RL: 9282, Time: 2.00 2.00 93.08, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 5735 (0.99), R/S: 66.68, RL: 9281, Time: 2.00 2.00 93.14, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 5850 (0.99), R/S: 66.47, RL: 9314, Time: 2.00 2.00 93.01, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6000 (0.99), R/S: 66.66, RL: 9297, Time: 2.00 2.00 92.71, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6127 (0.99), R/S: 66.59, RL: 9282, Time: 2.00 2.00 93.27, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6256 (0.99), R/S: 66.55, RL: 9280, Time: 2.00 2.00 93.08, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6390 (0.99), R/S: 66.56, RL: 9324, Time: 2.00 2.00 93.14, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6531 (0.99), R/S: 66.64, RL: 9273, Time: 2.00 2.00 93.03, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6639 (0.99), R/S: 66.39, RL: 9259, Time: 2.00 2.00 93.38, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6762 (0.99), R/S: 66.29, RL: 9253, Time: 2.00 2.00 93.06, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 6875 (0.99), R/S: 66.10, RL: 9235, Time: 2.00 2.00 93.27, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 6963 (0.99), R/S: 65.69, RL: 9239, Time: 2.00 2.00 93.28, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7062 (0.99), R/S: 65.39, RL: 9234, Time: 2.00 2.00 93.06, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7170 (0.99), R/S: 65.18, RL: 9263, Time: 2.00 2.00 93.04, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7302 (0.99), R/S: 65.19, RL: 9248, Time: 2.00 2.00 93.25, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7421 (0.99), R/S: 65.09, RL: 9244, Time: 2.00 2.00 93.25, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7547 (0.99), R/S: 65.06, RL: 9243, Time: 2.00 2.00 93.06, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7667 (0.99), R/S: 64.97, RL: 9265, Time: 2.00 2.00 93.03, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7794 (0.99), R/S: 64.95, RL: 9260, Time: 2.00 2.00 93.01, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 7914 (0.99), R/S: 64.87, RL: 9264, Time: 2.00 2.00 93.03, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 8041 (0.99), R/S: 64.84, RL: 9276, Time: 2.00 2.00 93.01, Align: 1.00, 389, 0.99<br>
+[A[2KProcessed: 8152 (0.99), R/S: 64.70, RL: 9303, Time: 2.00 2.00 93.01, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 8269 (0.99), R/S: 64.60, RL: 9292, Time: 2.00 2.00 93.03, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 8376 (0.99), R/S: 64.43, RL: 9276, Time: 2.00 2.00 93.00, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 8487 (0.99), R/S: 64.29, RL: 9294, Time: 2.00 2.00 93.00, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 8602 (0.99), R/S: 64.19, RL: 9288, Time: 2.00 2.00 93.13, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 8744 (0.99), R/S: 64.29, RL: 9265, Time: 2.00 2.00 93.00, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 8880 (0.99), R/S: 64.34, RL: 9271, Time: 2.00 2.00 93.02, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9004 (0.99), R/S: 64.31, RL: 9272, Time: 2.00 2.00 93.01, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9113 (0.99), R/S: 64.17, RL: 9301, Time: 2.00 2.00 93.06, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9253 (0.99), R/S: 64.25, RL: 9276, Time: 2.00 2.00 93.00, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9373 (0.99), R/S: 64.20, RL: 9298, Time: 2.00 2.00 93.00, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9508 (0.99), R/S: 64.24, RL: 9280, Time: 2.00 2.00 93.25, Align: 1.00, 390, 0.99<br>
+[A[2KProcessed: 9629 (0.99), R/S: 64.19, RL: 9285, Time: 2.00 2.00 93.25, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 9757 (0.99), R/S: 64.19, RL: 9275, Time: 2.00 2.00 93.00, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 9887 (0.99), R/S: 64.20, RL: 9298, Time: 2.00 2.00 93.06, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 10008 (0.99), R/S: 64.15, RL: 9275, Time: 2.00 2.00 93.00, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 10036 (0.99), R/S: 63.51, RL: 9250, Time: 2.00 2.00 93.00, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 10037 (0.99), R/S: 62.73, RL: 9249, Time: 2.00 2.00 93.50, Align: 1.00, 391, 0.99<br>
+[A[2KProcessed: 10037 (0.99), R/S: 62.73, RL: 9249, Time: 2.00 2.00 93.50, Align: 1.00, 391, 0.99<br>
+Done (9965 reads mapped (99.28%), 72 reads not mapped, 10175 lines written)(elapsed: 2m, 62 r/s)<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>5.326214</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>160.327715874</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>1036.925252</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+
+var cols=[["Correct", 0.9673209126232938, 0.9673209126232938, 0.9673209126232938, 0.9673209126232938, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9671216498953871, 0.9670220185314337, 0.9669223871674804, 0.966822755803527, 0.9665238617116668, 0.9665238617116668, 0.9662249676198067, 0.9661253362558534, 0.9658264421639933, 0.9655275480721331, 0.9654279167081797, 0.9649297598884129, 0.9647304971605061, 0.9643319717046926, 0.9642323403407392, 0.963634552157019, 0.9633356580651589, 0.9626382385174853, 0.9623393444256252, 0.9615422935139982, 0.9611437680581847, 0.9579555644116768, 0.9565607253163296, 0.955066254857029, 0.9527747334861014, 0.9506824748430805, 0.9481916907442463, 0.944903855733785, 0.9408189698116968, 0.936634452525655, 0.9326491979675202, 0.9266713161303178, 0.9217893792966025, 0.9145162897280064, 0.9080402510710371, 0.9001693733187207, 0.8874165587326891, 0.8775530537013052, 0.8676895486699213, 0.8463684367838996, 0.8263425326292717, 0.7909733984258245, 0.7563016837700508, 0.7106705190794061, 0.6585633157317924, 0.5876257845969911, 0.500647603865697, 0.3985254558134901, 0.29520773139384276, 0.22705987844973596, 0.21908936933346618, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", -0.9635570180216467, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9485014396150584, -0.9409736504117643, -0.9409736504117643, -0.9409736504117643, -0.9334458612084703, -0.9296819666068231, -0.9259180720051761, -0.9259180720051761, -0.9221541774035291, -0.9221541774035291, -0.9221541774035291, -0.9221541774035291, -0.918390282801882, -0.910862493598588, -0.9070985989969408, -0.8958069151919996, -0.8845152313870585, -0.8807513367854115, -0.8732235475821173, -0.854404074573882, -0.8393484961672938, -0.8130012339557644, -0.7715983933376468, -0.7301955527195291, -0.7038482905079998, -0.6737371336948232, -0.6360981876783527, -0.6097509254668233, -0.5834036632552939, -0.5269452442305881, -0.5156535604256469, -0.4893062982141175, -0.455431246799294, -0.41402840618117626, -0.3801533547663528, -0.3425144087498822, -0.31240325193670576, -0.28981988432682343, -0.27100041131858815, -0.24465314910705874, -0.2295975707004705, -0.22206978149717638, -0.2107780976922352, -0.18066694087905874, -0.16184746787082346, -0.15431967866752935, -0.10915294344776466, -0.09409736504117643, -0.0790417866345882, -0.06775010282964704, -0.06022231362635292, -0.04140284061811764, -0.03387505141482352, -0.03387505141482352, -0.03387505141482352, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]];
+var a=0;
+var b=0;
+var last_a=0;
+var last_b=0;
+
+function updateRange()
+{
+	if(last_a==a && last_b==b)
+	{
+		setTimeout(updateRange,500);
+		return;
+	}
+ 
+        an=Math.floor(parseInt(a));
+        bn=Math.floor(parseInt(b));
+	var mn = 0;
+	var mx = 0;
+	for(i=an;i<bn;i++)
+	{
+		mx=Math.max(mx,cols[0][i+1]);
+		mn=Math.min(mn,cols[1][i+1]);
+	}
+	r={}
+	r.max=mx;
+	r.min=mn;
+	chart.axis.range(r);
+	last_a=a;
+	last_b=b;
+	setTimeout(updateRange,500);
+}
+setTimeout(updateRange,500);
+
+var chart = c3.generate({
+bindto: '#plot_mapq_thresh',
+data: {
+  columns: [["Correct", 0.9673209126232938, 0.9673209126232938, 0.9673209126232938, 0.9673209126232938, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9672212812593405, 0.9671216498953871, 0.9670220185314337, 0.9669223871674804, 0.966822755803527, 0.9665238617116668, 0.9665238617116668, 0.9662249676198067, 0.9661253362558534, 0.9658264421639933, 0.9655275480721331, 0.9654279167081797, 0.9649297598884129, 0.9647304971605061, 0.9643319717046926, 0.9642323403407392, 0.963634552157019, 0.9633356580651589, 0.9626382385174853, 0.9623393444256252, 0.9615422935139982, 0.9611437680581847, 0.9579555644116768, 0.9565607253163296, 0.955066254857029, 0.9527747334861014, 0.9506824748430805, 0.9481916907442463, 0.944903855733785, 0.9408189698116968, 0.936634452525655, 0.9326491979675202, 0.9266713161303178, 0.9217893792966025, 0.9145162897280064, 0.9080402510710371, 0.9001693733187207, 0.8874165587326891, 0.8775530537013052, 0.8676895486699213, 0.8463684367838996, 0.8263425326292717, 0.7909733984258245, 0.7563016837700508, 0.7106705190794061, 0.6585633157317924, 0.5876257845969911, 0.500647603865697, 0.3985254558134901, 0.29520773139384276, 0.22705987844973596, 0.21908936933346618, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", -0.9635570180216467, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9522653342167055, -0.9485014396150584, -0.9409736504117643, -0.9409736504117643, -0.9409736504117643, -0.9334458612084703, -0.9296819666068231, -0.9259180720051761, -0.9259180720051761, -0.9221541774035291, -0.9221541774035291, -0.9221541774035291, -0.9221541774035291, -0.918390282801882, -0.910862493598588, -0.9070985989969408, -0.8958069151919996, -0.8845152313870585, -0.8807513367854115, -0.8732235475821173, -0.854404074573882, -0.8393484961672938, -0.8130012339557644, -0.7715983933376468, -0.7301955527195291, -0.7038482905079998, -0.6737371336948232, -0.6360981876783527, -0.6097509254668233, -0.5834036632552939, -0.5269452442305881, -0.5156535604256469, -0.4893062982141175, -0.455431246799294, -0.41402840618117626, -0.3801533547663528, -0.3425144087498822, -0.31240325193670576, -0.28981988432682343, -0.27100041131858815, -0.24465314910705874, -0.2295975707004705, -0.22206978149717638, -0.2107780976922352, -0.18066694087905874, -0.16184746787082346, -0.15431967866752935, -0.10915294344776466, -0.09409736504117643, -0.0790417866345882, -0.06775010282964704, -0.06022231362635292, -0.04140284061811764, -0.03387505141482352, -0.03387505141482352, -0.03387505141482352, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]],
+  type: "area"
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: "Mapping Quality Threshold"
+  },
+
+  y: {
+    label: { text: "Read Count", position: "outer-middle" },
+    tick: {
+       format: function(v) { if(v>=0){return Math.min(100,(Math.round(100000*v)/1000))+"%";}else{ return Math.min(100,(Math.round(100000*(-v/37.778210))/1000))+"%";} }
+    }
+  }
+},
+legend: {
+	position: "right"
+},
+subchart: {
+	show: true,
+	onbrush: function (d) {
+		a = d[0];
+		b = d[1];
+	}
+}
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>

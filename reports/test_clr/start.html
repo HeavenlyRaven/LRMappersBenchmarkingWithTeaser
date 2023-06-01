@@ -1,0 +1,3046 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li><a href="e_coli_sim_clr.html">Sim CLR</a></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Tests Overview</a></li><li><a href="#section2">Errors and Warnings</a></li><li><a href="#section3">Results: Correctly Mapped Reads</a></li><li><a href="#section4">Results: Correct/s</a></li><li><a href="#section5">Results: Precision</a></li><li><a href="#section6">Results: Recall</a></li><li><a href="#section7">Results: F-Measure</a></li><li><a href="#section8">Raw Results</a></li><li><a href="#section9">Setup</a></li><li><a href="#section10">Log</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Tests Overview</div><div class="panel-body"><p>Use the links in the list below to view results for an individual data set, or navigate this page to compare mapper performance across all data sets.</p>10 tests executed, 0 fail, 0 aborted, 0 errors total.<div class="table-responsive"><table class="table table-striped"><thead><tr><th>State</th><th>Name</th><th>Reference</th><th>Executed</th><th>OK</th><th>Warnings</th><th>Errors</th></tr></thead><tr><td class="col-md-1 info" align="center"><span class="glyphicon glyphicon-ok"></span></td><td><a href="e_coli_sim_clr.html">Sim CLR</a></td><td>E_coli</td><td>10</td><td>10</td><td>0</td><td>0</td></tr></table></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Errors and Warnings</div><div class="panel-body"><i>No problems were encountered.</i></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Results: Correctly Mapped Reads</div><div class="panel-body"><div id="plot_correct"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_correct');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Results: Correct/s</div><div class="panel-body"><div id="plot_corrects"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_corrects');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Results: Precision</div><div class="panel-body"><div id="plot_precision"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_precision');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">Results: Recall</div><div class="panel-body"><div id="plot_recall"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_recall');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Results: F-Measure</div><div class="panel-body"><div id="plot_fmeasure"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_fmeasure');">Plot (.svg)</a></li>
+    
+  </ul>
+</div></div></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Raw Results</div><div class="panel-body"><textarea style="min-width: 100%" rows=25>test,mapper,mapq_threshold,correctly_mapped,wrongly_mapped,not_mapped,total,throughput
+e_coli_sim_clr,lra,0,8160,1723,154,10037,269
+e_coli_sim_clr,lra,1,8085,1380,572,10037,269
+e_coli_sim_clr,lra,2,7987,1212,838,10037,269
+e_coli_sim_clr,lra,3,7907,1136,994,10037,269
+e_coli_sim_clr,lra,4,7815,1078,1144,10037,269
+e_coli_sim_clr,lra,5,7741,1034,1262,10037,269
+e_coli_sim_clr,lra,6,7721,1022,1294,10037,269
+e_coli_sim_clr,lra,7,7720,1012,1305,10037,269
+e_coli_sim_clr,lra,8,7720,1007,1310,10037,269
+e_coli_sim_clr,lra,9,7720,1005,1312,10037,269
+e_coli_sim_clr,lra,10,7720,1004,1313,10037,269
+e_coli_sim_clr,lra,11,7720,1003,1314,10037,269
+e_coli_sim_clr,lra,12,7720,1000,1317,10037,269
+e_coli_sim_clr,lra,13,7719,1000,1318,10037,269
+e_coli_sim_clr,lra,14,7718,999,1320,10037,269
+e_coli_sim_clr,lra,15,7718,996,1323,10037,269
+e_coli_sim_clr,lra,16,7718,994,1325,10037,269
+e_coli_sim_clr,lra,17,7718,994,1325,10037,269
+e_coli_sim_clr,lra,18,7718,992,1327,10037,269
+e_coli_sim_clr,lra,19,7718,991,1328,10037,269
+e_coli_sim_clr,lra,20,7717,990,1330,10037,269
+e_coli_sim_clr,lra,21,7717,989,1331,10037,269
+e_coli_sim_clr,lra,22,7717,988,1332,10037,269
+e_coli_sim_clr,lra,23,7716,987,1334,10037,269
+e_coli_sim_clr,lra,24,7715,986,1336,10037,269
+e_coli_sim_clr,lra,25,7715,985,1337,10037,269
+e_coli_sim_clr,lra,26,7715,984,1338,10037,269
+e_coli_sim_clr,lra,27,7714,984,1339,10037,269
+e_coli_sim_clr,lra,28,7714,984,1339,10037,269
+e_coli_sim_clr,lra,29,7714,983,1340,10037,269
+e_coli_sim_clr,lra,30,7714,983,1340,10037,269
+e_coli_sim_clr,lra,31,7714,982,1341,10037,269
+e_coli_sim_clr,lra,32,7714,981,1342,10037,269
+e_coli_sim_clr,lra,33,7714,980,1343,10037,269
+e_coli_sim_clr,lra,34,7714,980,1343,10037,269
+e_coli_sim_clr,lra,35,7714,979,1344,10037,269
+e_coli_sim_clr,lra,36,7714,979,1344,10037,269
+e_coli_sim_clr,lra,37,7714,979,1344,10037,269
+e_coli_sim_clr,lra,38,7713,978,1346,10037,269
+e_coli_sim_clr,lra,39,7713,977,1347,10037,269
+e_coli_sim_clr,lra,40,7713,977,1347,10037,269
+e_coli_sim_clr,lra,41,7713,977,1347,10037,269
+e_coli_sim_clr,lra,42,7713,976,1348,10037,269
+e_coli_sim_clr,lra,43,7713,976,1348,10037,269
+e_coli_sim_clr,lra,44,7713,975,1349,10037,269
+e_coli_sim_clr,lra,45,7713,975,1349,10037,269
+e_coli_sim_clr,lra,46,7713,975,1349,10037,269
+e_coli_sim_clr,lra,47,7713,975,1349,10037,269
+e_coli_sim_clr,lra,48,7713,975,1349,10037,269
+e_coli_sim_clr,lra,49,7713,974,1350,10037,269
+e_coli_sim_clr,lra,50,7713,973,1351,10037,269
+e_coli_sim_clr,lra,51,7713,973,1351,10037,269
+e_coli_sim_clr,lra,52,7713,973,1351,10037,269
+e_coli_sim_clr,lra,53,7713,973,1351,10037,269
+e_coli_sim_clr,lra,54,7713,973,1351,10037,269
+e_coli_sim_clr,lra,55,7713,973,1351,10037,269
+e_coli_sim_clr,lra,56,7713,973,1351,10037,269
+e_coli_sim_clr,lra,57,7713,973,1351,10037,269
+e_coli_sim_clr,lra,58,7713,973,1351,10037,269
+e_coli_sim_clr,lra,59,7713,973,1351,10037,269
+e_coli_sim_clr,lra,60,7713,973,1351,10037,269
+e_coli_sim_clr,lra,61,0,0,10037,10037,269
+e_coli_sim_clr,lra,62,0,0,10037,10037,269
+e_coli_sim_clr,lra,63,0,0,10037,10037,269
+e_coli_sim_clr,lra,64,0,0,10037,10037,269
+e_coli_sim_clr,lra,65,0,0,10037,10037,269
+e_coli_sim_clr,lra,66,0,0,10037,10037,269
+e_coli_sim_clr,lra,67,0,0,10037,10037,269
+e_coli_sim_clr,lra,68,0,0,10037,10037,269
+e_coli_sim_clr,lra,69,0,0,10037,10037,269
+e_coli_sim_clr,lra,70,0,0,10037,10037,269
+e_coli_sim_clr,lra,71,0,0,10037,10037,269
+e_coli_sim_clr,lra,72,0,0,10037,10037,269
+e_coli_sim_clr,lra,73,0,0,10037,10037,269
+e_coli_sim_clr,lra,74,0,0,10037,10037,269
+e_coli_sim_clr,lra,75,0,0,10037,10037,269
+e_coli_sim_clr,lra,76,0,0,10037,10037,269
+e_coli_sim_clr,lra,77,0,0,10037,10037,269
+e_coli_sim_clr,lra,78,0,0,10037,10037,269
+e_coli_sim_clr,lra,79,0,0,10037,10037,269
+e_coli_sim_clr,lra,80,0,0,10037,10037,269
+e_coli_sim_clr,lra,81,0,0,10037,10037,269
+e_coli_sim_clr,lra,82,0,0,10037,10037,269
+e_coli_sim_clr,lra,83,0,0,10037,10037,269
+e_coli_sim_clr,lra,84,0,0,10037,10037,269
+e_coli_sim_clr,lra,85,0,0,10037,10037,269
+e_coli_sim_clr,lra,86,0,0,10037,10037,269
+e_coli_sim_clr,lra,87,0,0,10037,10037,269
+e_coli_sim_clr,lra,88,0,0,10037,10037,269
+e_coli_sim_clr,lra,89,0,0,10037,10037,269
+e_coli_sim_clr,lra,90,0,0,10037,10037,269
+e_coli_sim_clr,lra,91,0,0,10037,10037,269
+e_coli_sim_clr,lra,92,0,0,10037,10037,269
+e_coli_sim_clr,lra,93,0,0,10037,10037,269
+e_coli_sim_clr,lra,94,0,0,10037,10037,269
+e_coli_sim_clr,lra,95,0,0,10037,10037,269
+e_coli_sim_clr,lra,96,0,0,10037,10037,269
+e_coli_sim_clr,lra,97,0,0,10037,10037,269
+e_coli_sim_clr,lra,98,0,0,10037,10037,269
+e_coli_sim_clr,lra,99,0,0,10037,10037,269
+e_coli_sim_clr,lra,100,0,0,10037,10037,269
+e_coli_sim_clr,lra,101,0,0,10037,10037,269
+e_coli_sim_clr,lra,102,0,0,10037,10037,269
+e_coli_sim_clr,lra,103,0,0,10037,10037,269
+e_coli_sim_clr,lra,104,0,0,10037,10037,269
+e_coli_sim_clr,lra,105,0,0,10037,10037,269
+e_coli_sim_clr,lra,106,0,0,10037,10037,269
+e_coli_sim_clr,lra,107,0,0,10037,10037,269
+e_coli_sim_clr,lra,108,0,0,10037,10037,269
+e_coli_sim_clr,lra,109,0,0,10037,10037,269
+e_coli_sim_clr,lra,110,0,0,10037,10037,269
+e_coli_sim_clr,lra,111,0,0,10037,10037,269
+e_coli_sim_clr,lra,112,0,0,10037,10037,269
+e_coli_sim_clr,lra,113,0,0,10037,10037,269
+e_coli_sim_clr,lra,114,0,0,10037,10037,269
+e_coli_sim_clr,lra,115,0,0,10037,10037,269
+e_coli_sim_clr,lra,116,0,0,10037,10037,269
+e_coli_sim_clr,lra,117,0,0,10037,10037,269
+e_coli_sim_clr,lra,118,0,0,10037,10037,269
+e_coli_sim_clr,lra,119,0,0,10037,10037,269
+e_coli_sim_clr,lra,120,0,0,10037,10037,269
+e_coli_sim_clr,lra,121,0,0,10037,10037,269
+e_coli_sim_clr,lra,122,0,0,10037,10037,269
+e_coli_sim_clr,lra,123,0,0,10037,10037,269
+e_coli_sim_clr,lra,124,0,0,10037,10037,269
+e_coli_sim_clr,lra,125,0,0,10037,10037,269
+e_coli_sim_clr,lra,126,0,0,10037,10037,269
+e_coli_sim_clr,lra,127,0,0,10037,10037,269
+e_coli_sim_clr,lra,128,0,0,10037,10037,269
+e_coli_sim_clr,lra,129,0,0,10037,10037,269
+e_coli_sim_clr,lra,130,0,0,10037,10037,269
+e_coli_sim_clr,lra,131,0,0,10037,10037,269
+e_coli_sim_clr,lra,132,0,0,10037,10037,269
+e_coli_sim_clr,lra,133,0,0,10037,10037,269
+e_coli_sim_clr,lra,134,0,0,10037,10037,269
+e_coli_sim_clr,lra,135,0,0,10037,10037,269
+e_coli_sim_clr,lra,136,0,0,10037,10037,269
+e_coli_sim_clr,lra,137,0,0,10037,10037,269
+e_coli_sim_clr,lra,138,0,0,10037,10037,269
+e_coli_sim_clr,lra,139,0,0,10037,10037,269
+e_coli_sim_clr,lra,140,0,0,10037,10037,269
+e_coli_sim_clr,lra,141,0,0,10037,10037,269
+e_coli_sim_clr,lra,142,0,0,10037,10037,269
+e_coli_sim_clr,lra,143,0,0,10037,10037,269
+e_coli_sim_clr,lra,144,0,0,10037,10037,269
+e_coli_sim_clr,lra,145,0,0,10037,10037,269
+e_coli_sim_clr,lra,146,0,0,10037,10037,269
+e_coli_sim_clr,lra,147,0,0,10037,10037,269
+e_coli_sim_clr,lra,148,0,0,10037,10037,269
+e_coli_sim_clr,lra,149,0,0,10037,10037,269
+e_coli_sim_clr,lra,150,0,0,10037,10037,269
+e_coli_sim_clr,lra,151,0,0,10037,10037,269
+e_coli_sim_clr,lra,152,0,0,10037,10037,269
+e_coli_sim_clr,lra,153,0,0,10037,10037,269
+e_coli_sim_clr,lra,154,0,0,10037,10037,269
+e_coli_sim_clr,lra,155,0,0,10037,10037,269
+e_coli_sim_clr,lra,156,0,0,10037,10037,269
+e_coli_sim_clr,lra,157,0,0,10037,10037,269
+e_coli_sim_clr,lra,158,0,0,10037,10037,269
+e_coli_sim_clr,lra,159,0,0,10037,10037,269
+e_coli_sim_clr,lra,160,0,0,10037,10037,269
+e_coli_sim_clr,lra,161,0,0,10037,10037,269
+e_coli_sim_clr,lra,162,0,0,10037,10037,269
+e_coli_sim_clr,lra,163,0,0,10037,10037,269
+e_coli_sim_clr,lra,164,0,0,10037,10037,269
+e_coli_sim_clr,lra,165,0,0,10037,10037,269
+e_coli_sim_clr,lra,166,0,0,10037,10037,269
+e_coli_sim_clr,lra,167,0,0,10037,10037,269
+e_coli_sim_clr,lra,168,0,0,10037,10037,269
+e_coli_sim_clr,lra,169,0,0,10037,10037,269
+e_coli_sim_clr,lra,170,0,0,10037,10037,269
+e_coli_sim_clr,lra,171,0,0,10037,10037,269
+e_coli_sim_clr,lra,172,0,0,10037,10037,269
+e_coli_sim_clr,lra,173,0,0,10037,10037,269
+e_coli_sim_clr,lra,174,0,0,10037,10037,269
+e_coli_sim_clr,lra,175,0,0,10037,10037,269
+e_coli_sim_clr,lra,176,0,0,10037,10037,269
+e_coli_sim_clr,lra,177,0,0,10037,10037,269
+e_coli_sim_clr,lra,178,0,0,10037,10037,269
+e_coli_sim_clr,lra,179,0,0,10037,10037,269
+e_coli_sim_clr,lra,180,0,0,10037,10037,269
+e_coli_sim_clr,lra,181,0,0,10037,10037,269
+e_coli_sim_clr,lra,182,0,0,10037,10037,269
+e_coli_sim_clr,lra,183,0,0,10037,10037,269
+e_coli_sim_clr,lra,184,0,0,10037,10037,269
+e_coli_sim_clr,lra,185,0,0,10037,10037,269
+e_coli_sim_clr,lra,186,0,0,10037,10037,269
+e_coli_sim_clr,lra,187,0,0,10037,10037,269
+e_coli_sim_clr,lra,188,0,0,10037,10037,269
+e_coli_sim_clr,lra,189,0,0,10037,10037,269
+e_coli_sim_clr,lra,190,0,0,10037,10037,269
+e_coli_sim_clr,lra,191,0,0,10037,10037,269
+e_coli_sim_clr,lra,192,0,0,10037,10037,269
+e_coli_sim_clr,lra,193,0,0,10037,10037,269
+e_coli_sim_clr,lra,194,0,0,10037,10037,269
+e_coli_sim_clr,lra,195,0,0,10037,10037,269
+e_coli_sim_clr,lra,196,0,0,10037,10037,269
+e_coli_sim_clr,lra,197,0,0,10037,10037,269
+e_coli_sim_clr,lra,198,0,0,10037,10037,269
+e_coli_sim_clr,lra,199,0,0,10037,10037,269
+e_coli_sim_clr,lra,200,0,0,10037,10037,269
+e_coli_sim_clr,lra,201,0,0,10037,10037,269
+e_coli_sim_clr,lra,202,0,0,10037,10037,269
+e_coli_sim_clr,lra,203,0,0,10037,10037,269
+e_coli_sim_clr,lra,204,0,0,10037,10037,269
+e_coli_sim_clr,lra,205,0,0,10037,10037,269
+e_coli_sim_clr,lra,206,0,0,10037,10037,269
+e_coli_sim_clr,lra,207,0,0,10037,10037,269
+e_coli_sim_clr,lra,208,0,0,10037,10037,269
+e_coli_sim_clr,lra,209,0,0,10037,10037,269
+e_coli_sim_clr,lra,210,0,0,10037,10037,269
+e_coli_sim_clr,lra,211,0,0,10037,10037,269
+e_coli_sim_clr,lra,212,0,0,10037,10037,269
+e_coli_sim_clr,lra,213,0,0,10037,10037,269
+e_coli_sim_clr,lra,214,0,0,10037,10037,269
+e_coli_sim_clr,lra,215,0,0,10037,10037,269
+e_coli_sim_clr,lra,216,0,0,10037,10037,269
+e_coli_sim_clr,lra,217,0,0,10037,10037,269
+e_coli_sim_clr,lra,218,0,0,10037,10037,269
+e_coli_sim_clr,lra,219,0,0,10037,10037,269
+e_coli_sim_clr,lra,220,0,0,10037,10037,269
+e_coli_sim_clr,lra,221,0,0,10037,10037,269
+e_coli_sim_clr,lra,222,0,0,10037,10037,269
+e_coli_sim_clr,lra,223,0,0,10037,10037,269
+e_coli_sim_clr,lra,224,0,0,10037,10037,269
+e_coli_sim_clr,lra,225,0,0,10037,10037,269
+e_coli_sim_clr,lra,226,0,0,10037,10037,269
+e_coli_sim_clr,lra,227,0,0,10037,10037,269
+e_coli_sim_clr,lra,228,0,0,10037,10037,269
+e_coli_sim_clr,lra,229,0,0,10037,10037,269
+e_coli_sim_clr,lra,230,0,0,10037,10037,269
+e_coli_sim_clr,lra,231,0,0,10037,10037,269
+e_coli_sim_clr,lra,232,0,0,10037,10037,269
+e_coli_sim_clr,lra,233,0,0,10037,10037,269
+e_coli_sim_clr,lra,234,0,0,10037,10037,269
+e_coli_sim_clr,lra,235,0,0,10037,10037,269
+e_coli_sim_clr,lra,236,0,0,10037,10037,269
+e_coli_sim_clr,lra,237,0,0,10037,10037,269
+e_coli_sim_clr,lra,238,0,0,10037,10037,269
+e_coli_sim_clr,lra,239,0,0,10037,10037,269
+e_coli_sim_clr,lra,240,0,0,10037,10037,269
+e_coli_sim_clr,lra,241,0,0,10037,10037,269
+e_coli_sim_clr,lra,242,0,0,10037,10037,269
+e_coli_sim_clr,lra,243,0,0,10037,10037,269
+e_coli_sim_clr,lra,244,0,0,10037,10037,269
+e_coli_sim_clr,lra,245,0,0,10037,10037,269
+e_coli_sim_clr,lra,246,0,0,10037,10037,269
+e_coli_sim_clr,lra,247,0,0,10037,10037,269
+e_coli_sim_clr,lra,248,0,0,10037,10037,269
+e_coli_sim_clr,lra,249,0,0,10037,10037,269
+e_coli_sim_clr,lra,250,0,0,10037,10037,269
+e_coli_sim_clr,lra,251,0,0,10037,10037,269
+e_coli_sim_clr,lra,252,0,0,10037,10037,269
+e_coli_sim_clr,lra,253,0,0,10037,10037,269
+e_coli_sim_clr,lra,254,0,0,10037,10037,269
+e_coli_sim_clr,ngmlr,0,9709,256,72,10037,63
+e_coli_sim_clr,ngmlr,1,9709,253,75,10037,63
+e_coli_sim_clr,ngmlr,2,9709,253,75,10037,63
+e_coli_sim_clr,ngmlr,3,9709,253,75,10037,63
+e_coli_sim_clr,ngmlr,4,9708,253,76,10037,63
+e_coli_sim_clr,ngmlr,5,9708,253,76,10037,63
+e_coli_sim_clr,ngmlr,6,9708,252,77,10037,63
+e_coli_sim_clr,ngmlr,7,9708,250,79,10037,63
+e_coli_sim_clr,ngmlr,8,9708,250,79,10037,63
+e_coli_sim_clr,ngmlr,9,9708,250,79,10037,63
+e_coli_sim_clr,ngmlr,10,9707,248,82,10037,63
+e_coli_sim_clr,ngmlr,11,9706,247,84,10037,63
+e_coli_sim_clr,ngmlr,12,9705,246,86,10037,63
+e_coli_sim_clr,ngmlr,13,9704,246,87,10037,63
+e_coli_sim_clr,ngmlr,14,9701,245,91,10037,63
+e_coli_sim_clr,ngmlr,15,9701,245,91,10037,63
+e_coli_sim_clr,ngmlr,16,9698,245,94,10037,63
+e_coli_sim_clr,ngmlr,17,9697,245,95,10037,63
+e_coli_sim_clr,ngmlr,18,9694,244,99,10037,63
+e_coli_sim_clr,ngmlr,19,9691,242,104,10037,63
+e_coli_sim_clr,ngmlr,20,9690,241,106,10037,63
+e_coli_sim_clr,ngmlr,21,9685,238,114,10037,63
+e_coli_sim_clr,ngmlr,22,9683,235,119,10037,63
+e_coli_sim_clr,ngmlr,23,9679,234,124,10037,63
+e_coli_sim_clr,ngmlr,24,9678,232,127,10037,63
+e_coli_sim_clr,ngmlr,25,9672,227,138,10037,63
+e_coli_sim_clr,ngmlr,26,9669,223,145,10037,63
+e_coli_sim_clr,ngmlr,27,9662,216,159,10037,63
+e_coli_sim_clr,ngmlr,28,9659,205,173,10037,63
+e_coli_sim_clr,ngmlr,29,9651,194,192,10037,63
+e_coli_sim_clr,ngmlr,30,9647,187,203,10037,63
+e_coli_sim_clr,ngmlr,31,9615,179,243,10037,63
+e_coli_sim_clr,ngmlr,32,9601,169,267,10037,63
+e_coli_sim_clr,ngmlr,33,9586,162,289,10037,63
+e_coli_sim_clr,ngmlr,34,9563,155,319,10037,63
+e_coli_sim_clr,ngmlr,35,9542,140,355,10037,63
+e_coli_sim_clr,ngmlr,36,9517,137,383,10037,63
+e_coli_sim_clr,ngmlr,37,9484,130,423,10037,63
+e_coli_sim_clr,ngmlr,38,9443,121,473,10037,63
+e_coli_sim_clr,ngmlr,39,9401,110,526,10037,63
+e_coli_sim_clr,ngmlr,40,9361,101,575,10037,63
+e_coli_sim_clr,ngmlr,41,9301,91,645,10037,63
+e_coli_sim_clr,ngmlr,42,9252,83,702,10037,63
+e_coli_sim_clr,ngmlr,43,9179,77,781,10037,63
+e_coli_sim_clr,ngmlr,44,9114,72,851,10037,63
+e_coli_sim_clr,ngmlr,45,9035,65,937,10037,63
+e_coli_sim_clr,ngmlr,46,8907,61,1069,10037,63
+e_coli_sim_clr,ngmlr,47,8808,59,1170,10037,63
+e_coli_sim_clr,ngmlr,48,8709,56,1272,10037,63
+e_coli_sim_clr,ngmlr,49,8495,48,1494,10037,63
+e_coli_sim_clr,ngmlr,50,8294,43,1700,10037,63
+e_coli_sim_clr,ngmlr,51,7939,41,2057,10037,63
+e_coli_sim_clr,ngmlr,52,7591,29,2417,10037,63
+e_coli_sim_clr,ngmlr,53,7133,25,2879,10037,63
+e_coli_sim_clr,ngmlr,54,6610,21,3406,10037,63
+e_coli_sim_clr,ngmlr,55,5898,18,4121,10037,63
+e_coli_sim_clr,ngmlr,56,5025,16,4996,10037,63
+e_coli_sim_clr,ngmlr,57,4000,11,6026,10037,63
+e_coli_sim_clr,ngmlr,58,2963,9,7065,10037,63
+e_coli_sim_clr,ngmlr,59,2279,9,7749,10037,63
+e_coli_sim_clr,ngmlr,60,2199,9,7829,10037,63
+e_coli_sim_clr,ngmlr,61,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,62,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,63,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,64,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,65,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,66,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,67,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,68,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,69,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,70,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,71,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,72,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,73,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,74,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,75,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,76,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,77,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,78,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,79,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,80,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,81,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,82,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,83,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,84,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,85,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,86,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,87,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,88,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,89,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,90,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,91,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,92,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,93,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,94,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,95,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,96,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,97,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,98,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,99,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,100,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,101,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,102,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,103,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,104,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,105,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,106,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,107,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,108,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,109,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,110,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,111,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,112,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,113,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,114,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,115,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,116,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,117,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,118,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,119,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,120,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,121,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,122,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,123,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,124,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,125,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,126,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,127,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,128,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,129,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,130,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,131,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,132,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,133,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,134,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,135,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,136,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,137,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,138,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,139,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,140,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,141,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,142,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,143,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,144,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,145,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,146,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,147,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,148,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,149,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,150,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,151,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,152,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,153,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,154,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,155,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,156,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,157,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,158,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,159,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,160,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,161,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,162,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,163,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,164,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,165,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,166,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,167,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,168,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,169,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,170,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,171,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,172,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,173,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,174,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,175,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,176,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,177,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,178,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,179,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,180,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,181,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,182,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,183,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,184,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,185,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,186,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,187,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,188,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,189,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,190,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,191,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,192,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,193,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,194,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,195,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,196,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,197,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,198,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,199,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,200,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,201,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,202,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,203,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,204,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,205,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,206,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,207,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,208,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,209,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,210,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,211,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,212,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,213,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,214,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,215,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,216,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,217,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,218,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,219,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,220,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,221,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,222,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,223,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,224,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,225,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,226,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,227,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,228,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,229,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,230,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,231,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,232,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,233,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,234,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,235,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,236,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,237,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,238,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,239,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,240,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,241,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,242,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,243,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,244,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,245,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,246,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,247,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,248,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,249,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,250,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,251,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,252,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,253,0,0,10037,10037,63
+e_coli_sim_clr,ngmlr,254,0,0,10037,10037,63
+e_coli_sim_clr,minimap2_01  -x map-pb,0,9781,87,169,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,1,9781,85,171,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,2,9775,81,181,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,3,9772,79,186,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,4,9766,79,192,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,5,9765,79,193,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,6,9763,79,195,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,7,9762,76,199,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,8,9761,76,200,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,9,9757,74,206,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,10,9753,74,210,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,11,9751,74,212,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,12,9749,73,215,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,13,9748,73,216,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,14,9746,73,218,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,15,9745,73,219,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,16,9740,72,225,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,17,9734,71,232,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,18,9731,70,236,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,19,9729,70,238,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,20,9727,69,241,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,21,9724,67,246,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,22,9724,66,247,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,23,9721,65,251,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,24,9721,63,253,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,25,9716,62,259,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,26,9714,61,262,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,27,9713,61,263,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,28,9711,61,265,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,29,9706,61,270,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,30,9704,61,272,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,31,9702,60,275,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,32,9699,59,279,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,33,9696,59,282,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,34,9695,59,283,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,35,9693,59,285,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,36,9687,59,291,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,37,9687,59,291,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,38,9686,59,292,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,39,9684,58,295,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,40,9683,58,296,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,41,9683,58,296,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,42,9682,58,297,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,43,9681,58,298,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,44,9676,58,303,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,45,9675,57,305,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,46,9674,57,306,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,47,9671,57,309,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,48,9670,57,310,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,49,9668,56,313,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,50,9666,54,317,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,51,9665,54,318,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,52,9663,54,320,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,53,9662,53,322,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,54,9660,53,324,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,55,9659,53,325,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,56,9656,53,328,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,57,9655,53,329,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,58,9654,53,330,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,59,9653,53,331,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,60,9651,53,333,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,61,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,62,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,63,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,64,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,65,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,66,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,67,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,68,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,69,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,70,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,71,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,72,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,73,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,74,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,75,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,76,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,77,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,78,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,79,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,80,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,81,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,82,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,83,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,84,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,85,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,86,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,87,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,88,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,89,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,90,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,91,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,92,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,93,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,94,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,95,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,96,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,97,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,98,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,99,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,100,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,101,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,102,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,103,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,104,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,105,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,106,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,107,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,108,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,109,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,110,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,111,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,112,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,113,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,114,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,115,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,116,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,117,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,118,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,119,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,120,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,121,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,122,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,123,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,124,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,125,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,126,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,127,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,128,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,129,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,130,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,131,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,132,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,133,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,134,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,135,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,136,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,137,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,138,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,139,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,140,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,141,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,142,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,143,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,144,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,145,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,146,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,147,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,148,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,149,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,150,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,151,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,152,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,153,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,154,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,155,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,156,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,157,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,158,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,159,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,160,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,161,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,162,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,163,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,164,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,165,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,166,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,167,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,168,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,169,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,170,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,171,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,172,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,173,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,174,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,175,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,176,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,177,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,178,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,179,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,180,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,181,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,182,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,183,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,184,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,185,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,186,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,187,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,188,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,189,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,190,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,191,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,192,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,193,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,194,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,195,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,196,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,197,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,198,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,199,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,200,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,201,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,202,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,203,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,204,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,205,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,206,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,207,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,208,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,209,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,210,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,211,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,212,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,213,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,214,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,215,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,216,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,217,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,218,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,219,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,220,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,221,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,222,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,223,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,224,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,225,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,226,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,227,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,228,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,229,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,230,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,231,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,232,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,233,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,234,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,235,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,236,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,237,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,238,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,239,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,240,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,241,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,242,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,243,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,244,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,245,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,246,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,247,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,248,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,249,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,250,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,251,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,252,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,253,0,0,10037,10037,798
+e_coli_sim_clr,minimap2_01  -x map-pb,254,0,0,10037,10037,798
+e_coli_sim_clr,lra_01  -CLR,0,8544,1253,240,10037,165
+e_coli_sim_clr,lra_01  -CLR,1,8474,1181,382,10037,165
+e_coli_sim_clr,lra_01  -CLR,2,8213,1042,782,10037,165
+e_coli_sim_clr,lra_01  -CLR,3,8136,1022,879,10037,165
+e_coli_sim_clr,lra_01  -CLR,4,8136,1022,879,10037,165
+e_coli_sim_clr,lra_01  -CLR,5,8136,1021,880,10037,165
+e_coli_sim_clr,lra_01  -CLR,6,8136,1021,880,10037,165
+e_coli_sim_clr,lra_01  -CLR,7,8134,1021,882,10037,165
+e_coli_sim_clr,lra_01  -CLR,8,8131,1021,885,10037,165
+e_coli_sim_clr,lra_01  -CLR,9,8130,1021,886,10037,165
+e_coli_sim_clr,lra_01  -CLR,10,8129,1019,889,10037,165
+e_coli_sim_clr,lra_01  -CLR,11,8128,1019,890,10037,165
+e_coli_sim_clr,lra_01  -CLR,12,8126,1019,892,10037,165
+e_coli_sim_clr,lra_01  -CLR,13,8125,1019,893,10037,165
+e_coli_sim_clr,lra_01  -CLR,14,8125,1019,893,10037,165
+e_coli_sim_clr,lra_01  -CLR,15,8125,1019,893,10037,165
+e_coli_sim_clr,lra_01  -CLR,16,8125,1019,893,10037,165
+e_coli_sim_clr,lra_01  -CLR,17,8125,1019,893,10037,165
+e_coli_sim_clr,lra_01  -CLR,18,8125,1018,894,10037,165
+e_coli_sim_clr,lra_01  -CLR,19,8125,1018,894,10037,165
+e_coli_sim_clr,lra_01  -CLR,20,8125,1018,894,10037,165
+e_coli_sim_clr,lra_01  -CLR,21,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,22,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,23,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,24,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,25,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,26,8123,1018,896,10037,165
+e_coli_sim_clr,lra_01  -CLR,27,8122,1018,897,10037,165
+e_coli_sim_clr,lra_01  -CLR,28,8122,1018,897,10037,165
+e_coli_sim_clr,lra_01  -CLR,29,8121,1018,898,10037,165
+e_coli_sim_clr,lra_01  -CLR,30,8121,1018,898,10037,165
+e_coli_sim_clr,lra_01  -CLR,31,8121,1018,898,10037,165
+e_coli_sim_clr,lra_01  -CLR,32,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,33,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,34,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,35,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,36,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,37,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,38,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,39,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,40,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,41,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,42,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,43,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,44,8120,1018,899,10037,165
+e_coli_sim_clr,lra_01  -CLR,45,8058,1004,975,10037,165
+e_coli_sim_clr,lra_01  -CLR,46,8058,1004,975,10037,165
+e_coli_sim_clr,lra_01  -CLR,47,8058,1004,975,10037,165
+e_coli_sim_clr,lra_01  -CLR,48,8058,1004,975,10037,165
+e_coli_sim_clr,lra_01  -CLR,49,7997,983,1057,10037,165
+e_coli_sim_clr,lra_01  -CLR,50,7997,982,1058,10037,165
+e_coli_sim_clr,lra_01  -CLR,51,7997,982,1058,10037,165
+e_coli_sim_clr,lra_01  -CLR,52,7997,982,1058,10037,165
+e_coli_sim_clr,lra_01  -CLR,53,7927,967,1143,10037,165
+e_coli_sim_clr,lra_01  -CLR,54,7926,967,1144,10037,165
+e_coli_sim_clr,lra_01  -CLR,55,7926,967,1144,10037,165
+e_coli_sim_clr,lra_01  -CLR,56,7926,967,1144,10037,165
+e_coli_sim_clr,lra_01  -CLR,57,7853,956,1228,10037,165
+e_coli_sim_clr,lra_01  -CLR,58,7852,956,1229,10037,165
+e_coli_sim_clr,lra_01  -CLR,59,7851,956,1230,10037,165
+e_coli_sim_clr,lra_01  -CLR,60,7851,956,1230,10037,165
+e_coli_sim_clr,lra_01  -CLR,61,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,62,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,63,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,64,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,65,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,66,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,67,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,68,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,69,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,70,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,71,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,72,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,73,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,74,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,75,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,76,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,77,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,78,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,79,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,80,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,81,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,82,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,83,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,84,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,85,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,86,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,87,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,88,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,89,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,90,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,91,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,92,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,93,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,94,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,95,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,96,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,97,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,98,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,99,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,100,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,101,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,102,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,103,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,104,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,105,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,106,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,107,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,108,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,109,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,110,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,111,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,112,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,113,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,114,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,115,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,116,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,117,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,118,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,119,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,120,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,121,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,122,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,123,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,124,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,125,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,126,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,127,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,128,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,129,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,130,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,131,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,132,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,133,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,134,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,135,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,136,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,137,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,138,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,139,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,140,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,141,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,142,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,143,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,144,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,145,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,146,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,147,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,148,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,149,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,150,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,151,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,152,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,153,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,154,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,155,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,156,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,157,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,158,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,159,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,160,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,161,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,162,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,163,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,164,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,165,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,166,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,167,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,168,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,169,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,170,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,171,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,172,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,173,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,174,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,175,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,176,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,177,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,178,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,179,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,180,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,181,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,182,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,183,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,184,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,185,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,186,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,187,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,188,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,189,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,190,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,191,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,192,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,193,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,194,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,195,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,196,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,197,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,198,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,199,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,200,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,201,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,202,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,203,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,204,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,205,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,206,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,207,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,208,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,209,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,210,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,211,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,212,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,213,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,214,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,215,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,216,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,217,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,218,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,219,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,220,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,221,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,222,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,223,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,224,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,225,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,226,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,227,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,228,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,229,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,230,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,231,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,232,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,233,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,234,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,235,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,236,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,237,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,238,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,239,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,240,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,241,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,242,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,243,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,244,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,245,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,246,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,247,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,248,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,249,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,250,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,251,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,252,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,253,0,0,10037,10037,165
+e_coli_sim_clr,lra_01  -CLR,254,0,0,10037,10037,165
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,0,8975,100,962,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,1,8975,98,964,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,2,8940,93,1004,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,3,8931,93,1013,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,4,8920,91,1026,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,5,8900,87,1050,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,6,8884,86,1067,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,7,8861,86,1090,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,8,8843,85,1109,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,9,8835,84,1118,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,10,8828,83,1126,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,11,8824,78,1135,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,12,8818,78,1141,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,13,8812,78,1147,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,14,8807,75,1155,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,15,8800,74,1163,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,16,8796,74,1167,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,17,8790,73,1174,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,18,8780,70,1187,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,19,8771,70,1196,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,20,8765,70,1202,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,21,8753,69,1215,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,22,8747,66,1224,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,23,8739,66,1232,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,24,8731,65,1241,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,25,8716,65,1256,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,26,8700,65,1272,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,27,8678,63,1296,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,28,8664,62,1311,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,29,8651,62,1324,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,30,8643,61,1333,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,31,8635,61,1341,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,32,8627,60,1350,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,33,8618,60,1359,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,34,8616,60,1361,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,35,8612,60,1365,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,36,8608,60,1369,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,37,8596,60,1381,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,38,8589,60,1388,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,39,8586,59,1392,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,40,8579,58,1400,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,41,8571,58,1408,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,42,8563,58,1416,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,43,8556,57,1424,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,44,8549,57,1431,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,45,8542,56,1439,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,46,8535,56,1446,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,47,8522,56,1459,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,48,8511,55,1471,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,49,8505,53,1479,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,50,8486,52,1499,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,51,8474,52,1511,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,52,8460,51,1526,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,53,8452,51,1534,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,54,8444,50,1543,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,55,8434,50,1553,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,56,8425,48,1564,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,57,8420,48,1569,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,58,8415,47,1575,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,59,8413,46,1578,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,60,8405,45,1587,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,61,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,62,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,63,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,64,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,65,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,66,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,67,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,68,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,69,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,70,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,71,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,72,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,73,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,74,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,75,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,76,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,77,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,78,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,79,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,80,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,81,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,82,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,83,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,84,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,85,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,86,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,87,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,88,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,89,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,90,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,91,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,92,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,93,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,94,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,95,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,96,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,97,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,98,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,99,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,100,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,101,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,102,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,103,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,104,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,105,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,106,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,107,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,108,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,109,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,110,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,111,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,112,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,113,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,114,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,115,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,116,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,117,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,118,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,119,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,120,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,121,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,122,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,123,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,124,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,125,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,126,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,127,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,128,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,129,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,130,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,131,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,132,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,133,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,134,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,135,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,136,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,137,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,138,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,139,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,140,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,141,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,142,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,143,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,144,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,145,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,146,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,147,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,148,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,149,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,150,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,151,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,152,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,153,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,154,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,155,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,156,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,157,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,158,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,159,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,160,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,161,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,162,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,163,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,164,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,165,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,166,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,167,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,168,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,169,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,170,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,171,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,172,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,173,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,174,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,175,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,176,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,177,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,178,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,179,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,180,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,181,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,182,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,183,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,184,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,185,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,186,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,187,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,188,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,189,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,190,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,191,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,192,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,193,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,194,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,195,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,196,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,197,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,198,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,199,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,200,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,201,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,202,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,203,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,204,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,205,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,206,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,207,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,208,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,209,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,210,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,211,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,212,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,213,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,214,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,215,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,216,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,217,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,218,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,219,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,220,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,221,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,222,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,223,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,224,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,225,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,226,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,227,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,228,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,229,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,230,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,231,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,232,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,233,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,234,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,235,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,236,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,237,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,238,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,239,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,240,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,241,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,242,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,243,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,244,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,245,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,246,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,247,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,248,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,249,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,250,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,251,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,252,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,253,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap_01  -x map-pb-clr,254,0,0,10037,10037,579
+e_coli_sim_clr,winnowmap,0,8975,100,962,10037,618
+e_coli_sim_clr,winnowmap,1,8975,98,964,10037,618
+e_coli_sim_clr,winnowmap,2,8940,93,1004,10037,618
+e_coli_sim_clr,winnowmap,3,8931,93,1013,10037,618
+e_coli_sim_clr,winnowmap,4,8920,91,1026,10037,618
+e_coli_sim_clr,winnowmap,5,8900,87,1050,10037,618
+e_coli_sim_clr,winnowmap,6,8884,86,1067,10037,618
+e_coli_sim_clr,winnowmap,7,8861,86,1090,10037,618
+e_coli_sim_clr,winnowmap,8,8843,85,1109,10037,618
+e_coli_sim_clr,winnowmap,9,8835,84,1118,10037,618
+e_coli_sim_clr,winnowmap,10,8828,83,1126,10037,618
+e_coli_sim_clr,winnowmap,11,8824,78,1135,10037,618
+e_coli_sim_clr,winnowmap,12,8818,78,1141,10037,618
+e_coli_sim_clr,winnowmap,13,8812,78,1147,10037,618
+e_coli_sim_clr,winnowmap,14,8807,75,1155,10037,618
+e_coli_sim_clr,winnowmap,15,8800,74,1163,10037,618
+e_coli_sim_clr,winnowmap,16,8796,74,1167,10037,618
+e_coli_sim_clr,winnowmap,17,8790,73,1174,10037,618
+e_coli_sim_clr,winnowmap,18,8780,70,1187,10037,618
+e_coli_sim_clr,winnowmap,19,8771,70,1196,10037,618
+e_coli_sim_clr,winnowmap,20,8765,70,1202,10037,618
+e_coli_sim_clr,winnowmap,21,8753,69,1215,10037,618
+e_coli_sim_clr,winnowmap,22,8747,66,1224,10037,618
+e_coli_sim_clr,winnowmap,23,8739,66,1232,10037,618
+e_coli_sim_clr,winnowmap,24,8731,65,1241,10037,618
+e_coli_sim_clr,winnowmap,25,8716,65,1256,10037,618
+e_coli_sim_clr,winnowmap,26,8700,65,1272,10037,618
+e_coli_sim_clr,winnowmap,27,8678,63,1296,10037,618
+e_coli_sim_clr,winnowmap,28,8664,62,1311,10037,618
+e_coli_sim_clr,winnowmap,29,8651,62,1324,10037,618
+e_coli_sim_clr,winnowmap,30,8643,61,1333,10037,618
+e_coli_sim_clr,winnowmap,31,8635,61,1341,10037,618
+e_coli_sim_clr,winnowmap,32,8627,60,1350,10037,618
+e_coli_sim_clr,winnowmap,33,8618,60,1359,10037,618
+e_coli_sim_clr,winnowmap,34,8616,60,1361,10037,618
+e_coli_sim_clr,winnowmap,35,8612,60,1365,10037,618
+e_coli_sim_clr,winnowmap,36,8608,60,1369,10037,618
+e_coli_sim_clr,winnowmap,37,8596,60,1381,10037,618
+e_coli_sim_clr,winnowmap,38,8589,60,1388,10037,618
+e_coli_sim_clr,winnowmap,39,8586,59,1392,10037,618
+e_coli_sim_clr,winnowmap,40,8579,58,1400,10037,618
+e_coli_sim_clr,winnowmap,41,8571,58,1408,10037,618
+e_coli_sim_clr,winnowmap,42,8563,58,1416,10037,618
+e_coli_sim_clr,winnowmap,43,8556,57,1424,10037,618
+e_coli_sim_clr,winnowmap,44,8549,57,1431,10037,618
+e_coli_sim_clr,winnowmap,45,8542,56,1439,10037,618
+e_coli_sim_clr,winnowmap,46,8535,56,1446,10037,618
+e_coli_sim_clr,winnowmap,47,8522,56,1459,10037,618
+e_coli_sim_clr,winnowmap,48,8511,55,1471,10037,618
+e_coli_sim_clr,winnowmap,49,8505,53,1479,10037,618
+e_coli_sim_clr,winnowmap,50,8486,52,1499,10037,618
+e_coli_sim_clr,winnowmap,51,8474,52,1511,10037,618
+e_coli_sim_clr,winnowmap,52,8460,51,1526,10037,618
+e_coli_sim_clr,winnowmap,53,8452,51,1534,10037,618
+e_coli_sim_clr,winnowmap,54,8444,50,1543,10037,618
+e_coli_sim_clr,winnowmap,55,8434,50,1553,10037,618
+e_coli_sim_clr,winnowmap,56,8425,48,1564,10037,618
+e_coli_sim_clr,winnowmap,57,8420,48,1569,10037,618
+e_coli_sim_clr,winnowmap,58,8415,47,1575,10037,618
+e_coli_sim_clr,winnowmap,59,8413,46,1578,10037,618
+e_coli_sim_clr,winnowmap,60,8405,45,1587,10037,618
+e_coli_sim_clr,winnowmap,61,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,62,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,63,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,64,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,65,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,66,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,67,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,68,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,69,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,70,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,71,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,72,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,73,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,74,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,75,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,76,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,77,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,78,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,79,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,80,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,81,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,82,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,83,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,84,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,85,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,86,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,87,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,88,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,89,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,90,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,91,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,92,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,93,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,94,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,95,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,96,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,97,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,98,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,99,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,100,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,101,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,102,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,103,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,104,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,105,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,106,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,107,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,108,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,109,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,110,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,111,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,112,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,113,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,114,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,115,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,116,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,117,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,118,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,119,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,120,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,121,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,122,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,123,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,124,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,125,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,126,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,127,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,128,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,129,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,130,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,131,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,132,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,133,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,134,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,135,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,136,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,137,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,138,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,139,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,140,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,141,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,142,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,143,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,144,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,145,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,146,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,147,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,148,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,149,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,150,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,151,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,152,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,153,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,154,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,155,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,156,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,157,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,158,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,159,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,160,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,161,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,162,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,163,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,164,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,165,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,166,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,167,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,168,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,169,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,170,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,171,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,172,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,173,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,174,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,175,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,176,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,177,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,178,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,179,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,180,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,181,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,182,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,183,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,184,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,185,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,186,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,187,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,188,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,189,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,190,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,191,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,192,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,193,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,194,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,195,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,196,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,197,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,198,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,199,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,200,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,201,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,202,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,203,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,204,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,205,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,206,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,207,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,208,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,209,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,210,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,211,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,212,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,213,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,214,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,215,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,216,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,217,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,218,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,219,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,220,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,221,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,222,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,223,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,224,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,225,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,226,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,227,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,228,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,229,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,230,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,231,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,232,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,233,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,234,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,235,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,236,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,237,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,238,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,239,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,240,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,241,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,242,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,243,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,244,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,245,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,246,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,247,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,248,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,249,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,250,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,251,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,252,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,253,0,0,10037,10037,618
+e_coli_sim_clr,winnowmap,254,0,0,10037,10037,618
+e_coli_sim_clr,lordfast,0,9595,94,348,10037,1246
+e_coli_sim_clr,lordfast,1,9592,94,351,10037,1246
+e_coli_sim_clr,lordfast,2,9591,94,352,10037,1246
+e_coli_sim_clr,lordfast,3,9587,94,356,10037,1246
+e_coli_sim_clr,lordfast,4,9584,93,360,10037,1246
+e_coli_sim_clr,lordfast,5,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,6,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,7,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,8,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,9,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,10,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,11,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,12,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,13,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,14,9580,93,364,10037,1246
+e_coli_sim_clr,lordfast,15,9576,93,368,10037,1246
+e_coli_sim_clr,lordfast,16,9573,92,372,10037,1246
+e_coli_sim_clr,lordfast,17,9560,92,385,10037,1246
+e_coli_sim_clr,lordfast,18,9546,92,399,10037,1246
+e_coli_sim_clr,lordfast,19,9546,92,399,10037,1246
+e_coli_sim_clr,lordfast,20,9546,92,399,10037,1246
+e_coli_sim_clr,lordfast,21,9546,92,399,10037,1246
+e_coli_sim_clr,lordfast,22,9546,92,399,10037,1246
+e_coli_sim_clr,lordfast,23,9544,92,401,10037,1246
+e_coli_sim_clr,lordfast,24,9543,92,402,10037,1246
+e_coli_sim_clr,lordfast,25,9543,92,402,10037,1246
+e_coli_sim_clr,lordfast,26,9543,92,402,10037,1246
+e_coli_sim_clr,lordfast,27,9543,92,402,10037,1246
+e_coli_sim_clr,lordfast,28,9543,92,402,10037,1246
+e_coli_sim_clr,lordfast,29,9540,92,405,10037,1246
+e_coli_sim_clr,lordfast,30,9540,92,405,10037,1246
+e_coli_sim_clr,lordfast,31,9540,92,405,10037,1246
+e_coli_sim_clr,lordfast,32,9540,92,405,10037,1246
+e_coli_sim_clr,lordfast,33,9540,92,405,10037,1246
+e_coli_sim_clr,lordfast,34,9539,92,406,10037,1246
+e_coli_sim_clr,lordfast,35,9539,92,406,10037,1246
+e_coli_sim_clr,lordfast,36,9539,92,406,10037,1246
+e_coli_sim_clr,lordfast,37,9536,92,409,10037,1246
+e_coli_sim_clr,lordfast,38,9536,92,409,10037,1246
+e_coli_sim_clr,lordfast,39,9535,92,410,10037,1246
+e_coli_sim_clr,lordfast,40,9527,91,419,10037,1246
+e_coli_sim_clr,lordfast,41,9525,91,421,10037,1246
+e_coli_sim_clr,lordfast,42,9525,90,422,10037,1246
+e_coli_sim_clr,lordfast,43,9524,90,423,10037,1246
+e_coli_sim_clr,lordfast,44,9520,90,427,10037,1246
+e_coli_sim_clr,lordfast,45,9514,87,436,10037,1246
+e_coli_sim_clr,lordfast,46,9500,87,450,10037,1246
+e_coli_sim_clr,lordfast,47,9498,85,454,10037,1246
+e_coli_sim_clr,lordfast,48,9489,85,463,10037,1246
+e_coli_sim_clr,lordfast,49,9485,85,467,10037,1246
+e_coli_sim_clr,lordfast,50,9484,85,468,10037,1246
+e_coli_sim_clr,lordfast,51,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,52,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,53,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,54,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,55,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,56,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,57,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,58,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,59,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,60,9483,85,469,10037,1246
+e_coli_sim_clr,lordfast,61,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,62,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,63,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,64,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,65,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,66,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,67,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,68,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,69,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,70,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,71,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,72,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,73,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,74,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,75,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,76,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,77,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,78,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,79,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,80,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,81,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,82,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,83,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,84,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,85,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,86,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,87,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,88,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,89,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,90,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,91,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,92,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,93,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,94,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,95,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,96,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,97,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,98,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,99,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,100,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,101,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,102,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,103,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,104,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,105,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,106,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,107,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,108,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,109,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,110,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,111,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,112,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,113,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,114,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,115,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,116,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,117,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,118,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,119,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,120,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,121,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,122,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,123,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,124,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,125,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,126,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,127,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,128,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,129,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,130,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,131,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,132,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,133,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,134,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,135,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,136,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,137,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,138,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,139,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,140,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,141,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,142,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,143,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,144,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,145,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,146,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,147,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,148,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,149,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,150,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,151,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,152,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,153,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,154,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,155,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,156,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,157,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,158,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,159,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,160,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,161,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,162,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,163,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,164,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,165,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,166,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,167,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,168,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,169,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,170,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,171,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,172,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,173,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,174,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,175,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,176,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,177,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,178,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,179,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,180,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,181,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,182,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,183,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,184,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,185,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,186,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,187,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,188,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,189,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,190,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,191,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,192,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,193,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,194,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,195,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,196,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,197,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,198,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,199,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,200,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,201,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,202,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,203,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,204,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,205,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,206,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,207,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,208,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,209,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,210,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,211,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,212,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,213,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,214,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,215,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,216,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,217,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,218,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,219,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,220,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,221,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,222,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,223,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,224,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,225,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,226,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,227,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,228,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,229,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,230,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,231,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,232,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,233,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,234,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,235,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,236,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,237,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,238,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,239,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,240,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,241,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,242,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,243,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,244,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,245,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,246,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,247,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,248,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,249,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,250,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,251,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,252,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,253,0,0,10037,10037,1246
+e_coli_sim_clr,lordfast,254,0,0,10037,10037,1246
+e_coli_sim_clr,minimap2,0,9781,87,169,10037,817
+e_coli_sim_clr,minimap2,1,9781,85,171,10037,817
+e_coli_sim_clr,minimap2,2,9775,81,181,10037,817
+e_coli_sim_clr,minimap2,3,9772,79,186,10037,817
+e_coli_sim_clr,minimap2,4,9766,79,192,10037,817
+e_coli_sim_clr,minimap2,5,9765,79,193,10037,817
+e_coli_sim_clr,minimap2,6,9763,79,195,10037,817
+e_coli_sim_clr,minimap2,7,9762,76,199,10037,817
+e_coli_sim_clr,minimap2,8,9761,76,200,10037,817
+e_coli_sim_clr,minimap2,9,9757,74,206,10037,817
+e_coli_sim_clr,minimap2,10,9753,74,210,10037,817
+e_coli_sim_clr,minimap2,11,9751,74,212,10037,817
+e_coli_sim_clr,minimap2,12,9749,73,215,10037,817
+e_coli_sim_clr,minimap2,13,9748,73,216,10037,817
+e_coli_sim_clr,minimap2,14,9746,73,218,10037,817
+e_coli_sim_clr,minimap2,15,9745,73,219,10037,817
+e_coli_sim_clr,minimap2,16,9740,72,225,10037,817
+e_coli_sim_clr,minimap2,17,9734,71,232,10037,817
+e_coli_sim_clr,minimap2,18,9731,70,236,10037,817
+e_coli_sim_clr,minimap2,19,9729,70,238,10037,817
+e_coli_sim_clr,minimap2,20,9727,69,241,10037,817
+e_coli_sim_clr,minimap2,21,9724,67,246,10037,817
+e_coli_sim_clr,minimap2,22,9724,66,247,10037,817
+e_coli_sim_clr,minimap2,23,9721,65,251,10037,817
+e_coli_sim_clr,minimap2,24,9721,63,253,10037,817
+e_coli_sim_clr,minimap2,25,9716,62,259,10037,817
+e_coli_sim_clr,minimap2,26,9714,61,262,10037,817
+e_coli_sim_clr,minimap2,27,9713,61,263,10037,817
+e_coli_sim_clr,minimap2,28,9711,61,265,10037,817
+e_coli_sim_clr,minimap2,29,9706,61,270,10037,817
+e_coli_sim_clr,minimap2,30,9704,61,272,10037,817
+e_coli_sim_clr,minimap2,31,9702,60,275,10037,817
+e_coli_sim_clr,minimap2,32,9699,59,279,10037,817
+e_coli_sim_clr,minimap2,33,9696,59,282,10037,817
+e_coli_sim_clr,minimap2,34,9695,59,283,10037,817
+e_coli_sim_clr,minimap2,35,9693,59,285,10037,817
+e_coli_sim_clr,minimap2,36,9687,59,291,10037,817
+e_coli_sim_clr,minimap2,37,9687,59,291,10037,817
+e_coli_sim_clr,minimap2,38,9686,59,292,10037,817
+e_coli_sim_clr,minimap2,39,9684,58,295,10037,817
+e_coli_sim_clr,minimap2,40,9683,58,296,10037,817
+e_coli_sim_clr,minimap2,41,9683,58,296,10037,817
+e_coli_sim_clr,minimap2,42,9682,58,297,10037,817
+e_coli_sim_clr,minimap2,43,9681,58,298,10037,817
+e_coli_sim_clr,minimap2,44,9676,58,303,10037,817
+e_coli_sim_clr,minimap2,45,9675,57,305,10037,817
+e_coli_sim_clr,minimap2,46,9674,57,306,10037,817
+e_coli_sim_clr,minimap2,47,9671,57,309,10037,817
+e_coli_sim_clr,minimap2,48,9670,57,310,10037,817
+e_coli_sim_clr,minimap2,49,9668,56,313,10037,817
+e_coli_sim_clr,minimap2,50,9666,54,317,10037,817
+e_coli_sim_clr,minimap2,51,9665,54,318,10037,817
+e_coli_sim_clr,minimap2,52,9663,54,320,10037,817
+e_coli_sim_clr,minimap2,53,9662,53,322,10037,817
+e_coli_sim_clr,minimap2,54,9660,53,324,10037,817
+e_coli_sim_clr,minimap2,55,9659,53,325,10037,817
+e_coli_sim_clr,minimap2,56,9656,53,328,10037,817
+e_coli_sim_clr,minimap2,57,9655,53,329,10037,817
+e_coli_sim_clr,minimap2,58,9654,53,330,10037,817
+e_coli_sim_clr,minimap2,59,9653,53,331,10037,817
+e_coli_sim_clr,minimap2,60,9651,53,333,10037,817
+e_coli_sim_clr,minimap2,61,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,62,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,63,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,64,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,65,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,66,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,67,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,68,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,69,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,70,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,71,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,72,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,73,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,74,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,75,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,76,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,77,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,78,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,79,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,80,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,81,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,82,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,83,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,84,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,85,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,86,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,87,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,88,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,89,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,90,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,91,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,92,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,93,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,94,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,95,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,96,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,97,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,98,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,99,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,100,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,101,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,102,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,103,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,104,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,105,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,106,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,107,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,108,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,109,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,110,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,111,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,112,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,113,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,114,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,115,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,116,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,117,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,118,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,119,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,120,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,121,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,122,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,123,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,124,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,125,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,126,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,127,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,128,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,129,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,130,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,131,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,132,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,133,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,134,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,135,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,136,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,137,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,138,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,139,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,140,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,141,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,142,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,143,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,144,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,145,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,146,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,147,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,148,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,149,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,150,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,151,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,152,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,153,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,154,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,155,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,156,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,157,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,158,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,159,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,160,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,161,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,162,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,163,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,164,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,165,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,166,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,167,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,168,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,169,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,170,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,171,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,172,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,173,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,174,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,175,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,176,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,177,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,178,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,179,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,180,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,181,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,182,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,183,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,184,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,185,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,186,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,187,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,188,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,189,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,190,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,191,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,192,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,193,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,194,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,195,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,196,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,197,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,198,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,199,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,200,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,201,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,202,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,203,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,204,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,205,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,206,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,207,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,208,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,209,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,210,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,211,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,212,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,213,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,214,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,215,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,216,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,217,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,218,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,219,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,220,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,221,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,222,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,223,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,224,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,225,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,226,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,227,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,228,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,229,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,230,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,231,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,232,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,233,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,234,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,235,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,236,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,237,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,238,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,239,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,240,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,241,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,242,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,243,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,244,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,245,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,246,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,247,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,248,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,249,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,250,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,251,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,252,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,253,0,0,10037,10037,817
+e_coli_sim_clr,minimap2,254,0,0,10037,10037,817
+e_coli_sim_clr,graphmap,0,10027,5,5,10037,100
+e_coli_sim_clr,graphmap,1,10027,5,5,10037,100
+e_coli_sim_clr,graphmap,2,10027,5,5,10037,100
+e_coli_sim_clr,graphmap,3,10025,2,10,10037,100
+e_coli_sim_clr,graphmap,4,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,5,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,6,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,7,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,8,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,9,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,10,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,11,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,12,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,13,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,14,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,15,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,16,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,17,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,18,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,19,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,20,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,21,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,22,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,23,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,24,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,25,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,26,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,27,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,28,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,29,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,30,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,31,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,32,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,33,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,34,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,35,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,36,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,37,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,38,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,39,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,40,10020,0,17,10037,100
+e_coli_sim_clr,graphmap,41,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,42,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,43,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,44,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,45,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,46,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,47,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,48,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,49,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,50,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,51,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,52,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,53,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,54,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,55,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,56,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,57,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,58,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,59,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,60,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,61,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,62,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,63,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,64,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,65,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,66,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,67,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,68,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,69,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,70,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,71,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,72,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,73,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,74,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,75,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,76,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,77,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,78,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,79,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,80,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,81,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,82,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,83,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,84,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,85,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,86,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,87,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,88,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,89,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,90,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,91,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,92,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,93,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,94,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,95,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,96,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,97,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,98,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,99,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,100,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,101,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,102,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,103,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,104,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,105,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,106,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,107,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,108,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,109,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,110,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,111,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,112,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,113,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,114,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,115,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,116,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,117,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,118,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,119,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,120,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,121,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,122,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,123,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,124,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,125,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,126,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,127,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,128,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,129,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,130,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,131,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,132,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,133,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,134,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,135,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,136,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,137,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,138,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,139,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,140,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,141,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,142,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,143,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,144,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,145,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,146,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,147,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,148,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,149,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,150,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,151,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,152,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,153,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,154,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,155,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,156,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,157,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,158,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,159,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,160,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,161,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,162,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,163,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,164,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,165,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,166,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,167,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,168,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,169,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,170,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,171,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,172,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,173,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,174,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,175,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,176,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,177,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,178,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,179,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,180,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,181,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,182,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,183,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,184,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,185,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,186,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,187,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,188,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,189,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,190,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,191,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,192,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,193,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,194,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,195,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,196,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,197,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,198,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,199,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,200,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,201,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,202,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,203,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,204,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,205,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,206,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,207,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,208,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,209,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,210,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,211,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,212,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,213,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,214,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,215,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,216,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,217,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,218,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,219,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,220,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,221,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,222,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,223,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,224,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,225,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,226,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,227,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,228,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,229,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,230,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,231,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,232,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,233,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,234,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,235,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,236,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,237,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,238,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,239,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,240,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,241,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,242,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,243,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,244,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,245,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,246,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,247,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,248,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,249,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,250,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,251,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,252,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,253,0,0,10037,10037,100
+e_coli_sim_clr,graphmap,254,0,0,10037,10037,100
+e_coli_sim_clr,ngmlr_01  -x pacbio,0,9709,256,72,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,1,9709,253,75,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,2,9709,253,75,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,3,9709,253,75,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,4,9708,253,76,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,5,9708,253,76,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,6,9708,252,77,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,7,9708,250,79,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,8,9708,250,79,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,9,9708,250,79,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,10,9707,248,82,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,11,9706,247,84,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,12,9705,246,86,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,13,9704,246,87,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,14,9701,245,91,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,15,9701,245,91,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,16,9698,245,94,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,17,9697,245,95,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,18,9694,244,99,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,19,9691,242,104,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,20,9690,241,106,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,21,9685,238,114,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,22,9683,235,119,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,23,9679,234,124,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,24,9678,232,127,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,25,9672,227,138,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,26,9669,223,145,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,27,9662,216,159,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,28,9659,205,173,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,29,9651,194,192,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,30,9647,187,203,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,31,9615,179,243,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,32,9601,169,267,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,33,9586,162,289,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,34,9563,155,319,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,35,9542,140,355,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,36,9517,137,383,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,37,9484,130,423,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,38,9443,121,473,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,39,9401,110,526,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,40,9361,101,575,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,41,9301,91,645,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,42,9252,83,702,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,43,9179,77,781,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,44,9114,72,851,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,45,9035,65,937,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,46,8907,61,1069,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,47,8808,59,1170,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,48,8709,56,1272,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,49,8495,48,1494,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,50,8294,43,1700,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,51,7939,41,2057,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,52,7591,29,2417,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,53,7133,25,2879,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,54,6610,21,3406,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,55,5898,18,4121,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,56,5025,16,4996,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,57,4000,11,6026,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,58,2963,9,7065,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,59,2279,9,7749,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,60,2199,9,7829,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,61,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,62,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,63,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,64,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,65,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,66,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,67,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,68,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,69,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,70,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,71,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,72,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,73,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,74,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,75,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,76,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,77,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,78,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,79,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,80,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,81,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,82,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,83,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,84,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,85,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,86,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,87,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,88,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,89,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,90,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,91,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,92,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,93,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,94,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,95,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,96,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,97,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,98,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,99,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,100,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,101,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,102,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,103,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,104,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,105,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,106,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,107,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,108,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,109,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,110,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,111,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,112,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,113,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,114,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,115,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,116,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,117,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,118,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,119,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,120,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,121,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,122,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,123,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,124,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,125,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,126,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,127,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,128,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,129,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,130,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,131,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,132,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,133,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,134,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,135,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,136,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,137,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,138,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,139,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,140,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,141,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,142,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,143,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,144,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,145,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,146,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,147,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,148,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,149,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,150,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,151,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,152,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,153,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,154,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,155,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,156,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,157,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,158,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,159,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,160,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,161,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,162,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,163,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,164,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,165,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,166,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,167,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,168,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,169,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,170,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,171,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,172,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,173,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,174,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,175,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,176,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,177,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,178,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,179,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,180,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,181,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,182,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,183,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,184,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,185,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,186,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,187,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,188,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,189,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,190,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,191,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,192,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,193,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,194,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,195,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,196,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,197,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,198,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,199,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,200,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,201,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,202,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,203,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,204,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,205,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,206,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,207,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,208,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,209,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,210,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,211,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,212,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,213,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,214,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,215,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,216,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,217,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,218,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,219,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,220,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,221,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,222,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,223,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,224,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,225,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,226,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,227,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,228,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,229,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,230,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,231,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,232,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,233,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,234,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,235,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,236,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,237,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,238,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,239,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,240,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,241,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,242,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,243,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,244,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,245,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,246,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,247,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,248,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,249,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,250,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,251,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,252,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,253,0,0,10037,10037,74
+e_coli_sim_clr,ngmlr_01  -x pacbio,254,0,0,10037,10037,74
+</textarea></div></div></section><section id="section9"><div class="panel panel-default"><div class="panel-heading">Setup</div><div class="panel-body"><p>This section contains information about the benchmarking process itself and can be shared in order to reproduce results and diagnose problems.</p><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">Teaser Accession</th><td class="col-md-8">test_clr</td></tr><tr><th>Report timestamp</th><td>Wed May 31 22:01:17 2023</td></tr><tr><tr><th>Framework Version</th><td>1.2-public-vevev</td></tr><th>Framework Working Directory</th><td>/home/raven/Desktop/Diploma/Teaser</td></tr><tr><th>Framework Command Line</th><td>./teaser.py test_clr.yaml</td></tr><tr><th colspan="2">Benchmark Configuration</th></tr><tr><td colspan="2"><pre>include:
+- base_teaser.yaml
+report:
+  name: test_clr
+teaser:
+  tests:
+    e_coli_sim_clr:
+      import_gold_standard_file: import/simclr/gs.sam
+      import_read_files:
+      - import/simclr/reads.fastq
+      paired: false
+      reference: E_coli.fasta
+      title: Sim CLR
+      type: simulated_custom
+test_parameters:
+- minimap2_clr
+- winnowmap_clr
+- ngmlr_pacbio
+- lra_clr
+</pre></td></tr></tbody></table></div></div></div></section><section id="section10"><div class="panel panel-default"><div class="panel-heading">Log</div><div class="panel-body"><pre>[22:01:16] [Main        ] framework cmd:  ./teaser.py test_clr.yaml
+[22:01:16] [Main        ] framework hash: vevev
+[22:01:16] [Main        ] deployment mode: production (False)
+[22:01:16] [Main        ] Test Runner Setup - ""
+
+[22:01:16] [Main        ] Using Teaser for data set creation
+[22:01:16] [Teaser      ] Init. Creating 1 test datasets.
+[22:01:16] [Teaser      ] Data set e_coli_sim_clr already exists, not creating.
+[22:01:16] [Main        ] Data set creation completed
+[22:01:16] [Main        ] 
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<minimap2> /home/raven/Desktop/Diploma/Teaser/cache/dev_15d6248cdae0ae26eeb944374c0a6721.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<winnowmap> /home/raven/Desktop/Diploma/Teaser/cache/dev_2bd57a0f8beae2144711a7c75193fe1c.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<graphmap> /home/raven/Desktop/Diploma/Teaser/cache/dev_960e954dcc5d89b19c0b713a0717709b.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<ngmlr> /home/raven/Desktop/Diploma/Teaser/cache/dev_7da133c264935798ef2e4eb2a407dedb.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lra> /home/raven/Desktop/Diploma/Teaser/cache/dev_cccae9bac6f74f2532fea0db0d14131c.test
+[22:01:16] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lordfast> /home/raven/Desktop/Diploma/Teaser/cache/dev_6619f14058edf3a9d6bf1e1ac61edb94.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<minimap2_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_eeef414974e02debc2818dbb62d5695a.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<winnowmap_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_e7b97a0b3312f0495cfb9df944e34b85.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<ngmlr_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_f1cd3508baabd9f2413022abca85b68d.test
+[22:01:17] [Load e_coli_sim_clr] Loading cached version of e_coli_sim_clr<lra_01> /home/raven/Desktop/Diploma/Teaser/cache/dev_b58408399e021c9aa93f93e4e384546e.test
+[22:01:17] [minimap2    ] Skip: e_coli_sim_clr<minimap2> (already run)
+
+[22:01:17] [winnowmap   ] Skip: e_coli_sim_clr<winnowmap> (already run)
+
+[22:01:17] [graphmap    ] Skip: e_coli_sim_clr<graphmap> (already run)
+
+[22:01:17] [ngmlr       ] Skip: e_coli_sim_clr<ngmlr> (already run)
+
+[22:01:17] [lra         ] Skip: e_coli_sim_clr<lra> (already run)
+
+[22:01:17] [lordfast    ] Skip: e_coli_sim_clr<lordfast> (already run)
+
+[22:01:17] [minimap2_01 ] Skip: e_coli_sim_clr<minimap2_01> (already run)
+
+[22:01:17] [winnowmap_01] Skip: e_coli_sim_clr<winnowmap_01> (already run)
+
+[22:01:17] [ngmlr_01    ] Skip: e_coli_sim_clr<ngmlr_01> (already run)
+
+[22:01:17] [lra_01      ] Skip: e_coli_sim_clr<lra_01> (already run)
+
+</pre></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+
+var chart_correct = c3.generate({
+    bindto: '#plot_correct',
+    size: {
+      height: 400
+    },
+    data: {
+      columns: [["GraphMap2", 99.9004], ["lordFAST", 95.5963], ["LRA (def)", 81.2992], ["LRA (p1)", 85.125], ["Minimap2 (def)", 97.4494], ["Minimap2 (p1)", 97.4494], ["NGMLR (def)", 96.7321], ["NGMLR (p1)", 96.7321], ["Winnowmap2 (def)", 89.4191], ["Winnowmap2 (p1)", 89.4191]],
+      type: "bar"
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        type: "category",
+        categories: ["Sim CLR"],
+        label:
+        {
+              text: "Data Set",
+              position: "outer-middle"
+        }
+      },
+
+      y: {
+        label:
+        {
+              text: "Correctly Mapped Reads [%]",
+              position: "outer-middle"
+        },
+        tick: { format: function(y){return Math.round(100000*y)/100000 + "%";} }
+        
+      }
+    },
+    legend: {
+    	position: "right"
+    }
+});
+
+var chart_corrects = c3.generate({
+    bindto: '#plot_corrects',
+    size: {
+      height: 400
+    },
+    data: {
+      columns: [["GraphMap2", 100.6166], ["lordFAST", 1191.6213], ["LRA (def)", 219.3364], ["LRA (p1)", 141.1906], ["Minimap2 (def)", 796.791], ["Minimap2 (p1)", 777.7922], ["NGMLR (def)", 61.4355], ["NGMLR (p1)", 72.4776], ["Winnowmap2 (def)", 553.1747], ["Winnowmap2 (p1)", 518.1681]],
+      type: "bar"
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        type: "category",
+        categories: ["Sim CLR"],
+        label:
+        {
+              text: "Data Set",
+              position: "outer-middle"
+        }
+      },
+
+      y: {
+        label:
+        {
+              text: "Correctly Mapped Reads [Reads/s]",
+              position: "outer-middle"
+        },
+        tick: { format: function(y){return Math.round(1000*y)/1000;} }
+        
+      }
+    },
+    legend: {
+    	position: "right"
+    }
+});
+
+var chart_precision = c3.generate({
+    bindto: '#plot_precision',
+    size: {
+      height: 400
+    },
+    data: {
+      columns: [["GraphMap2", 0.9995], ["lordFAST", 0.9903], ["LRA (def)", 0.8257], ["LRA (p1)", 0.8721], ["Minimap2 (def)", 0.9912], ["Minimap2 (p1)", 0.9912], ["NGMLR (def)", 0.9743], ["NGMLR (p1)", 0.9743], ["Winnowmap2 (def)", 0.989], ["Winnowmap2 (p1)", 0.989]],
+      type: "bar"
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        type: "category",
+        categories: ["Sim CLR"],
+        label:
+        {
+              text: "Data Set",
+              position: "outer-middle"
+        }
+      },
+
+      y: {
+        label:
+        {
+              text: "Precision",
+              position: "outer-middle"
+        },
+        tick: { format: function(y){return Math.round(10000*y)/10000;} }
+        
+      }
+    },
+    legend: {
+    	position: "right"
+    }
+});
+
+var chart_recall = c3.generate({
+    bindto: '#plot_recall',
+    size: {
+      height: 400
+    },
+    data: {
+      columns: [["GraphMap2", 0.9996], ["lordFAST", 0.9682], ["LRA (def)", 0.9853], ["LRA (p1)", 0.975], ["Minimap2 (def)", 0.9846], ["Minimap2 (p1)", 0.9846], ["NGMLR (def)", 0.9932], ["NGMLR (p1)", 0.9932], ["Winnowmap2 (def)", 0.9122], ["Winnowmap2 (p1)", 0.9122]],
+      type: "bar"
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        type: "category",
+        categories: ["Sim CLR"],
+        label:
+        {
+              text: "Data Set",
+              position: "outer-middle"
+        }
+      },
+
+      y: {
+        label:
+        {
+              text: "Recall",
+              position: "outer-middle"
+        },
+        tick: { format: function(y){return Math.round(10000*y)/10000;} }
+        
+      }
+    },
+    legend: {
+    	position: "right"
+    }
+});
+
+var chart_fmeasure = c3.generate({
+    bindto: '#plot_fmeasure',
+    size: {
+      height: 400
+    },
+    data: {
+      columns: [["GraphMap2", 0.9996], ["lordFAST", 0.9791], ["LRA (def)", 0.8984], ["LRA (p1)", 0.9207], ["Minimap2 (def)", 0.9879], ["Minimap2 (p1)", 0.9879], ["NGMLR (def)", 0.9837], ["NGMLR (p1)", 0.9837], ["Winnowmap2 (def)", 0.949], ["Winnowmap2 (p1)", 0.949]],
+      type: "bar"
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    axis: {
+      x: {
+        type: "category",
+        categories: ["Sim CLR"],
+        label:
+        {
+              text: "Data Set",
+              position: "outer-middle"
+        }
+      },
+
+      y: {
+        label:
+        {
+              text: "F-Measure",
+              position: "outer-middle"
+        },
+        tick: { format: function(y){return Math.round(10000*y)/10000;} }
+        
+      }
+    },
+    legend: {
+    	position: "right"
+    }
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>

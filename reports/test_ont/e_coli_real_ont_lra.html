@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Real ONT<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_real_ont.html">Real ONT</a></li><li><a href="e_coli_sim_ont.html">Sim ONT</a></li></ul></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LRA (def)<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_real_ont_lra.html">LRA (def)</a></li><li><a href="e_coli_real_ont_ngmlr.html">NGMLR (def)</a></li><li><a href="e_coli_real_ont_minimap2_01.html">Minimap2 (p1)</a></li><li><a href="e_coli_real_ont_lra_01.html">LRA (p1)</a></li><li><a href="e_coli_real_ont_winnowmap_01.html">Winnowmap2 (p1)</a></li><li><a href="e_coli_real_ont_winnowmap.html">Winnowmap2 (def)</a></li><li><a href="e_coli_real_ont_lordfast.html">lordFAST</a></li><li><a href="e_coli_real_ont_minimap2.html">Minimap2 (def)</a></li><li><a href="e_coli_real_ont_graphmap.html">GraphMap2</a></li><li><a href="e_coli_real_ont_ngmlr_01.html">NGMLR (p1)</a></li></ul></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Mapping Quality Thresholds</a></li><li><a href="#section2">Basic Statistics</a></li><li><a href="#section3">Read Failure Statistics</a></li><li><a href="#section4">Advanced Statistics</a></li><li><a href="#section5">Timing</a></li><li><a href="#section6">Additional Information</a></li><li><a href="#section7">Errors and Warnings</a></li><li><a href="#section8">Subprocess Log</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Mapping Quality Thresholds</div><div class="panel-body"><p>The plot below shows the percentages of mapped reads for all mapping quality thresholds for this mapper. The values at threshold 0 therefore correspond to the unfiltered results.</p><div id="plot_mapq_tresh"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_thresh');">Plot (.svg)</a></li>
+    <li><a href="e_coli_real_ont_lra_mapqs.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Basic Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapped</th><td class="col-md-2">3018</td><td class="col-md-2">90.958%</td></tr><tr><th>Not Mapped</th><td>300</td><td>9.042%</td></tr><tr><th>Total</th><td>3318</td><td>100.0%</td></tbody></table></div></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Read Failure Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Not mapped</th><td class="col-md-2">300</td><td class="col-md-2">9.042%</td></tr><tr><th>Missing in mapper output</th><td>0</td><td>0.0%</td></tr></tbody></table></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Advanced Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Secondary Alignments</th><td class="col-md-4">173</td></tr></tbody></table></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Timing</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Raw Mapping Time</th><td class="col-md-4">4.601s</td></tr><tr><th>Effective Mapping Time</th><td>4.560s</td></tr><tr><th>Effective Init Time</th><td>0.041s</td></tr><tr><th>Effective Time Measure</th><td>Wall clock</td></tr><tr><th>Mapping Time (Wall)</th><td>4.601s</td></tr><tr><th>Mapping Time (CPU)</th><td>31.702s</td></tr><tr><th>Mapping Time (CPU User)</th><td>31.275s</td></tr><tr><th>Mapping Time (CPU System)</th><td>0.427s</td></tr><tr><th>Init Time (Wall)</th><td>0.041s</td></tr><tr><th>Init Time (CPU)</th><td>0.043s</td></tr><tr><th>Init Time (CPU User)</th><td>0.019s</td></tr><tr><th>Init Time (CPU System)</th><td>0.024s</td></tr></tbody></table></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">Additional Information</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapper Memory Usage</th><td class="col-md-4">212 MB</td></tr><tr><th>Total Test Runtime (Wall)</th><td>7.674s</td></tr><tr><th>Mapper Command Line:</th><td>&nbsp;</td></tr><tr><td colspan=2>/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra.sam</td></tr></tbody></table></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Errors and Warnings</div><div class="panel-body"><i>No problems were encountered.</i></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Subprocess Log</div><div class="panel-body"><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>34560000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse1" class="collapsed">stderr</a></h4></div><div id="collapse1" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse2" class="collapsed">stdout</a></h4></div><div id="collapse2" class="panel-collapse collapse"><div class="panel-body"><pre></pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.03963</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.0590848922729</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.015613</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads_base.fastq -p s > out_lra.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>34688000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse3" class="collapsed">stderr</a></h4></div><div id="collapse3" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse4" class="collapsed">stdout</a></h4></div><div id="collapse4" class="panel-collapse collapse"><div class="panel-body"><pre></pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.024293</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.0405888557434</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.018526</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/lra align  -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta reads.fastq -p s > out_lra.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>212248000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse5" class="collapsed">stderr</a></h4></div><div id="collapse5" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse6" class="collapsed">stdout</a></h4></div><div id="collapse6" class="panel-collapse collapse"><div class="panel-body"><pre></pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.427308</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>4.60082101822</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>31.274782</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_real_ont</small></td></tr></tbody></table></div></div></div></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+
+var cols=[["Mapped", 0.9095840867992767, 0.8707052441229657, 0.8568414707655214, 0.851416515973478, 0.8487040385774564, 0.8474984930681133, 0.8474984930681133, 0.8465943339361061, 0.8462929475587704, 0.8453887884267631, 0.8447860156720917, 0.8441832429174201, 0.8441832429174201, 0.8441832429174201, 0.8438818565400844, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8423749246534057, 0.8420735382760699, 0.8420735382760699, 0.8420735382760699, 0.8411693791440626, 0.8411693791440626, 0.840867992766727, 0.8402652200120555, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8396624472573839, 0.8390596745027125, 0.8390596745027125, 0.8387582881253768, 0.8381555153707052, 0.8378541289933695, 0.8375527426160337, 0.8372513562386981, 0.8372513562386981, 0.8372513562386981, 0.8372513562386981, 0.8366485834840265, 0.8366485834840265, 0.8363471971066908, 0.8363471971066908, 0.8363471971066908, 0.8363471971066908, 0.836045810729355, 0.836045810729355, 0.836045810729355, 0.8357444243520193, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]];
+var a=0;
+var b=0;
+var last_a=0;
+var last_b=0;
+
+function updateRange()
+{
+	if(last_a==a && last_b==b)
+	{
+		setTimeout(updateRange,500);
+		return;
+	}
+ 
+        an=Math.floor(parseInt(a));
+        bn=Math.floor(parseInt(b));
+	var mn = 0;
+	var mx = 0;
+	for(i=an;i<bn;i++)
+	{
+		mx=Math.max(mx,cols[0][i+1]);
+		mn=Math.min(mn,cols[1][i+1]);
+	}
+	r={}
+	r.max=mx;
+	r.min=mn;
+	chart.axis.range(r);
+	last_a=a;
+	last_b=b;
+	setTimeout(updateRange,500);
+}
+setTimeout(updateRange,500);
+
+var chart = c3.generate({
+bindto: '#plot_mapq_tresh',
+data: {
+  columns: [["Mapped", 0.9095840867992767, 0.8707052441229657, 0.8568414707655214, 0.851416515973478, 0.8487040385774564, 0.8474984930681133, 0.8474984930681133, 0.8465943339361061, 0.8462929475587704, 0.8453887884267631, 0.8447860156720917, 0.8441832429174201, 0.8441832429174201, 0.8441832429174201, 0.8438818565400844, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8435804701627486, 0.8423749246534057, 0.8420735382760699, 0.8420735382760699, 0.8420735382760699, 0.8411693791440626, 0.8411693791440626, 0.840867992766727, 0.8402652200120555, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8399638336347197, 0.8396624472573839, 0.8390596745027125, 0.8390596745027125, 0.8387582881253768, 0.8381555153707052, 0.8378541289933695, 0.8375527426160337, 0.8372513562386981, 0.8372513562386981, 0.8372513562386981, 0.8372513562386981, 0.8366485834840265, 0.8366485834840265, 0.8363471971066908, 0.8363471971066908, 0.8363471971066908, 0.8363471971066908, 0.836045810729355, 0.836045810729355, 0.836045810729355, 0.8357444243520193, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.8351416515973478, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]],
+  type: "area"
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: "Mapping Quality Threshold"
+  },
+
+  y: {
+    label: { text: "Read Count", position: "outer-middle" },
+    tick: {
+       format: function(v) { if(v>=0){return Math.min(100,(Math.round(100000*v)/1000))+"%";}else{ return Math.min(100,(Math.round(100000*(-v/3018.000000))/1000))+"%";} }
+    }
+  }
+},
+legend: {
+	position: "right"
+},
+subchart: {
+	show: true,
+	onbrush: function (d) {
+		a = d[0];
+		b = d[1];
+	}
+}
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>

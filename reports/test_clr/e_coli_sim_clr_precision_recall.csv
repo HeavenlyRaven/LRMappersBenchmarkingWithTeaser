@@ -1,0 +1,11 @@
+mapper,precision,recall
+GraphMap2,0.9995,0.9996
+LRA (def),0.8257,0.9853
+LRA (p1),0.8721,0.9750
+Minimap2 (def),0.9912,0.9846
+Minimap2 (p1),0.9912,0.9846
+NGMLR (def),0.9743,0.9932
+NGMLR (p1),0.9743,0.9932
+Winnowmap2 (def),0.9890,0.9122
+Winnowmap2 (p1),0.9890,0.9122
+lordFAST,0.9903,0.9682

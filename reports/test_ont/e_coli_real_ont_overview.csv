@@ -1,0 +1,11 @@
+mapper,additional_parameters,mapped_percent,not_mapped_percent,throughput_reads_per_sec
+LRA (def),,90.9584,9.0416,727
+NGMLR (def),,86.7390,13.2610,127
+Minimap2 (p1), -x map-ont,90.9584,9.0416,1526
+LRA (p1), -ONT,90.5063,9.4937,586
+Winnowmap2 (p1), -x map-ont,88.2158,11.7842,1855
+Winnowmap2 (def),,88.2158,11.7842,1877
+lordFAST,,88.3062,11.6938,355
+Minimap2 (def),,90.9584,9.0416,1344
+GraphMap2,,93.1585,6.8415,176
+NGMLR (p1), -x ont,86.7390,13.2610,127

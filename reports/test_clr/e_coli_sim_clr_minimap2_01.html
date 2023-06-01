@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Teaser - Rapid Personalized Benchmarks for NGS Read Mapping</title>
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/c3/c3.css">
+    <link rel="stylesheet" href="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+body {
+  padding-top: 60px;
+  position: relative;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+a.separator
+{
+color:#777777;
+}
+
+a.separator:hover
+{
+color:#777777;
+}
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+section {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.main-container
+{
+   margin: 0 auto;
+   max-width: 1300px;
+}
+
+
+    </style>
+  </head>
+
+<body data-spy="scroll" data-target="#sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Teaser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           <li><a href="start.html">Benchmark</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li><a href="e_coli_sim_clr.html">Sim CLR</a></li><li><a href="#" class="separator"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Minimap2 (p1)<span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="e_coli_sim_clr_lra.html">LRA (def)</a></li><li><a href="e_coli_sim_clr_ngmlr.html">NGMLR (def)</a></li><li><a href="e_coli_sim_clr_minimap2_01.html">Minimap2 (p1)</a></li><li><a href="e_coli_sim_clr_lra_01.html">LRA (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap_01.html">Winnowmap2 (p1)</a></li><li><a href="e_coli_sim_clr_winnowmap.html">Winnowmap2 (def)</a></li><li><a href="e_coli_sim_clr_lordfast.html">lordFAST</a></li><li><a href="e_coli_sim_clr_minimap2.html">Minimap2 (def)</a></li><li><a href="e_coli_sim_clr_graphmap.html">GraphMap2</a></li><li><a href="e_coli_sim_clr_ngmlr_01.html">NGMLR (p1)</a></li></ul></li>
+          </ul>
+          <div class="nav navbar-nav navbar-right" style="padding:5px;">
+           
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        <div class="col-sm-3 col-md-2 sidebar">
+          <div id="sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#section1">Mapping Quality Thresholds</a></li><li><a href="#section2">Basic Statistics</a></li><li><a href="#section3">Read Failure Statistics</a></li><li><a href="#section4">Advanced Statistics</a></li><li><a href="#section5">Timing</a></li><li><a href="#section6">Additional Information</a></li><li><a href="#section7">Errors and Warnings</a></li><li><a href="#section8">Subprocess Log</a></li>
+          </ul>
+          
+          </div>
+        </div>
+        <div class="col-sm-9  col-sm-offset-3 col-md-offset-2  col-md-10 main" id="content">
+            <section id="section1"><div class="panel panel-default"><div class="panel-heading">Mapping Quality Thresholds</div><div class="panel-body"><p>The plot below shows the percentages of correctly and wrongly mapped reads for all mapping quality thresholds for this mapper. The values at threshold 0 therefore correspond to the unfiltered results.</p><div id="plot_mapq_thresh"></div><div align="right" style="margin-top:5px;"><div class="dropdown">
+  <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Export
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="javascript:exportSVG('plot_mapq_thresh');">Plot (.svg)</a></li>
+    <li><a href="e_coli_sim_clr_minimap2_01_mapqs.csv">Raw Data  (.csv)</a></li>
+  </ul>
+</div></div></div></div></section><section id="section2"><div class="panel panel-default"><div class="panel-heading">Basic Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Correctly Mapped</th><td class="col-md-2">9781</td><td class="col-md-2">97.449%</td></tr><tr><th>Wrongly Mapped</th><td>87</td><td>0.867%</td></tr><tr><th>Not Mapped</th><td>169</td><td>1.684%</td></tr><tr><th>Total</th><td>10037</td><td>100.0%</td></tbody></table></div></div></div></section><section id="section3"><div class="panel panel-default"><div class="panel-heading">Read Failure Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Not mapped</th><td class="col-md-2">153</td><td class="col-md-2">1.524%</td></tr><tr><th>Missing in mapper output</th><td>16</td><td>0.159%</td></tr><tr><th>Mapped to wrong chromosome</th><td>0</td><td>0.0%</td></tr><tr><th>Mapped to wrong position</th><td>87</td><td>0.867%</td></tr><tr><th>Mapped to wrong strand</th><td>0</td><td>0.0%</td></tbody></table></div></div></div></section><section id="section4"><div class="panel panel-default"><div class="panel-heading">Advanced Statistics</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th>Missing in comparison alignment</th><td>16</td></tr><tr><th class="col-md-6">Secondary Alignments</th><td class="col-md-4">214</td></tr><tr><th><abbr title="Harmonic Mean of Precision and Recall">F-Measure</abbr></th><td>0.987900</td></tr><tr><th><abbr title="Correctly Mapped / (Correctly Mapped + Wrongly Mapped)">Precision</abbr></th><td>0.991200</td></tr><tr><th><abbr title="Correctly Mapped / (Correctly Mapped + Unmapped)">Recall</abbr></th><td>0.984600</td></tbody></table></div></div></div></section><section id="section5"><div class="panel panel-default"><div class="panel-heading">Timing</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Raw Mapping Time</th><td class="col-md-4">12.654s</td></tr><tr><th>Effective Mapping Time</th><td>12.575s</td></tr><tr><th>Effective Init Time</th><td>0.079s</td></tr><tr><th>Effective Time Measure</th><td>Wall clock</td></tr><tr><th>Mapping Time (Wall)</th><td>12.654s</td></tr><tr><th>Mapping Time (CPU)</th><td>88.143s</td></tr><tr><th>Mapping Time (CPU User)</th><td>85.572s</td></tr><tr><th>Mapping Time (CPU System)</th><td>2.571s</td></tr><tr><th>Init Time (Wall)</th><td>0.079s</td></tr><tr><th>Init Time (CPU)</th><td>0.082s</td></tr><tr><th>Init Time (CPU User)</th><td>0.059s</td></tr><tr><th>Init Time (CPU System)</th><td>0.023s</td></tr></tbody></table></div></div></div></section><section id="section6"><div class="panel panel-default"><div class="panel-heading">Additional Information</div><div class="panel-body"><div class="table-responsive"><table class="table table-striped"><tbody><tr><th class="col-md-6">Mapper Memory Usage</th><td class="col-md-4">3317 MB</td></tr><tr><th>Total Test Runtime (Wall)</th><td>17.573s</td></tr><tr><th>Mapper Command Line:</th><td>&nbsp;</td></tr><tr><td colspan=2>/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2_01.sam</td></tr></tbody></table></div></div></div></section><section id="section7"><div class="panel panel-default"><div class="panel-heading">Errors and Warnings</div><div class="panel-body"><i>No problems were encountered.</i></div></div></section><section id="section8"><div class="panel panel-default"><div class="panel-heading">Subprocess Log</div><div class="panel-body"><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>43932000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse13" class="collapsed">stderr</a></h4></div><div id="collapse13" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse14" class="collapsed">stdout</a></h4></div><div id="collapse14" class="panel-collapse collapse"><div class="panel-body"><pre>[WARNING][1;31m Indexing parameters (-k, -w or -H) overridden by parameters used in the prebuilt index.[0m<br>
+[M::main::0.046*1.02] loaded/built the index for 1 target sequence(s)<br>
+[M::mm_mapopt_update::0.058*1.01] mid_occ = 12<br>
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 1<br>
+[M::mm_idx_stat::0.068*1.01] distinct minimizers: 838542 (98.18% are singletons); average occurrences: 1.034; average spacing: 5.352; total length: 4641652<br>
+[M::worker_pipeline::0.069*1.02] mapped 1 sequences<br>
+[M::main] Version: 2.26-r1175<br>
+[M::main] CMD: /home/raven/mambaforge/envs/dipenv/bin/minimap2 -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq<br>
+[M::main] Real time: 0.074 sec; CPU: 0.076 sec; Peak RSS: 0.035 GB<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.012181</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.0770311355591</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.067269</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq > out_minimap2_01.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>43932000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse15" class="collapsed">stderr</a></h4></div><div id="collapse15" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse16" class="collapsed">stdout</a></h4></div><div id="collapse16" class="panel-collapse collapse"><div class="panel-body"><pre>[WARNING][1;31m Indexing parameters (-k, -w or -H) overridden by parameters used in the prebuilt index.[0m<br>
+[M::main::0.045*1.01] loaded/built the index for 1 target sequence(s)<br>
+[M::mm_mapopt_update::0.059*1.01] mid_occ = 12<br>
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 1<br>
+[M::mm_idx_stat::0.069*1.01] distinct minimizers: 838542 (98.18% are singletons); average occurrences: 1.034; average spacing: 5.352; total length: 4641652<br>
+[M::worker_pipeline::0.071*1.02] mapped 1 sequences<br>
+[M::main] Version: 2.26-r1175<br>
+[M::main] CMD: /home/raven/mambaforge/envs/dipenv/bin/minimap2 -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads_base.fastq<br>
+[M::main] Real time: 0.076 sec; CPU: 0.077 sec; Peak RSS: 0.035 GB<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>0.022981</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>0.0788269042969</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>0.05913</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div><div class="panel panel-default"><div class="panel-heading"><h1 class="panel-title">/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2_01.sam</h1></div><div class="panel-body"><div class="table-responsive"><table class="table table-striped" style="margin-bottom;5px;"><tbody><tr><th class="col-md-2">command</th><td class="col-md-8"><small>/home/raven/mambaforge/envs/dipenv/bin/minimap2  -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq > out_minimap2_01.sam</small></td></tr><tr><th class="col-md-2">memory</th><td class="col-md-8"><small>3317272000</small></td></tr><tr><th class="col-md-2">return</th><td class="col-md-8"><small>0</small></td></tr><tr><th class="col-md-2">status</th><td class="col-md-8"><small>1</small></td></tr><tr><th class="col-md-2">stderr</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse17" class="collapsed">stderr</a></h4></div><div id="collapse17" class="panel-collapse collapse"><div class="panel-body"><pre>None</pre></div></div></div></small></td></tr><tr><th class="col-md-2">stdout</th><td class="col-md-8"><small><div class="panel panel-default" id="panel1"><div class="panel-heading"><h4 class="panel-title"><a href="javascript:void(0);" data-toggle="collapse" data-target="#collapse18" class="collapsed">stdout</a></h4></div><div id="collapse18" class="panel-collapse collapse"><div class="panel-body"><pre>[WARNING][1;31m Indexing parameters (-k, -w or -H) overridden by parameters used in the prebuilt index.[0m<br>
+[M::main::0.084*1.02] loaded/built the index for 1 target sequence(s)<br>
+[M::mm_mapopt_update::0.098*1.01] mid_occ = 12<br>
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 1<br>
+[M::mm_idx_stat::0.108*1.01] distinct minimizers: 838542 (98.18% are singletons); average occurrences: 1.034; average spacing: 5.352; total length: 4641652<br>
+[M::worker_pipeline::12.629*6.98] mapped 10037 sequences<br>
+[M::main] Version: 2.26-r1175<br>
+[M::main] CMD: /home/raven/mambaforge/envs/dipenv/bin/minimap2 -x map-pb -a -t 8 /home/raven/Desktop/Diploma/Teaser/references/E_coli.fasta.mmi reads.fastq<br>
+[M::main] Real time: 12.635 sec; CPU: 88.122 sec; Peak RSS: 3.164 GB<br>
+</pre></div></div></div></small></td></tr><tr><th class="col-md-2">systime</th><td class="col-md-8"><small>2.570871</small></td></tr><tr><th class="col-md-2">time</th><td class="col-md-8"><small>12.6541650295</small></td></tr><tr><th class="col-md-2">usrtime</th><td class="col-md-8"><small>85.572217</small></td></tr><tr><th class="col-md-2">working_directory</th><td class="col-md-8"><small>/home/raven/Desktop/Diploma/Teaser/tests_generated/e_coli_sim_clr</small></td></tr></tbody></table></div></div></div></div></div></section><p></p><div style="margin:300px; height:300px;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+
+<script src="http://teaser.cibiv.univie.ac.at/static/js/d3.v3.min.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/c3/c3.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/jquery.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/js/svgexport.js"></script>
+<script>
+
+var cols=[["Correct", 0.9744943708279367, 0.9744943708279367, 0.9738965826442164, 0.9735976885523563, 0.972999900368636, 0.9729002690046826, 0.9727010062767759, 0.9726013749128225, 0.9725017435488692, 0.9721032180930557, 0.9717046926372422, 0.9715054299093354, 0.9713061671814287, 0.9712065358174753, 0.9710072730895686, 0.9709076417256153, 0.9704094849058483, 0.9698116967221281, 0.969512802630268, 0.9693135399023612, 0.9691142771744545, 0.9688153830825944, 0.9688153830825944, 0.9685164889907343, 0.9685164889907343, 0.9680183321709674, 0.9678190694430606, 0.9677194380791073, 0.9675201753512006, 0.9670220185314337, 0.966822755803527, 0.9666234930756202, 0.9663245989837601, 0.9660257048919, 0.9659260735279466, 0.9657268108000399, 0.9651290226163196, 0.9651290226163196, 0.9650293912523662, 0.9648301285244595, 0.9647304971605061, 0.9647304971605061, 0.9646308657965528, 0.9645312344325994, 0.9640330776128325, 0.9639334462488791, 0.9638338148849258, 0.9635349207930657, 0.9634352894291123, 0.9632360267012056, 0.9630367639732988, 0.9629371326093454, 0.9627378698814387, 0.9626382385174853, 0.9624389757895786, 0.9623393444256252, 0.9620404503337651, 0.9619408189698117, 0.9618411876058583, 0.9617415562419049, 0.9615422935139982, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", -0.9634205711594372, -0.9412729718224389, -0.8969777731484415, -0.8748301738114431, -0.8748301738114431, -0.8748301738114431, -0.8748301738114431, -0.8416087748059453, -0.8416087748059453, -0.8194611754689466, -0.8194611754689466, -0.8194611754689466, -0.8083873758004474, -0.8083873758004474, -0.8083873758004474, -0.8083873758004474, -0.7973135761319481, -0.7862397764634488, -0.7751659767949496, -0.7751659767949496, -0.7640921771264503, -0.7419445777894518, -0.7308707781209524, -0.7197969784524532, -0.6976493791154545, -0.6865755794469554, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.6644279801099569, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6312065811044589, -0.6312065811044589, -0.6312065811044589, -0.6312065811044589, -0.6201327814359596, -0.5979851820989611, -0.5979851820989611, -0.5979851820989611, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]];
+var a=0;
+var b=0;
+var last_a=0;
+var last_b=0;
+
+function updateRange()
+{
+	if(last_a==a && last_b==b)
+	{
+		setTimeout(updateRange,500);
+		return;
+	}
+ 
+        an=Math.floor(parseInt(a));
+        bn=Math.floor(parseInt(b));
+	var mn = 0;
+	var mx = 0;
+	for(i=an;i<bn;i++)
+	{
+		mx=Math.max(mx,cols[0][i+1]);
+		mn=Math.min(mn,cols[1][i+1]);
+	}
+	r={}
+	r.max=mx;
+	r.min=mn;
+	chart.axis.range(r);
+	last_a=a;
+	last_b=b;
+	setTimeout(updateRange,500);
+}
+setTimeout(updateRange,500);
+
+var chart = c3.generate({
+bindto: '#plot_mapq_thresh',
+data: {
+  columns: [["Correct", 0.9744943708279367, 0.9744943708279367, 0.9738965826442164, 0.9735976885523563, 0.972999900368636, 0.9729002690046826, 0.9727010062767759, 0.9726013749128225, 0.9725017435488692, 0.9721032180930557, 0.9717046926372422, 0.9715054299093354, 0.9713061671814287, 0.9712065358174753, 0.9710072730895686, 0.9709076417256153, 0.9704094849058483, 0.9698116967221281, 0.969512802630268, 0.9693135399023612, 0.9691142771744545, 0.9688153830825944, 0.9688153830825944, 0.9685164889907343, 0.9685164889907343, 0.9680183321709674, 0.9678190694430606, 0.9677194380791073, 0.9675201753512006, 0.9670220185314337, 0.966822755803527, 0.9666234930756202, 0.9663245989837601, 0.9660257048919, 0.9659260735279466, 0.9657268108000399, 0.9651290226163196, 0.9651290226163196, 0.9650293912523662, 0.9648301285244595, 0.9647304971605061, 0.9647304971605061, 0.9646308657965528, 0.9645312344325994, 0.9640330776128325, 0.9639334462488791, 0.9638338148849258, 0.9635349207930657, 0.9634352894291123, 0.9632360267012056, 0.9630367639732988, 0.9629371326093454, 0.9627378698814387, 0.9626382385174853, 0.9624389757895786, 0.9623393444256252, 0.9620404503337651, 0.9619408189698117, 0.9618411876058583, 0.9617415562419049, 0.9615422935139982, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], ["Wrong", -0.9634205711594372, -0.9412729718224389, -0.8969777731484415, -0.8748301738114431, -0.8748301738114431, -0.8748301738114431, -0.8748301738114431, -0.8416087748059453, -0.8416087748059453, -0.8194611754689466, -0.8194611754689466, -0.8194611754689466, -0.8083873758004474, -0.8083873758004474, -0.8083873758004474, -0.8083873758004474, -0.7973135761319481, -0.7862397764634488, -0.7751659767949496, -0.7751659767949496, -0.7640921771264503, -0.7419445777894518, -0.7308707781209524, -0.7197969784524532, -0.6976493791154545, -0.6865755794469554, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.675501779778456, -0.6644279801099569, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6533541804414574, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6422803807729581, -0.6312065811044589, -0.6312065811044589, -0.6312065811044589, -0.6312065811044589, -0.6201327814359596, -0.5979851820989611, -0.5979851820989611, -0.5979851820989611, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, -0.5869113824304618, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]],
+  type: "area"
+},
+grid: {
+  y: {
+    show: true
+  }
+},
+axis: {
+  x: {
+    label: "Mapping Quality Threshold"
+  },
+
+  y: {
+    label: { text: "Read Count", position: "outer-middle" },
+    tick: {
+       format: function(v) { if(v>=0){return Math.min(100,(Math.round(100000*v)/1000))+"%";}else{ return Math.min(100,(Math.round(100000*(-v/111.147727))/1000))+"%";} }
+    }
+  }
+},
+legend: {
+	position: "right"
+},
+subchart: {
+	show: true,
+	onbrush: function (d) {
+		a = d[0];
+		b = d[1];
+	}
+}
+});
+
+</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="javascript">$('#content').scrollspy();</script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/bootstrap-select.min.js"></script>
+
+<script src="http://teaser.cibiv.univie.ac.at/static/DataTables-1.10.8/media/js/jquery.dataTables.js"></script>
+<script src="http://teaser.cibiv.univie.ac.at/static/extensions/dataTables.bootstrap.js"></script>
+</body>
+</html>
