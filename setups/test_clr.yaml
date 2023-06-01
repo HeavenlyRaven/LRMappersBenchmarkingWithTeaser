@@ -1,0 +1,21 @@
+include:
+  - base_teaser.yaml
+  
+report: {name: test_clr}
+  
+teaser:
+   tests:
+     e_coli_sim_clr:
+       title: "Sim CLR"
+       type: simulated_custom
+       reference: E_coli.fasta
+       paired: No
+       import_read_files: [import/simclr/reads.fastq]
+       import_gold_standard_file: import/simclr/gs.sam
+
+test_parameters:
+  - minimap2_clr
+  - winnowmap_clr
+  - ngmlr_pacbio
+  - lra_clr
+

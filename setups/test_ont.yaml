@@ -1,0 +1,27 @@
+include:
+  - base_teaser.yaml
+  
+report: {name: test_ont}
+  
+teaser:
+   tests:
+     e_coli_sim_ont:
+       title: "Sim ONT"
+       type: simulated_custom
+       reference: E_coli.fasta
+       paired: No
+       import_read_files: [import/simont/reads.fastq]
+       import_gold_standard_file: import/simont/gs.sam
+     e_coli_real_ont:
+       title: "Real ONT"
+       type: real
+       reference: E_coli.fasta
+       paired: No
+       import_read_files: [import/realont/reads.fastq]
+       sampling: {enable: No}
+
+test_parameters:
+  - minimap2_ont
+  - winnowmap_ont
+  - ngmlr_ont
+  - lra_ont

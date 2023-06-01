@@ -1,0 +1,49 @@
+include:
+  - base.yaml
+  - mappers.yaml
+  - parameters.yaml
+
+test_directories:
+  - tests_base
+  - tests_generated
+
+threads: 8
+
+teaser:
+   test_directory: tests_generated
+   reference_directory: references
+   import_directory: import
+   mason_path: software/mason
+   dwgsim_path: software/dwgsim
+   fastindex_path: tools/fastindex
+
+   server:
+      port: 8888
+      framework_cmd: "(b) ./teaser.py %s > logs/%s.txt"
+      default_threads: 1
+      max_threads: 32
+      default_memory: 16000
+      max_memory: 1000000
+      default_runtime: 3600
+      max_runtime: 1000000
+      allowed_types: [simulated_teaser,simulated_custom,real]
+
+      news: ""
+      send_usage_information: No
+
+   tests: {}
+
+test_mappers:
+  - minimap2
+  - winnowmap
+  - graphmap
+  - ngmlr
+  - lra
+  - lordfast
+
+report:
+   directory: reports
+   name: default
+
+evaluation:
+   pos_threshold: 50

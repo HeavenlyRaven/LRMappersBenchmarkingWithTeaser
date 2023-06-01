@@ -1,0 +1,78 @@
+mappers:
+   minimap2:
+      title: "Minimap2"
+      type: MapperGeneric
+      bin: /home/raven/mambaforge/envs/dipenv/bin/minimap2
+      index_files:
+        - (r).mmi
+      command_index: (b) (x) -d (r).mmi (r)
+      command: (b) (x) -a -t (t) (r).mmi (q) > (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+   winnowmap:
+      title: "Winnowmap2"
+      type: MapperGeneric
+      bin: 
+        - /home/raven/mambaforge/envs/dipenv/bin/winnowmap
+        - /home/raven/mambaforge/envs/dipenv/bin/meryl
+      index_files:
+        - (r)_k15.txt
+      command_index: (b2) count k=15 output merylDB (r) && (b2) print greater-than distinct=0.9998 merylDB > (r)_k15.txt
+      command: (b1) (x) -t (t) -W (r)_k15.txt -ax map-pb-clr (r) (q) > (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+   graphmap:
+      title: "GraphMap2"
+      type: MapperGeneric
+      bin: software/graphmap2/bin/Linux-x64/graphmap2
+      index_files:
+        - (r).gmidx
+        - (r).gmidxsec
+      command_index: (b) align -I (r)
+      command: (b) align -a sg -t (t) -i (r).gmidx -r (r) -d (q) -o (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+   ngmlr:
+      title: "NGMLR"
+      type: MapperGeneric
+      bin: /home/raven/mambaforge/envs/dipenv/bin/ngmlr
+      index_files:
+         - (r)-enc.2.ngm
+         - (r)-ht-13-2.2.ngm
+      command_index: ''
+      command: (b) (x) -t (t) -r (r) -q (q) -o (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+   lra:
+      title: "LRA"
+      type: MapperGeneric
+      bin: /home/raven/mambaforge/envs/dipenv/bin/lra
+      index_files:
+         - (r).gli
+         - (r).mms
+      command_index: (b) index (x) (r)
+      command: (b) align (x) -t (t) (r) (q) -p s > (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+   lordfast:
+      title: "lordFAST"
+      type: MapperGeneric
+      bin: /home/raven/mambaforge/envs/dipenv/bin/lordfast
+      index_files:
+         - (r).cache
+         - (r).sa
+         - (r).amb
+         - (r).ann
+         - (r).pac
+         - (r).bwt
+      command_index: (b) -I (r)
+      command: (b) -t (t) -S (r) -s (q) -o (o)
+      command_multi_read_files: ''
+      command_cleanup: ''
+      param_paired: ''
+

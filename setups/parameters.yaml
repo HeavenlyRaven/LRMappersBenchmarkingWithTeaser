@@ -1,0 +1,41 @@
+parameters:
+   minimap2_clr:
+      title: "Minimap2 CLR"
+      mapper: minimap2
+      define:
+        - "-x map-pb"
+   minimap2_ont:
+      title: "Minimap2 ONT"
+      mapper: minimap2
+      define:
+        - "-x map-ont"
+   winnowmap_clr:
+      title: "Winnowmap2 CLR"
+      mapper: winnowmap
+      define:
+        - "-x map-pb-clr"
+   winnowmap_ont:
+      title: "Winnowmap2 ONT"
+      mapper: winnowmap
+      define:
+        - "-x map-ont"
+   ngmlr_pacbio:
+      title: "NGMLR PacBio"
+      mapper: ngmlr
+      define:
+        - "-x pacbio"
+   ngmlr_ont:
+      title: "NGMLR ONT"
+      mapper: ngmlr
+      define:
+        - "-x ont"
+   lra_clr:
+      title: "LRA CLR"
+      mapper: lra
+      define:
+        - "-CLR"
+   lra_ont:
+      title: "LRA ONT"
+      mapper: lra
+      define:
+        - "-ONT"
